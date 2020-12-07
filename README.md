@@ -4,7 +4,7 @@
 For running keva.app, you need setup few files. You can change your own datas like user/password/port.
 
 
-#kevacoin.conf 
+# kevacoin.conf 
 
 
 rpcuser=galaxy
@@ -24,7 +24,7 @@ rpcallowip=127.0.0.1
 whitelist=127.0.0.1
 
 
-#index.php
+# index.php
 
 
 $grpcuser='galaxy';
@@ -34,7 +34,7 @@ $grpcpass='frontier';
 $grpcportk='9992';
 
 
-#bludit\bl-content\databases\site.php
+# bludit\bl-content\databases\site.php
 
 
 "url": "https:\/\/keva.app\/bludit\/",
