@@ -182,61 +182,19 @@ $fer=0;
 
 			//if($namespace==$asset){$arr["gname"]=$title;}
 
-			//ipfs
-
-			preg_match('/(?:\{)(.*)(?:\})/i',$value,$match);
-
-			//rand
-
-			$linkrand=rand(1,4);
-
-			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			if($linkrand==2){$ipfsr="https://ipfs.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
-			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
-			if($linkrand==4){$ipfsr="https://gateway.ravenland.org/ipfs/";$ipfsn="ravenland.org";}
-			//if($linkrand==5){$ipfsr="https://ipfs.eternum.io/";$ipfsn="eternum.io";}
-			//if($linkrand==6){$ipfsr="https://ipfs.globalupload.io/";$ipfsn="globalupload.io";}
-			//if($linkrand==7){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==8){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==9){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-
+			If($key=="IPFS"){$value=str_replace(array("/r/n", "/r", "/n"), "",$value);$ipfsr=trim($value);}
 
 			
-			if($match[0]<>"")
-				
-					{
-
-				if(stristr($match[0],"image") == true)
-
-						{$ipfsarr=explode("|",$match[0]);
-
-					$filetype=explode("/",$ipfsarr[1]);
-
-					$typ=str_replace("}","",$filetype[1]);
-
-					$ipfsadd=str_replace("{","",$ipfsarr[0]);
-
-					$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
-					$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
-
-					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br>(<font size=2>The IPFS Gateway is <a href=https://".$ipfsn." target=blank>".$ipfsn."</a></font>)<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
-					
-
-					$value=str_replace($match[0],$ipfslk,$value);
-
-				
-
-					$arr["value"]=bin2hex($value);
-					
-						}
-					}
 
 			
 			array_push($totalass,$arr);
 	
 			}
 
-			if($myspace!="")
+
+//myspace
+
+if($myspace!="")
 				
 			{
 				$arr=array();
@@ -340,55 +298,10 @@ $fer=0;
 						If($key=="MP3"){$mp3=$value;}
 
 						
-						//ipfs
-
-						preg_match('/(?:\{)(.*)(?:\})/i',$value,$match);
-
-									//rand
-
-			$linkrand=rand(1,4);
-
-			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			if($linkrand==2){$ipfsr="https://ipfs.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
-			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
-			if($linkrand==4){$ipfsr="https://gateway.ravenland.org/ipfs/";$ipfsn="ravenland.org";}
-			//if($linkrand==5){$ipfsr="https://ipfs.eternum.io/";$ipfsn="eternum.io";}
-			//if($linkrand==6){$ipfsr="https://ipfs.globalupload.io/";$ipfsn="globalupload.io";}
-			//if($linkrand==7){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==8){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==9){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+						
+			If($key=="IPFS"){$value=str_replace(array("/r/n", "/r", "/n"), "",$value);$ipfsr=trim($value);}
 			
-						if($match[0]<>"")
-				
-							{
-
-							if(stristr($match[0],"image") == true)
-
-								{
-								$ipfsarr=explode("|",$match[0]);
-
-							$filetype=explode("/",$ipfsarr[1]);
-
-							$typ=str_replace("}","",$filetype[1]);
-
-							$ipfsadd=str_replace("{","",$ipfsarr[0]);
-
-							$urla="https://ipfs.jbb.one/ipfs/".trim(substr($ipfsarr[0],2,46));
-							$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
-
-							$ipfslk="<img src=\"".$urla."\"><br>(<font size=2>The IPFS Gateway is <a href=https://www.jbb.one target=blank>jbb.one</a></font>)<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
-					
-
-							$value=str_replace($match[0],$ipfslk,$value);
-
-				
-
-							$arr["value"]=bin2hex($value);
-					
-							
-								}
-
-							}
+						
 
 						array_push($totalass,$arr);
 
@@ -409,9 +322,121 @@ $fer=0;
 
 		}
 
-$listasset=$totalass;
 
 
+
+//ipfs
+
+$arr2=array();
+$totalass2=array();
+
+foreach ($totalass as $o=>$p) 
+
+			{
+			
+			extract($p);
+
+			$arr2["heightx"]=$heightx;
+			$arr2["key"]=$key;
+			$arr2["adds"]=$adds;
+			$arr2["value"]=$value;
+			$arr2["txx"]=$txx;
+			$arr2["gnamespace"]=$gnamespace;
+			$arr2["gnamex"]=$gnamex;
+			$arr2["mysp"]=$mysp;
+
+			//ipfs
+
+			$value=hex2bin($value);
+
+			preg_match('/(?:\{)(.*)(?:\})/i',$value,$match);
+
+			//rand
+
+			if(!$ipfsr){
+
+			$linkrand=rand(1,4);
+
+			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+			if($linkrand==2){$ipfsr="https://ipfs.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
+			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
+			if($linkrand==4){$ipfsr="https://gateway.ravenland.org/ipfs/";$ipfsn="ravenland.org";}
+			//if($linkrand==5){$ipfsr="https://ipfs.eternum.io/";$ipfsn="eternum.io";}
+			//if($linkrand==6){$ipfsr="https://ipfs.globalupload.io/";$ipfsn="globalupload.io";}
+			//if($linkrand==7){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+			//if($linkrand==8){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+			//if($linkrand==9){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+
+						}
+
+			
+			if($match[0]<>"")
+				
+					{
+
+//image
+
+				if(stristr($match[0],"image") == true)
+
+						{$ipfsarr=explode("|",$match[0]);
+
+					$filetype=explode("/",$ipfsarr[1]);
+
+					$typ=str_replace("}","",$filetype[1]);
+
+					$ipfsadd=str_replace("{","",$ipfsarr[0]);
+
+					$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
+					$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
+
+					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
+					
+
+					$value=str_replace($match[0],$ipfslk,$value);
+
+				
+
+					$arr2["value"]=bin2hex($value);
+					
+						}
+					
+
+
+//video
+
+					if(stristr($match[0],"video") == true)
+
+						{
+							
+						$ipfsarr=explode("|",$match[0]);
+
+						$filetype=explode("/",$ipfsarr[1]);
+
+						$typ=str_replace("}","",$filetype[1]);
+
+						$ipfsadd=str_replace("{","",$ipfsarr[0]);
+
+						$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
+						$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
+
+						$ipfslk="<video id=\"screenVideo\" width=\"100%\" autoplay loop controls src=\"".$urla."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
+					
+
+						$value=str_replace($match[0],$ipfslk,$value);
+
+				
+
+						$arr2["value"]=bin2hex($value);
+					
+						}
+					}	
+
+					array_push($totalass2,$arr2);
+			}
+
+//random
+
+$listasset=$totalass2;
 
 if($rand!=""){
 	
