@@ -1,7 +1,7 @@
 # keva.app
 
 
-For running keva.app, you need setup few files. You can change your own datas like user/password/port.
+For running keva.app, you need a php server, kevacoin wallet and setup few files. You can change your own datas like user/password/port.
 
 
 # kevacoin.conf 
