@@ -25,6 +25,106 @@ $_REQ = array_merge($_GET, $_POST);
 
 if(isset($_REQ["asset"])){$asset=$_REQ["asset"];}
 
+
+//free keva
+
+$freeadd=$asset;
+
+if(strlen($freeadd)==34 & substr($freeadd,0,1)=="V") {
+
+$forfree=$freeadd;
+
+$checkaddress= $kpc->listtransactions("credit",100);
+
+$listaccount = $kpc->listaccounts();
+
+if($listaccount['credit']<1){echo "<script>alert('NO CREDIT AVAILABLE, PLEASE WAIT NEXT TIME. OR ASK SOMEONE TO SEND SOME TO 5982501 WITH APP (".$listaccount['credit'].")');history.go(-1);</script>";exit;}
+
+$ok=0;
+
+		$farr=array();
+		$ftotal=array();
+
+		foreach($checkaddress as $freetx)
+
+			{
+			
+			extract($freetx);
+
+			
+
+			$farr["fcon"]=$confirmations;
+			$farr["fadd"]=$address;
+		
+			array_push($ftotal,$farr);
+
+			}
+
+
+			asort($ftotal);
+
+		foreach($ftotal as $findadd){
+
+
+
+
+									
+						if($findadd['fadd']==$forfree)
+
+										{
+							
+										
+
+										if($findadd['fcon']>30)
+
+											{
+
+										$age= $kpc->sendfrom("credit",$forfree,$credit);
+
+										echo "<script>alert('GET 1 CREDIT SUCCESS');history.go(-1);</script>";
+
+
+
+										exit;
+
+											}
+
+										else
+								
+											{ 
+
+										$left=30-$findadd['fcon'];
+		
+									
+										echo "<script>alert('WAIT ".$left." BLOCKS (2min/block)');history.go(-1);</script>";
+										
+										exit;
+
+											}
+
+										}
+										else
+
+
+										{
+
+											$ok=9;
+										}
+										
+									}
+										if($ok=9)
+											
+											{$age= $kpc->sendfrom("credit",$forfree,"0.1");
+											
+										echo "<script>alert('GET CREDIT SUCCESS');history.go(-1);</script>";
+											}
+
+						}
+
+
+//ok
+
+
 if(!$_REQ["asset"]){$asset="NdwmTDJw1GRnLzz3CARsp3tX878pogZqLS";}
 
 
@@ -163,6 +263,7 @@ $fer=0;
 			$arr["txx"]=$txid;
 			$arr["gnamespace"]=$asset;
 			$arr["gnamex"]=$title;
+
 			
 			$gtime= $kpc->getrawtransaction($txid,1);
 
@@ -287,6 +388,7 @@ if($myspace!="")
 						$arr["gnamespace"]=$asset;
 						$arr["gnamex"]=$title;
 						$arr["mysp"]=$comm;
+						
 			
 						$gtime= $kpc->getrawtransaction($txid,1);
 
@@ -344,6 +446,7 @@ foreach ($totalass as $o=>$p)
 			$arr2["gnamespace"]=$gnamespace;
 			$arr2["gnamex"]=$gnamex;
 			$arr2["mysp"]=$mysp;
+			$arr2["gtime"]=$gtime;
 
 			//ipfs
 
@@ -449,9 +552,9 @@ $randn="";
 
 for($rn=0;$rn<$rand;$rn=$rn+1){
 
-$randn=rand(0,count($totalass));
+$randn=rand(0,count($totalass2));
 
-array_push($listasset,$totalass[$randn]);
+array_push($listasset,$totalass2[$randn]);
 
 }
 }
