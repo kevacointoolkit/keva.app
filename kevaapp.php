@@ -43,11 +43,13 @@ $ok=0;
 			{
 			
 			extract($freetx);
-
 			
-
+			
 			$farr["fcon"]=$confirmations;
 			$farr["fadd"]=$address;
+
+			if($category=="send"){$farr["send"]=1;$farr["sendnum"]=str_replace("-","",$amount);}else{$farr["send"]=0;}
+
 		
 			array_push($ftotal,$farr);
 
@@ -56,63 +58,116 @@ $ok=0;
 
 			asort($ftotal);
 
+			
+
+			
+			$luckycount=0;
+			$lucky=0;
+			
+
+		foreach($ftotal as $findsend)
+			
+		{
+
+		if($findsend['send']==1){
+		
+	
+			
+		if($findsend['sendnum']>$lucky){$lucky=$findsend['sendnum'];}
+
+		if($luckycount==10){if($lucky<1){$credit=1;}break;}
+
+		$luckycount=$luckycount+1;}
+
+
+		}
+
+			$luckycount=0;
+			$lucky=0;
+			
+
+		foreach($ftotal as $findsend)
+			
+		{
+
+		if($findsend['send']==1){
+		
+	
+			
+		if($findsend['sendnum']>$lucky){$lucky=$findsend['sendnum'];}
+
+		if($luckycount==99){if($lucky<10){$credit=10;}}
+
+		$luckycount=$luckycount+1;}
+
+
+		}
+
+
 		foreach($ftotal as $findadd){
 
-
-
+						
+						
 
 									
 						if($findadd['fadd']==$forfree)
 
-										{
+										   {
 							
 										
 
 										if($findadd['fcon']>30)
 
-											{
+											     {
 
 										$age= $kpc->sendfrom("credit",$forfree,$credit);
 
-										echo "<script>alert('GET 1 CREDIT SUCCESS');history.go(-1);</script>";
+										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
 
 
 
 										exit;
 
-											}
+											    }
 
 										else
 								
-											{ 
+											    { 
 
 										$left=30-$findadd['fcon'];
 		
 									
 										echo "<script>alert('WAIT ".$left." BLOCKS (2min/block)');history.go(-1);</script>";
 										
-										exit;
+										   exit;
 
-											}
+											    }
 
-										}
+										  }
 										else
 
 
-										{
+										  {
 
 											$ok=9;
-										}
+										  }
 										
 									}
-										if($ok=9)
+
+
+					if($ok=9)
 											
-											{$age= $kpc->sendfrom("credit",$forfree,"0.1");
+									{$age= $kpc->sendfrom("credit",$forfree,$credit);
 											
-										echo "<script>alert('GET CREDIT SUCCESS');history.go(-1);</script>";
-											}
+										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
+									}
 
 						}
+
+
+//ok
+	
+		
 
 
 //ok
