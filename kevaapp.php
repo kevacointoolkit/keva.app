@@ -23,7 +23,71 @@ $_REQ = array_merge($_GET, $_POST);//iotstat
 
 $freeadd=$_REQ["num"];
 
-if(strlen($freeadd)==34 & substr($freeadd,0,1)=="V") {
+if(strlen($freeadd)==34 or substr($freeadd,0,1)=="v") {
+
+	if(substr($freeadd,0,1)=="v"){
+	
+	$freeadd=trim(str_replace("v","",$freeadd));
+
+	$comm=$freeadd;
+
+	if(is_numeric($comm) & strlen($comm)>4) 
+	
+	
+	{
+
+
+
+$blength=substr($comm , 0 , 1);
+$block=substr($comm , 1 , $blength);
+$btxn=$blength+1;
+$btx=substr($comm , $btxn);
+
+
+
+
+
+$blockhash= $kpc->getblockhash(intval($block));
+
+
+$blockdata= $kpc->getblock($blockhash);
+
+
+$txa=$blockdata['tx'][$btx];
+
+if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
+
+				
+		$transaction= $kpc->getrawtransaction($txa,1);
+
+					foreach($transaction['vout'] as $vout)
+	   
+						  {
+
+					$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+					$arr = explode(' ', $op_return); 
+
+					if($arr[0] == 'OP_KEVA_NAMESPACE') 
+								{
+
+								 $cona=$arr[0];
+								 $cons=$arr[1];
+								 $conk=$arr[2];
+
+								 $freeadd=$vout["scriptPubKey"]["addresses"][0];
+								
+
+								}
+						  }
+				
+		
+	}else{echo "<script>alert('NO SHORTCOAD AVAILABLE');history.go(-1);</script>";exit;}
+	
+	}
+
+
 
 $forfree=$freeadd;
 
