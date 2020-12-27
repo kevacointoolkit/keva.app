@@ -32,13 +32,22 @@ if(isset($_REQ["asset"])){$asset=$_REQ["asset"];}
 if(!$_REQ["asset"]){$asset="NdwmTDJw1GRnLzz3CARsp3tX878pogZqLS";}
 
 
-$txid=$_REQ["txid"];
+$blocknum=trim(str_replace("k","",$asset));
 
-if(isset($txid) & strlen($txid)=="64"){
+if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true) 
+	
+	{
 
-			$transaction= $kpc->getrawtransaction($txid,1);
+		
 
-			$blockhash=$kpc->getblock($transaction["blockhash"]);
+			$blockhash= $kpc-> getblockhash(intval($blocknum));
+
+			$blockdata= $kpc->getblock($blockhash);
+
+		foreach($blockdata['tx'] as $txa)
+			{
+			
+		$transaction= $kpc->getrawtransaction($txa,1);
 
 			foreach($transaction['vout'] as $vout)
 	   
@@ -50,19 +59,36 @@ if(isset($txid) & strlen($txid)=="64"){
 					$arrx = explode(' ', $op_return); 
 
 					if($arrx[0] == 'OP_KEVA_PUT') 
+
 						{
 
-					
-					 $arr["key"]=hex2bin($arrx[2]);
+
+							$arr["heightx"]=$blockhash["height"];
+							$arr["key"]=hex2bin($arrx[2]);
 		
-					$arr["value"]=$arrx[3];
+							$arr["value"]=$arrx[3];
+			
+							
+							
 
-					$arr["gtime"]=$blockhash["time"];
-					$arr["heightx"]=$$blockhash["height"];
+							$arr["gtime"]=$transaction["time"];
 
-					 //$kadd=$vout["scriptPubKey"]["addresses"][0];
+			$cons=$arrx[1];
+				
+				
+					$asset=Base58Check::encode( $cons, false , 0 , false);
+					$arr["gnamespace"]=$asset;
 
-					 array_push($totalass,$arr);
+					
+					$info= $kpc->keva_filter($asset,"",60000);
+
+					$namespace=$kpc->keva_get($asset,"_KEVA_NS_");
+
+					$title=$namespace['value'];
+
+					$arr["gnamex"]=$title;
+
+					array_push($totalass,$arr);
 				
 						} 
 
@@ -70,6 +96,9 @@ if(isset($txid) & strlen($txid)=="64"){
 
 			}
 	
+	}
+
+	$txid=$txa;
 
 	
 if(!$txid)
