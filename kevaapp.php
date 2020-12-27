@@ -316,6 +316,21 @@ echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 }
 
 
+$blockk=trim(str_replace("k","",$comm));
+
+if(substr($comm,0,1)=="k" & is_numeric($blockk)==true) 
+
+	{
+	
+	
+	$url ="/bludit/?lang=&asset=".$comm;
+
+
+
+	echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
+	
+	}
+
 
 echo "<!DOCTYPE html><head><title>KEVA</title><meta name=\"apple-mobile-web-app-capable\" content=\"yes\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
 
