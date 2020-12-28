@@ -21,7 +21,7 @@ $_REQ = array_merge($_GET, $_POST);//iotstat
 
 //free keva
 
-$freeadd=$_REQ["num"];
+$freeadd=trim($_REQ["num"]);
 
 if(strlen($freeadd)==34 or substr($freeadd,0,1)=="v") {
 
@@ -238,7 +238,7 @@ $ok=0;
 
 $blocknum=$kpc->getblockcount();
 
-$comm=$_REQ["num"];
+$comm=trim($_REQ["num"]);
 
 
 
@@ -305,7 +305,7 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 
 
 
-$url ="/bludit/?lang=&asset=".$asset."&showall=11&bludit=1&scode=".$comm."&group=no&gname=".$title;
+$url ="/bludit/?lang=&asset=".$asset."&scode=".$comm."&group=no&gname=".$title;
 
 
 
