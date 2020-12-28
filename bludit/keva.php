@@ -394,7 +394,7 @@ if(!$reward){
 						$arrz["value"]=bin2hex($addinfo);
 						$arrz["txx"]=$txone;
 						$arrz["gnamespace"]="";
-						$arrz["gnamex"]="REWARD TO ".$_REQ["scode"];
+						$arrz["gnamex"]="REWARD ".$_REQ["scode"];
 						$arrz["mysp"]=$comm;
 						$arrz["gtime"]="1231006505";
 
