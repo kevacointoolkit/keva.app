@@ -197,6 +197,8 @@ $fer=0;
 			If($key=="_KEVA_NS_"){$title=$value;continue;}
 			If($key=="ID"){$title=$value;}
 
+			if(substr($value,0,12)=="mimblewimble"){$mwimble=1;continue;}
+
 			$arr["heightx"]=$height;
 			$arr["key"]=$key;
 			$arr["value"]=bin2hex($value);
@@ -395,7 +397,9 @@ if(!$reward){
 						$arrz["mysp"]=$comm;
 						$arrz["gtime"]="1231006505";
 
-						array_push($totalass,$arrz);}
+						if($mwimble=="1"){$a=1;}else{array_push($totalass,$arrz);}
+						
+						}
 	
 
 
