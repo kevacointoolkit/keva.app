@@ -196,8 +196,11 @@ $fer=0;
 
 			If($key=="_KEVA_NS_"){$title=$value;continue;}
 			If($key=="ID"){$title=$value;}
+			//reward
 
-			if(substr($value,0,12)=="mimblewimble"){$mwimble=1;continue;}
+			If($key=="REWARD"){$reward=$value;}
+
+			if(substr($value,0,12)=="mimblewimble"){continue;}
 
 			$arr["heightx"]=$height;
 			$arr["key"]=$key;
@@ -219,9 +222,7 @@ $fer=0;
 
 			If($key=="MYSPACE"){$myspace=$value;break;}
 
-			//reward
-
-			If($key=="REWARD"){$reward=$value;}
+			
 
 			//pin
 
@@ -393,11 +394,11 @@ if(!$reward){
 						$arrz["value"]=bin2hex($addinfo);
 						$arrz["txx"]=$txone;
 						$arrz["gnamespace"]="";
-						$arrz["gnamex"]=$titleone;
+						$arrz["gnamex"]="REWARD TO ".$_REQ["scode"];
 						$arrz["mysp"]=$comm;
 						$arrz["gtime"]="1231006505";
 
-						if($mwimble=="1"){$a=1;}else{array_push($totalass,$arrz);}
+						if(substr($reward,0,12)=="mimblewimble"){$a=1;}else{array_push($totalass,$arrz);}
 						
 						}
 	
