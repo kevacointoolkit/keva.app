@@ -156,10 +156,18 @@ $fer=0;
 		 
 
 	 
-					$namespace=$kpc->keva_get($asset,"_KEVA_NS_");
+			$namespace=$kpc->keva_get($asset,"_KEVA_NS_");
 
-					$title=$namespace['value'];
+			$title=$namespace['value'];
 	 
+			$txone=$namespace['txid'];
+
+			$voutone=$namespace['vout'];
+
+			$txr=$kpc->getrawtransaction($txone,1);
+
+			$addrone=$txr['vout'][$voutone]["scriptPubKey"]["addresses"][0];
+			$titleone=$title;
 
 		
 			
@@ -191,7 +199,6 @@ $fer=0;
 
 			$arr["heightx"]=$height;
 			$arr["key"]=$key;
-			$arr["adds"]=$address;
 			$arr["value"]=bin2hex($value);
 			$arr["txx"]=$txid;
 			$arr["gnamespace"]=$asset;
@@ -202,6 +209,9 @@ $fer=0;
 
 			$arr["gtime"]=$gtime["time"];
 
+
+			$arr["adds"]=$addrone;
+		
 			
 			
 
@@ -222,9 +232,13 @@ $fer=0;
 
 			
 			array_push($totalass,$arr);
-	
+
 			}
 
+
+
+
+	
 
 //myspace
 
@@ -351,11 +365,33 @@ if($myspace!="")
 					}
 
 			}
-			arsort($totalass);
-
 			
 
-		}
+						arsort($totalass);
+		
+
+//namespace like
+
+
+
+		$addinfo="This namespace address<br><br><img src=/bludit/qr.php?v=".$addrone."><br><br>".$addrone;
+
+						$arrz["heightx"]="1";
+						$arrz["key"]="NAMESPACE ADDRESS";
+						$arrz["adds"]=$addrone;
+						$arrz["value"]=bin2hex($addinfo);
+						$arrz["txx"]=$txone;
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]=$titleone;
+						$arrz["mysp"]=$comm;
+						$arrz["gtime"]="1231006505";
+
+						array_push($totalass,$arrz);}
+	
+
+
+
+
 
 
 
