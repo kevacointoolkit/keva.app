@@ -217,6 +217,10 @@ $fer=0;
 
 			If($key=="MYSPACE"){$myspace=$value;break;}
 
+			//reward
+
+			If($key=="REWARD"){$reward=$value;}
+
 			//pin
 
 			If($key=="PIN"){$pin=$value;}
@@ -373,8 +377,13 @@ if($myspace!="")
 //namespace like
 
 
-
-		$addinfo="This namespace address<br><br><img src=/bludit/qr.php?v=".$addrone."><br><br>".$addrone;
+if(!$reward){
+		$addinfo="<br><img src=/bludit/qr.php?v=".$addrone."><br><br>".$addrone;
+		}
+		else
+			{
+		$addinfo=$reward; if(strlen(trim($reward))==34){$addinfo="<br><img src=/bludit/qr.php?v=".$reward."><br><br>".$reward;}
+		}
 
 						$arrz["heightx"]="1";
 						$arrz["key"]="NAMESPACE ADDRESS";
