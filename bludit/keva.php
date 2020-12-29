@@ -107,6 +107,8 @@ $utime=30;
 
 $ufee=0.9;
 
+	$unlock=0;
+
 	$messageacc=trim($_REQ["scode"]);
 
 	$listaccount = $kpc->listaccounts();
@@ -126,7 +128,7 @@ $ufee=0.9;
 
 						
 
-						$unlock=0;
+					
 						
 						if($checkaddress[0]["confirmations"]<$utime & is_numeric($checkaddress[0]["confirmations"]) & $checkaddress[0]["amount"]>$ufee){$unlock=1;}
 					
