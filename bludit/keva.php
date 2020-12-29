@@ -446,7 +446,7 @@ if(!$reward){
 		$addinfo=$reward; if(strlen(trim($reward))==34){$addinfo="<br><img src=/bludit/qr.php?v=".$reward."><br><br>".$reward;}
 		}
 
-						$arrz["heightx"]="1";
+						$arrz["heightx"]="";
 						$arrz["key"]="NAMESPACE ADDRESS";
 						$arrz["adds"]=$addrone;
 						$arrz["value"]=bin2hex($addinfo);
@@ -467,7 +467,7 @@ if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLO
 
 		$unlockinfo=$unleft."<br><br><img src=/bludit/qr.php?v=".$shopaddress."><br><br>".$shopaddress;
 
-						$arrz["heightx"]="1";
+						$arrz["heightx"]="";
 						$arrz["key"]="LOAD ALL BLOCK CONTENTS";
 						$arrz["adds"]=$shopaddress;
 						$arrz["value"]=bin2hex($unlockinfo);
