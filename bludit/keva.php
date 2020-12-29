@@ -100,6 +100,56 @@ if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true)
 
 	$txid=$txa;
 
+
+//unlock account
+
+$utime=30;
+
+$ufee=0.9;
+
+	$messageacc=trim($_REQ["scode"]);
+
+	$listaccount = $kpc->listaccounts();
+				
+
+			if(isset($listaccount[$messageacc]))
+			
+					{
+						$accaddress=$kpc->getaddressesbyaccount($messageacc);
+					
+						$shopaddress=$accaddress[0];
+						
+					
+						$forfree=$shopaddress;
+
+						$checkaddress= $kpc->listtransactions($messageacc,1);
+
+						
+
+						$unlock=0;
+						
+						if($checkaddress[0]["confirmations"]<$utime & is_numeric($checkaddress[0]["confirmations"]) & $checkaddress[0]["amount"]>$ufee){$unlock=1;}
+					
+						$unlockleft=$utime-$checkaddress[0]["confirmations"];
+						
+					}
+			
+					else
+
+					{
+
+				
+
+					$shopaddress = $kpc->getnewaddress($messageacc);
+
+
+					}
+
+
+
+
+//main
+
 	
 if(!$txid)
 
@@ -118,7 +168,8 @@ if(!$txid)
 		if($gstat=="follower"){$gchange="build";}
 		if($gstat=="build"){$gchange="no";}
 
-$gshow=$kpc->keva_group_show($asset,60000);
+if($unlock=="0"){
+$gshow=$kpc->keva_group_show($asset,60000);}else{$gshow=$kpc->keva_group_show($asset,60000000);}
 
 $fing=0;
 $fer=0;
@@ -137,7 +188,12 @@ $fer=0;
 		 
 		if($gstat=="no"){
 
-		 $info= $kpc->keva_filter($asset,"",60000);}
+		if($unlock=="0"){
+
+		 $info= $kpc->keva_filter($asset,"",60000);}else{$info= $kpc->keva_filter($asset,"",60000000);}
+		 
+		 
+		 }
 
 		 elseif($gstat=="all" or $gstat=="following" or $gstat=="build"){
 
@@ -401,6 +457,28 @@ if(!$reward){
 						if(substr($reward,0,12)=="mimblewimble"){$a=1;}else{array_push($totalass,$arrz);}
 						
 						}
+
+		
+//unlock block
+
+if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins )";}else{$unleft="If you want to load all block contents, you can send 1 keva to this address, or download kevacoin wallet (ios/android/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
+
+		$unlockinfo=$unleft."<br><br><img src=/bludit/qr.php?v=".$shopaddress."><br><br>".$shopaddress;
+
+						$arrz["heightx"]="1";
+						$arrz["key"]="LOAD ALL BLOCK CONTENTS";
+						$arrz["adds"]=$shopaddress;
+						$arrz["value"]=bin2hex($unlockinfo);
+						$arrz["txx"]="";
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]="KEVA.APP ";
+						$arrz["mysp"]="";
+						$arrz["gtime"]="1579143600";
+
+						array_push($totalass,$arrz);
+						
+					
+	
 	
 
 
