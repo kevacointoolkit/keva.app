@@ -11,9 +11,9 @@ error_reporting(0);
 
 <!-- Print all the content -->
 
-<div style="overflow: auto;font-size:18px;padding-top:50px;padding-left:10px;">
+<div style="overflow: auto;font-size:20px;padding-top:50px;padding-left:10px;">
     <svg xmlns="http://www.w3.org/2000/svg" id="svgContainer" version="1.1" height="600" width="1000"
-         style="border:0px solid #eee;">
+         style="border:0px solid #eee">
     </svg>
 </div>
 
@@ -78,7 +78,7 @@ foreach ($totalmind as $n=>$m)
 
 			extract($m);
 
-			$valuex=str_replace("\n","<br>",$value);
+			$valuex=trim(str_replace("\n","",$value));
 
 //0
 			
@@ -86,7 +86,7 @@ if(!$okey)
 
 		{
 
-echo "{title: \"".$value."\",";
+echo "{title: \"".$valuex."\",";
 
 		}
 
@@ -110,10 +110,10 @@ else
 
 					
 
-					 if(!$childx){$childx=7;echo "children: [";}
+					 if(!$childx){$childx=7;echo " children: [";}
 
 
-					 echo "{title: \"".$value."\"},";
+					 echo "{title: \"".$valuex."\"},";
 
 				
 
@@ -126,11 +126,11 @@ else
 
 					if(strlen($okey)==5){echo "},";}
 
-					if(strlen($okey)==7){echo "]},";}
+					if(strlen($okey)==7){echo "]},";$childx="";}
 
 	
 					
-					 if(!$child){$child=5;echo "children: [";}
+					 if(!$child){$child=5;echo " children: [";}
 
 
 					$ma=substr($key,5,1);
@@ -138,25 +138,25 @@ else
 					
 					if($ma==$mb)
 						
-						{
+							{
 							
 							
-						echo "{title: \"".$value."\",";
+						echo "{title: \"".$valuex."\",";
 						
 						
-						}
+							}
 					
 //1.1.2
 
 					else
 						
-						{
+							{
 							
 						
 						
-						echo "{title: \"".$value."\"";
+						echo "{title: \"".$valuex."\",";
 						
-						}
+							}
 
 				
 						
@@ -190,7 +190,7 @@ else
 
 					echo "},";}
 
-					echo "{title: \"".$value."\",";
+					echo "{title: \"".$valuex."\",";
 
 				
 				
@@ -205,7 +205,7 @@ else
 
 					echo "},";}
 
-					echo "{title: \"".$value."\",";
+					echo "{title: \"".$valuex."\",";
 
 				}
 
@@ -230,13 +230,15 @@ $kn=$kn+1;
 
 			}
 
-if($kn==$ktotal & $child=="5"){echo "},]},";$child="";}
 
-if($kn==$ktotal & $childx=="7"){echo "]},";$childx="";}
+
+
+
+if($kn==$ktotal & strlen($key)=="7"){echo "]},]},";$childx="";}
+
+if($kn==$ktotal & strlen($key)=="5"){echo "},]},";$child="";}
 
 if($kn==$ktotal & strlen($key)=="3"){echo "},";}
-
-
 
 
 					echo "]}];";
@@ -253,10 +255,10 @@ if($kn==$ktotal & strlen($key)=="3"){echo "},";}
         
 
 
-    const nodeFontS = 30; 
-    const interval = 50;  
+    const nodeFontS = 24; 
+    const interval = 25;  
     const padding = 4;    
-    const margin_y = 10;     
+    const margin_y = 6;     
     const fontColor = "#626262";  
     const borderColor = "#55aaee";  
     const lineColor = "#55aaee";  
