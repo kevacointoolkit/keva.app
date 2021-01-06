@@ -242,17 +242,17 @@ $comm=trim($_REQ["num"]);
 
 //theme
 
-$themeto="social";
 
-if(substr($comm,0,3)=="txt") {$comm=str_replace("txt","",$comm);$themeto="txt";}
 
-if(substr($comm,0,3)=="pic") {$comm=str_replace("pic","",$comm);$themeto="pic";}
+if(substr($comm,0,3)=="txt") {$comm=str_replace("txt","",$comm);$themeto="&theme=txt";}
 
-if(substr($comm,0,3)=="koh") {$comm=str_replace("koh","",$comm);$themeto="koh";}
+if(substr($comm,0,3)=="pic") {$comm=str_replace("pic","",$comm);$themeto="&theme=pic";}
 
-if(substr($comm,0,5)=="album") {$comm=str_replace("album","",$comm);$themeto="album";}
+if(substr($comm,0,3)=="koh") {$comm=str_replace("koh","",$comm);$themeto="&theme=koh";}
 
-if(substr($comm,0,5)=="stone") {$comm=str_replace("stone","",$comm);$themeto="milestone";}
+if(substr($comm,0,5)=="album") {$comm=str_replace("album","",$comm);$themeto="&theme=album";}
+
+if(substr($comm,0,5)=="stone") {$comm=str_replace("stone","",$comm);$themeto="&theme=milestone";}
 
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
@@ -319,7 +319,7 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 
 
 
-$url ="/bludit/?lang=&theme=".$themeto."&asset=".$asset."&scode=".$comm."&group=no&gname=".$title;
+$url ="/bludit/?lang=".$themeto."&asset=".$asset."&scode=".$comm."&group=no&gname=".$title;
 
 
 
