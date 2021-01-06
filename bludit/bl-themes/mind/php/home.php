@@ -80,6 +80,8 @@ foreach ($totalmind as $n=>$m)
 
 			$valuex=trim(str_replace("\n","",$value));
 
+			if($_REQ["sort"]==1){$valuex=$key." ".$valuex;}
+
 //0
 			
 if(!$okey)
