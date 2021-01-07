@@ -19,20 +19,18 @@ $_REQ = array_merge($_GET, $_POST);
 //rpc
 
 		$arr=array();
+		$arra=array();
 		$totalass=array();
-			$combine="";
+		$combine="";
 
 
 if(isset($_REQ["asset"])){$asset=$_REQ["asset"];}
 
-
-
-
-
 if(!$_REQ["asset"]){$asset="NdwmTDJw1GRnLzz3CARsp3tX878pogZqLS";}
 
-
 $blocknum=trim(str_replace("k","",$asset));
+
+$knum="";
 
 if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true) 
 	
@@ -44,10 +42,11 @@ if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true)
 
 			$blockdata= $kpc->getblock($blockhash);
 
-		foreach($blockdata['tx'] as $txa)
+			foreach($blockdata['tx'] as $txa)
+
 			{
 			
-		$transaction= $kpc->getrawtransaction($txa,1);
+			$transaction= $kpc->getrawtransaction($txa,1);
 
 			foreach($transaction['vout'] as $vout)
 	   
@@ -55,29 +54,31 @@ if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true)
 
 					$op_return = $vout["scriptPubKey"]["asm"]; 
 
-				
 					$arrx = explode(' ', $op_return); 
 
 					if($arrx[0] == 'OP_KEVA_PUT') 
 
 						{
 
+							$arra["heightx"]=$transaction['blocktime'];
+							$arra["key"]=hex2bin($arrx[2]);
 
-							$arr["heightx"]=$blockhash["height"];
-							$arr["key"]=hex2bin($arrx[2]);
-		
-							$arr["value"]=$arrx[3];
+							//$arra["keyhex"]=$arrx[2];
+
+							$arra["value"]=$arrx[3];
 			
-							
-							
+							$arra["gtime"]=$transaction['time'];
 
-							$arr["gtime"]=$transaction["time"];
+							$arra["txx"]=$transaction['txid'];
 
-			$cons=$arrx[1];
+					$cons=$arrx[1];
 				
 				
 					$asset=Base58Check::encode( $cons, false , 0 , false);
-					$arr["gnamespace"]=$asset;
+
+					if(isset($_REQ["roam"])){$THEME="roam";if($asset!=trim($_REQ["roam"])){continue;}}
+
+					$arra["gnamespace"]=$asset;
 
 					
 					$info= $kpc->keva_filter($asset,"",60000);
@@ -86,9 +87,11 @@ if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true)
 
 					$title=$namespace['value'];
 
-					$arr["gnamex"]=$title;
+					$arra["gnamex"]=$title;
 
-					array_push($totalass,$arr);
+					array_push($totalass,$arra);
+
+					$knum=1;
 				
 						} 
 
@@ -99,6 +102,7 @@ if(substr($asset,0,1)=="k" & is_numeric($blocknum)==true)
 	}
 
 	$txid=$txa;
+
 
 
 //unlock account
@@ -126,10 +130,7 @@ $ufee=0.9;
 
 						$checkaddress= $kpc->listtransactions($messageacc,1);
 
-						
 
-					
-						
 						if($checkaddress[0]["confirmations"]<$utime & is_numeric($checkaddress[0]["confirmations"]) & $checkaddress[0]["amount"]>$ufee){$unlock=1;}
 					
 						$unlockleft=$utime-$checkaddress[0]["confirmations"];
@@ -463,7 +464,8 @@ if(!$reward){
 		
 //unlock block
 
-if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins )";}else{$unleft="If you want to load all block contents, you can send 1 keva to this address, or download kevacoin wallet (ios/android/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
+if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins )";}else{
+$unleft="If you want to load all block contents, you can send 1 keva to this address, or download kevacoin wallet (ios/android/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
 
 		$unlockinfo=$unleft."<br><br><img src=/bludit/qr.php?v=".$shopaddress."><br><br>".$shopaddress;
 
@@ -476,8 +478,8 @@ if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLO
 						$arrz["gnamex"]="KEVA.APP ";
 						$arrz["mysp"]="";
 						$arrz["gtime"]="1579143600";
-
-						array_push($totalass,$arrz);
+if(!$knum){
+						array_push($totalass,$arrz);}
 						
 					
 	
@@ -500,6 +502,8 @@ foreach ($totalass as $o=>$p)
 			{
 			
 			extract($p);
+
+			//if(!$key){$key=$keyhex;}
 
 			$arr2["heightx"]=$heightx;
 			$arr2["key"]=$key;
