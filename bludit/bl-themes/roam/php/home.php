@@ -69,6 +69,8 @@ echo "</p></div></div></div></section>";
 
 if(isset($_REQ["roam"])){$npa=$_REQ["roam"];}else{$npa=$_REQ["asset"];}
 
+$rule="/\[\[([^\]]*)\]\]/i";
+
 foreach ($listasset as $k=>$v) 
 
 			{
@@ -113,7 +115,7 @@ $value=hex2bin($value);
 
 	
 
-		$rule="/\[\[([^\]]*)\]\]/i";
+		
 
 		preg_match_all($rule,$value,$results);
 
@@ -174,7 +176,57 @@ if(isset($_REQ["tx"])){if(stristr($txx,$_REQ["tx"]) == false){continue;}}
 				
 				<p class="page-description"><?php echo $valuex; ?><br>
 				
-			
+				
+
+
+				<?php
+
+				echo "<br><hr><font size=1>Bi-directional link<br>";
+
+				echo "<li style=\"display:block;height:auto;width:900px;padding-top:20px;line-height:40px;font-size:18px;color:#cccccc;\"><p align=left>";
+
+				$infob= $kpc->keva_group_filter($gnamespace,"self","",60000);
+				
+				foreach ($infob as $x=>$c) 
+					
+				{
+
+					extract($c);
+
+
+					preg_match_all($rule,$value,$results);
+
+			foreach ($results[1] as $s) 
+
+				{
+				
+
+				
+						if($key2==$s)
+
+							
+
+					{
+
+				$nplink="<a href=\"/bludit/?theme=roam&asset=k".$height."&roam=".$namespace."&tx=".substr($txid,0,10)."\">".$key."</a>";
+
+				
+				
+			 
+						echo "[[".$nplink."]]";
+						
+						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+
+				
+
+					}}
+
+				}
+
+				echo "</p></li>";
+
+				?>
+
 				</p>
 			
 
@@ -183,13 +235,7 @@ if(isset($_REQ["tx"])){if(stristr($txx,$_REQ["tx"]) == false){continue;}}
 				
 				</div>
 
-				<!-- Shows "read more" button if necessary -->
-				<?php if ($page->readMore()): ?>
-				<div class="text-right pt-3">
-				<a class="btn btn-primary btn-sm" href="<?php echo $page->permalink(); ?>" role="button"><?php echo $L->get('Read more'); ?></a>
-				</div>
-				<?php endif ?>
-
+				
 				<!-- Load Bludit Plugins: Page End -->
 				<?php Theme::plugins('pageEnd'); ?>
 			</div>
@@ -199,29 +245,4 @@ if(isset($_REQ["tx"])){if(stristr($txx,$_REQ["tx"]) == false){continue;}}
 
 <?php 	} ?>
 
-<!-- Pagination -->
-<?php if (Paginator::numberOfPages()>1): ?>
-<nav class="paginator">
-	<ul class="pagination flex-wrap justify-content-center">
 
-		<!-- Previous button -->
-		<?php if (Paginator::showPrev()): ?>
-		<li class="page-item mr-2">
-			<a class="page-link" href="<?php echo Paginator::previousPageUrl() ?>" tabindex="-1">&#9664; <?php echo $L->get('Previous'); ?></a>
-		</li>
-		<?php endif; ?>
-
-		<!-- Home button -->
-		<li class="page-item <?php if (Paginator::currentPage()==1) echo 'disabled' ?>">
-			<a class="page-link" href="<?php echo Theme::siteUrl() ?>"><?php echo $L->get('Home'); ?></a>
-		</li>
-
-		<!-- Next button -->
-		<?php if (Paginator::showNext()): ?>
-		<li class="page-item ml-2">
-			<a class="page-link" href="<?php echo Paginator::nextPageUrl() ?>"><?php echo $L->get('Next'); ?> &#9658;</a>
-		</li>
-		<?php endif; ?>
-	</ul>
-</nav>
-<?php endif ?>
