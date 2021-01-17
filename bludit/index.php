@@ -43,3 +43,28 @@ else {
 
 	require(PATH_BOOT.'site.php');
 }
+
+if(!$_REQUEST["asset"]) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
+
+
+if($rvnadd!="")
+	{
+
+
+$giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+
+			foreach($giftasset as $gift=>$giftn)
+
+			{
+
+			if($gift=="KEVA.APP/CYBER/BITDOGE"){require('cyber/bitdoge.php');}
+
+			}
+
+	}
+
+
+
+?>

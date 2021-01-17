@@ -171,6 +171,7 @@ if(!$txid)
 		if($gstat=="follower"){$gchange="build";}
 		if($gstat=="build"){$gchange="no";}
 
+	
 if($unlock=="0"){
 $gshow=$kpc->keva_group_show($asset,60000);}else{$gshow=$kpc->keva_group_show($asset,60000000);}
 
@@ -289,6 +290,15 @@ $fer=0;
 			If($key=="THEME"){$theme=trim(strip_tags($value));}
 			If($key=="MP3"){$mp3=$value;}
 			If($key=="RANDOM"){$rand=$value;}
+
+			//cyber
+
+			If($key=="RAVENCOIN"){$rvnadd=$value;$rvntime=$gtime["time"];}
+			If($key=="BITCOIN"){$btcadd=$value;}
+			If($key=="ETHEREUM"){$ethadd=$value;}
+			If($key=="MONERO"){$xmradd=$value;}
+			If($key=="ANN"){$ann=$value;}
+			If($key=="BITDOGE"){$bitdoge=$value;}
 
 			//if($namespace==$asset){$arr["gname"]=$title;}
 
@@ -484,6 +494,8 @@ if(!$knum){
 					
 	
 	
+
+
 
 
 
@@ -696,3 +708,4 @@ function letter_avatar($text)
 
 
 ?>
+
