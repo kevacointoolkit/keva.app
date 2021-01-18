@@ -186,7 +186,7 @@ echo "/bludit/?asset=".$assetadd; ?>")},"KEVA APK":function(){window.open("https
 			$utime=$gtime["time"];
 
 			
-			$key="\"".$key." (".date("Y-m-d",$utime).")\",";
+			$key="\"".$key."\",";
 
 			echo $key;
 
@@ -208,7 +208,7 @@ echo "/bludit/?asset=".$assetadd; ?>")},"KEVA APK":function(){window.open("https
 		
 		
 		}
-		
+		else{echo $bitdoge;}
 		
 		
 
