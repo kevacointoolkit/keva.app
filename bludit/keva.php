@@ -254,6 +254,10 @@ $fer=0;
 			
 			extract($x);
 
+			$mscheck=$kpc->keva_get($asset,"MYSPACE");
+
+			If($mscheck['value']!=""){$myspace=$mscheck['value'];break;}
+
 			If($key=="_KEVA_NS_"){$title=$value;continue;}
 			If($key=="ID"){$title=$value;}
 			//reward
@@ -280,7 +284,7 @@ $fer=0;
 			
 			
 
-			If($key=="MYSPACE"){$myspace=$value;break;}
+			
 
 			
 
@@ -299,6 +303,7 @@ $fer=0;
 			If($key=="MONERO"){$xmradd=$value;}
 			If($key=="ANN"){$ann=$value;}
 			If($key=="BITDOGE"){$bitdoge=$value;}
+			If($key=="TIA"){$tia=$value;}
 
 			//if($namespace==$asset){$arr["gname"]=$title;}
 

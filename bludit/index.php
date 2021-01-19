@@ -63,6 +63,14 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 			}
 
+			foreach($giftasset as $gift=>$giftn)
+
+			{
+
+			if($gift=="KEVA.APP/CYBER/TIA"){require('cyber/tia.php');}
+
+			}
+
 	}
 
 
