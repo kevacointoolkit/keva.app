@@ -1,13 +1,9 @@
 
-<div id="landlord" style="user-select: none;position: fixed;left:45%;display:block;position:fixed;z-index:100;bottom: 0px;width: 220px;height: 175px;font-size: 0;transition: all .3s ease-in-out;">
-    <div class="message" style="opacity: 0;width: 210px;height: auto;margin: auto;padding: 7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow: ellipsis;overflow: hidden;position:absolute;animation-delay: 5s;animation-duration: 50s;animation-iteration-count: infinite;animation-name: shake;animation-timing-function: ease-in-out;"></div>
-    <canvas id="live2d" width="196" height="175" class="live2d" style="position: relative;"></canvas>
-    <div class="hide-button" style="position: absolute;top: 10px;
-    right: 20px;display: none;overflow: hidden;width: 40px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;text-align: center;font-size: 12px;cursor: pointer;hover {
-    border: 1px solid #f4a7b9;
-    background: #f4f6f8;}">CALL</div>
-	<div class="hide-button" style="position: absolute;top: 40px;
-    right: 20px;display: none;overflow: hidden;width: 40px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;text-align: center;font-size: 12px;cursor: pointer;hover {
+<div id="landlord" style="user-select: none;position: fixed;left:45%;display:block;position:fixed;z-index:100;bottom: 0px;width: 196px;height: 270px;font-size: 0;transition: all .3s ease-in-out;">
+    <div class="message" style="opacity: 0;width: 200px;height: auto;margin: auto;padding: 7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow: ellipsis;overflow: hidden;position:absolute;animation-delay: 5s;animation-duration: 50s;animation-iteration-count: infinite;animation-name: shake;animation-timing-function: ease-in-out;"></div>
+    <canvas id="live2d" width="196" height="295" class="live2d" style="position: relative;"></canvas>
+    <div class="hide-button" style="position: absolute;top: 0px;
+    right: 5px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);text-align: center;font-size: 12px;cursor: pointer;hover {
     border: 1px solid #f4a7b9;
     background: #f4f6f8;}">HIDE</div>
 </div>
@@ -76,7 +72,7 @@ function initTips(){
 <?php
 
 
-$tia=trim(strip_tags($tia));
+$tia=trim(strip_tags($madoka));
 
 if(!$tia){
 
@@ -287,7 +283,7 @@ var items=[<?php if(is_numeric($tia)==true)
 
 				
 
-				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="TIA" or substr($value,0,12)=="mimblewimble"){continue;}
+				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="MADOKA" or substr($value,0,12)=="mimblewimble"){continue;}
 
 				
 				$key=str_replace("'", '&#8217;', $key);
@@ -351,7 +347,7 @@ initLive2d ();
 
 
 <script type="text/javascript">
-    loadlive2d("live2d", "/bludit/live2d/model/tia/model.json");
+    loadlive2d("live2d", "/bludit/live2d/model/madoka/model.json");
 </script>
 
 
