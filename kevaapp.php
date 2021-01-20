@@ -19,9 +19,13 @@ $rpc->port=$rrpcport;
 $_REQ = array_merge($_GET, $_POST);//iotstat
 
 
+
+
 //free keva
 
 $freeadd=trim($_REQ["num"]);
+
+
 
 if(strlen($freeadd)==34 or substr($freeadd,0,1)=="v") {
 
@@ -240,6 +244,10 @@ $blocknum=$kpc->getblockcount();
 
 $comm=trim($_REQ["num"]);
 
+if(isset($_SERVER["QUERY_STRING"])){$comm=trim($_SERVER["QUERY_STRING"]);}
+
+if(isset($_REQ["num"])){$comm=trim($_REQ["num"]);}
+
 //theme
 
 
@@ -253,6 +261,10 @@ if(substr($comm,0,3)=="koh") {$comm=str_replace("koh","",$comm);$themeto="&theme
 if(substr($comm,0,5)=="album") {$comm=str_replace("album","",$comm);$themeto="&theme=album";}
 
 if(substr($comm,0,5)=="stone") {$comm=str_replace("stone","",$comm);$themeto="&theme=milestone";}
+
+if(substr($comm,0,4)=="roam") {$comm=str_replace("roam","",$comm);$themeto="&theme=roam";}
+
+if(substr($comm,0,4)=="mind") {$comm=str_replace("mind","",$comm);$themeto="&theme=mind";}
 
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
