@@ -1,12 +1,15 @@
-{
+ {
     "version":"1.0.0",
     "model":"model.moc",
-    "textures":[
-        "textures/default-costume.png",
-        "textures/jersey-costume-blue.png",
-        "textures/pajamas-costume-green.png"
-    ],
-    "layout":{
+<?php
+	
+	$prand=rand(1,3);
+	
+    echo "\"textures\":[\"textures/".$prand.".png\"],";
+    
+?>
+
+	 "layout":{
         "center_x":0.0,
         "center_y":-0.05,
         "width":2.0
