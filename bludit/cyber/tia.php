@@ -1,20 +1,90 @@
+<?php
 
-<div id="landlord" style="user-select: none;position: fixed;left:45%;display:block;position:fixed;z-index:100;bottom: 0px;width: 220px;height: 175px;font-size: 0;transition: all .3s ease-in-out;">
-    <div class="message" style="opacity: 0;width: 210px;height: auto;margin: auto;padding: 7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow: ellipsis;overflow: hidden;position:absolute;animation-delay: 5s;animation-duration: 50s;animation-iteration-count: infinite;animation-name: shake;animation-timing-function: ease-in-out;"></div>
-    <canvas id="live2d" width="196" height="175" class="live2d" style="position: relative;"></canvas>
-    <div class="hide-button" style="position: absolute;top: 10px;
-    right: 20px;display: none;overflow: hidden;width: 40px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;text-align: center;font-size: 12px;font-weight:bold;cursor: pointer;hover {
-    border: 1px solid #f4a7b9;
-    background: #f4f6f8;}"><?php echo "<a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&theme=milestone\"> + </a>";?></div>
-	<div class="hide-button" style="position: absolute;top: 40px;
-    right: 20px;display: none;overflow: hidden;width: 40px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;text-align: center;font-size: 12px;cursor: pointer;hover {
-    border: 1px solid #f4a7b9;
-    background: #f4f6f8;}">HIDE</div>
-</div>
+if($_REQUEST["theme"]=="assistant")
+
+{
+
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:0px;width: 400px;height:480px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;top: 0px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+    
+echo "<canvas id=\"live2d\" width=\"380\" height=\"600\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+
+
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 580px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a id=\"goFS\">[ + ]</a></div>";
+
+if($_REQUEST["auto"]!="on"){
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 540px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=on\">AUTO</a></div>";}
+
+else
+
+	{
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 540px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
+
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+
+
+
+if($_REQUEST["auto"]=="on"){
+
+echo "<script type=\"text/javascript\">setTimeout(\"self.location.reload();\",1200000);</script>";}
+
+
+echo "</div>";
+}
+
+else
+
+{
+
+	if($_REQUEST["assi"]!="off"){
+
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:45%;display:block;position:fixed;z-index:100;bottom:0px;width: 220px;height:175px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+echo "<div class=\"message\" style=\"opacity: 0;width: 210px;height: auto;margin: auto;padding:7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+    
+echo "<canvas id=\"live2d\" width=\"196\" height=\"175\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;top: 10px;right: 20px;display: none;overflow: hidden;width:60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&theme=assistant\">[ + ]</a></div>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;top: 40px;right: 20px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&assi=off\">HIDE</a></div></div>";}
+
+}
+
+?>
 <script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript">
     
     var home_Path = '/bludit/cyber/'
+
+
+
+  var goFS = document.getElementById("goFS");
+  goFS.addEventListener("click", function() {
+      document.body.requestFullscreen();
+  }, false);
+
+
+
+
+   var div = document.querySelector("body");
+
+      btn.onclick = function () {
+     
+        var r = parseInt(256 * Math.random()); 
+        var g = parseInt(256 * Math.random());
+        var b = parseInt(256 * Math.random()); 
+        var random_color = "rgb(" + r + "," + g + "," + b + ")"; 
+ 
+        console.log(r, g, b);
+        console.log(random_color);
+        div.style.cssText = "background:" + random_color;
+      };
+
 </script>
 
 <script>
@@ -327,16 +397,18 @@ function hideMessage(timeout){
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 
+
+
 function initLive2d (){
-    $('.hide-button').fadeOut(0).on('click', () => {
-        $('#landlord').css('display', 'none')
-    })
+ 
     $('#landlord').hover(() => {
         $('.hide-button').fadeIn(600)
     }, () => {
         $('.hide-button').fadeOut(600)
     })
 }
+
+
 initLive2d ();
 
 </script>
