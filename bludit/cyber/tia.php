@@ -4,11 +4,13 @@ if($_REQUEST["theme"]=="assistant")
 
 {
 
-echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:0px;width: 400px;height:480px;font-size: 0;transition: all .3s ease-in-out;\">";
+echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;bottom: 440px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
 
-echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;top: 0px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:0px;width: 400px;height:430px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+
     
-echo "<canvas id=\"live2d\" width=\"380\" height=\"600\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+echo "<canvas id=\"live2d\" width=\"380\" height=\"500\" class=\"live2d\" style=\"position:relative;\"></canvas>";
 
 
 
@@ -332,7 +334,7 @@ initTips();
 
 
 
-window.setInterval(showHitokoto,10000);
+window.setInterval(showHitokoto,9000);
 
 var items=[<?php if(is_numeric($tia)==true)
 			
@@ -362,7 +364,7 @@ var items=[<?php if(is_numeric($tia)==true)
 				
 				$key=str_replace("'", '&#8217;', $key);
 
-				echo "'".$key."',";
+				echo "'<a href=https://keva.app?".$comm.">".$key."</a>',";
 				
 						}
 				
@@ -378,7 +380,7 @@ var items=[<?php if(is_numeric($tia)==true)
 
 function showHitokoto(){
    
-        showMessage(items[Math.floor(Math.random()*items.length)], 10000);
+        showMessage(items[Math.floor(Math.random()*items.length)], 9000);
    
 }
 
@@ -387,13 +389,13 @@ function showMessage(text, timeout){
     //console.log('showMessage', text);
     $('.message').stop();
     $('.message').html(text).fadeTo(200, 1);
-    if (timeout === null) timeout = 5000;
+    if (timeout === null) timeout = 9000;
     hideMessage(timeout);
 }
 
 function hideMessage(timeout){
     $('.message').stop().css('opacity',1);
-    if (timeout === null) timeout = 5000;
+    if (timeout === null) timeout = 9000;
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 
