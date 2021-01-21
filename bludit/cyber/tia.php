@@ -9,7 +9,8 @@ echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin
 echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:0px;width: 400px;height:430px;font-size: 0;transition: all .3s ease-in-out;\">";
 
 
-    
+if($_REQUEST["time"]=="on"){ include('clock/index.html');}
+
 echo "<canvas id=\"live2d\" width=\"380\" height=\"500\" class=\"live2d\" style=\"position:relative;\"></canvas>";
 
 
@@ -26,8 +27,10 @@ else
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 540px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
 
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 460px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
 
 
 
@@ -56,6 +59,8 @@ echo "<div class=\"hide-button\" style=\"position: absolute;top: 10px;right: 20p
 echo "<div class=\"hide-button\" style=\"position: absolute;top: 40px;right: 20px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&assi=off\">HIDE</a></div></div>";}
 
 }
+
+
 
 ?>
 <script type="text/javascript" src="/jquery.js"></script>
@@ -206,11 +211,10 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 			$uname=$kpc->keva_get($assetadd,"_KEVA_NS_");
 		}
 
-
+if($_REQUEST["time"]!="on"){echo "initTips();";}
 
 ?>
 
-initTips();
 
 (function (){
     var text;
@@ -273,8 +277,10 @@ initTips();
 		?>';
         
    
-    showMessage(text, 6000);
-})();
+ <?php if($_REQUEST["time"]!="on"){ echo "showMessage(text, 6000);";} ?>
+	
+	
+	})();
 
 
 <?php
@@ -329,12 +335,11 @@ initTips();
 
 
 
+echo "window.setInterval(showHitokoto,9000);";
 
 ?>
 
 
-
-window.setInterval(showHitokoto,9000);
 
 var items=[<?php if(is_numeric($tia)==true)
 			
@@ -364,7 +369,8 @@ var items=[<?php if(is_numeric($tia)==true)
 				
 				$key=str_replace("'", '&#8217;', $key);
 
-				echo "'<a href=https://keva.app?".$comm.">".$key."</a>',";
+if($_REQUEST["time"]!="on"){
+				echo "'<a href=https://keva.app?".$comm.">".$key."</a>',";}
 				
 						}
 				
@@ -379,8 +385,10 @@ var items=[<?php if(is_numeric($tia)==true)
 		?>];
 
 function showHitokoto(){
+
+	<?php if($_REQUEST["time"]!="on"){
    
-        showMessage(items[Math.floor(Math.random()*items.length)], 9000);
+      echo  "showMessage(items[Math.floor(Math.random()*items.length)], 9000);"; }?>
    
 }
 
