@@ -1,38 +1,105 @@
 <?php
 
+//config
+
+$bdo="TIA";
+
+//full
+
+$bbmess=420;
+
+$bbbottom=0;
+$bbwidth=400;
+$bbhight=430;
+
+$bbw=380;
+$bbh=500;
+
+//page
+
+$ssbottom=0;
+$sswidth=220;
+$sshight=175;
+
+$ssw=196;
+$ssh=175;
+
+
+
 if($_REQUEST["theme"]=="assistant")
 
 {
 
-echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;bottom: 440px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
 
-echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:0px;width: 400px;height:430px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+
+if($_REQUEST["reward"]=="on")
+
+	{
+
+echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: 10px;right: -5px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+
+//raven
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-175deg) saturate(5);\"><img src=/bludit/qr.php?v=".$rvnadd."><br>Ravencoin</div>";
+
+//keva
+
+if(!$reward){$addinfo=$addrone;}else{$addinfo=$reward;}
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-60deg) saturate(5);\"><img src=/bludit/qr.php?v=".$addinfo."><br>Kevacoin</div>";
+
+if($xmradd!=""){$bbcoin="Monero";$bbcadd=$xmradd; $bbdeg=220;}
+if($ethadd!=""){$bbcoin="Ethereu";$bbcadd=$ethadd;$bbdeg=280;}
+if($btcadd!=""){$bbcoin="Bitcoin";$bbcadd=$btcadd;$bbdeg=340;}
+
+if($xmradd!="" or $ethadd!="" or $btcadd!=""){
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-".$bbdeg."deg) saturate(5);\"><img src=/bludit/qr.php?v=".$bbcadd."><br>$bbcoin</div>";}
+
+
+	
+
+
+echo "</div>";
+	
+	}
+
+
+echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;bottom: ".$bbmess."px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:".$bbbottom."px;width: ".$bbwidth."px;height:".$bbhight."px;font-size: 0;transition: all .3s ease-in-out;\">";
 
 
 if($_REQUEST["time"]=="on"){ include('clock/index.html');}
 
-echo "<canvas id=\"live2d\" width=\"380\" height=\"500\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+echo "<canvas id=\"live2d\" width=\"".$bbw."\" height=\"".$bbh."\" class=\"live2d\" style=\"position:relative;\"></canvas>";
 
 
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 580px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a id=\"goFS\">[ + ]</a></div>";
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a id=\"goFS\">[ + ]</a></div>";
+
 
 if($_REQUEST["auto"]!="on"){
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 540px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=on\">AUTO</a></div>";}
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=on\">AUTO</a></div>";}
 
 else
 
 	{
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 540px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
-
-
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 460px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 560px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
 
 
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
+
+
+//left
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"http://sinsiroad.com/\">Sinsiroad</a></div>";
 
 if($_REQUEST["auto"]=="on"){
 
@@ -48,11 +115,11 @@ else
 
 	if($_REQUEST["assi"]!="off"){
 
-echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:45%;display:block;position:fixed;z-index:100;bottom:0px;width: 220px;height:175px;font-size: 0;transition: all .3s ease-in-out;\">";
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:45%;display:block;position:fixed;z-index:100;bottom:".$ssbottom."px;width: ".$sswidth."px;height:".$ssheight."px;font-size: 0;transition: all .3s ease-in-out;\">";
 
 echo "<div class=\"message\" style=\"opacity: 0;width: 210px;height: auto;margin: auto;padding:7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
     
-echo "<canvas id=\"live2d\" width=\"196\" height=\"175\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+echo "<canvas id=\"live2d\" width=\"".$ssw."\" height=\"".$ssh."\" class=\"live2d\" style=\"position:relative;\"></canvas>";
 
 echo "<div class=\"hide-button\" style=\"position: absolute;top: 10px;right: 20px;display: none;overflow: hidden;width:60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&theme=assistant\">[ + ]</a></div>";
 
@@ -269,6 +336,8 @@ if($_REQUEST["time"]!="on"){echo "initTips();";}
 			
 
 		}
+
+		if($_REQUEST["reward"]=="on"){$ann="Thank you for your support!";}
 		
 		if(!$ann){echo "Welcome to <span style=\"color:#0099cc;\">".$title."</span>";}
 		else {echo $ann;}
