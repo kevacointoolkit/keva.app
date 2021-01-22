@@ -194,7 +194,7 @@ $(document).on('copy', function (){
 
 function initTips(){
 
-	var result={"mouseover": [{"selector": ".title a","text": ["{text}"]}, {"selector":".searchbox","text": [""]}],"click": [ {"selector": "#landlord #live2d", "text": ["One,Two,Three,Three..", "Have fun!", "<?php echo $_REQ["scode"];?> Remember me."] }]};
+	var result={"mouseover": [{"selector": ".title a","text": ["{text}"]}, {"selector":".searchbox","text": [""]}],"click": [ {"selector": "#landlord #live2d", "text": ["One,Two,Three,Three..", "Have fun!", "<?php echo $_REQ["scode"];?> Remember me.",<?php if($_REQUEST["reward"]=="on"){echo ",\"Thank you for your support!\"";}?>] }]};
     
    
             $.each(result.mouseover, function (index, tips){
