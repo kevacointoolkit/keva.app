@@ -59,17 +59,21 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 			{
 
-			if($gift=="KEVA.APP/CYBER/BITDOGE"){require('cyber/bitdoge.php');}
+			if($gift=="KEVA.APP/CYBER/BITDOGE"){$vbitdoge=1;}
+
+
+
+			if($gift=="KEVA.APP/CYBER/TIA"){$vtia=1;}
 
 			}
 
-			foreach($giftasset as $gift=>$giftn)
 
-			{
+			if($vbitdoge==1 & $vtia==1){if(!$tia){$vtia=0;}else{$vbitdoge=0;}}
+			
+			
+			if($vbitdoge==1) {require('cyber/bitdoge.php');}
 
-			if($gift=="KEVA.APP/CYBER/TIA"){require('cyber/tia.php');}
-
-			}
+			if($vtia==1 & $tia!="") {require('cyber/tia.php');}
 
 	}
 
