@@ -9,7 +9,7 @@ else{$checktheme="social";}}
 
 echo "<script>function submitForm(){var form = document.getElementById(\"myform\");form.submit();}</script>";
 
-echo "<font color=grey size=2.5>keva.app?".$_REQUEST["scode"]."&nbsp;<form action=\"\" method=\"get\" id=\"myform\"><select name=\"theme\" onchange=\"submitForm();\">";
+echo "<a href=https://keva.app?".$_REQUEST["scode"]."><font color=grey size=2.5>keva.app?".$_REQUEST["scode"]."</a>&nbsp;<form action=\"\" method=\"get\" id=\"myform\"><select name=\"theme\" onchange=\"submitForm();\">";
 
 foreach($themes as $t){
 
