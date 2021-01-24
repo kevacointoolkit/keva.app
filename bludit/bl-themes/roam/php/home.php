@@ -181,7 +181,7 @@ if(isset($_REQ["tx"])){if(stristr($txx,$_REQ["tx"]) == false){continue;}}
 
 				<?php
 
-				echo "<br><hr><font size=1>Bi-directional link<br>";
+				echo "<br><hr><font size=1>Bi-directional link</font><br>";
 
 				echo "<li style=\"display:block;height:auto;width:900px;padding-top:20px;line-height:40px;font-size:18px;color:#cccccc;\"><p align=left>";
 
