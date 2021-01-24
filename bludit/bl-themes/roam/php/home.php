@@ -215,7 +215,7 @@ if(isset($_REQ["tx"])){if(stristr($txx,$_REQ["tx"]) == false){continue;}}
 			 
 						echo "[[".$nplink."]]";
 						
-						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+						echo "&nbsp;&nbsp;&nbsp;&nbsp;<br>";
 
 				
 
