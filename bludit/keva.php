@@ -266,6 +266,8 @@ $fer=0;
 
 			if(substr($value,0,12)=="mimblewimble"){continue;}
 
+			//four digits not support hex2bin
+
 			$arr["heightx"]=$height;
 			$arr["key"]=$key;
 			$arr["value"]=bin2hex($value);
@@ -521,6 +523,10 @@ foreach ($totalass as $o=>$p)
 			extract($p);
 
 			//if(!$key){$key=$keyhex;}
+			
+			if($theme=="paper" or $_REQ["theme"]=="paper"){$arr2["sort"]=$key;}
+
+			if($key=="THEME"){continue;}
 
 			$arr2["heightx"]=$heightx;
 			$arr2["key"]=$key;
@@ -576,7 +582,10 @@ foreach ($totalass as $o=>$p)
 					$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
 					$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
 
-					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
+					if($theme=="paper" or $_REQ["theme"]=="paper"){$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\">";}else{
+
+
+					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";}
 					
 
 					$value=str_replace($match[0],$ipfslk,$value);
