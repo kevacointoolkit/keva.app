@@ -24,6 +24,8 @@ error_reporting(0);
 if(!$gname){if(isset($_REQ["gname"])){$gnamer=hex2bin($_REQ["gname"]);}else{$gnamer="";}}else{$gnamer=$gname;}
 
 
+$gnamer=str_replace("{\"displayName\":\"","",$gnamer);$gnamer=str_replace("\"}","",$gnamer);
+
 ?>
 
 
