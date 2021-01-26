@@ -433,7 +433,7 @@ var items=[<?php if(is_numeric($tia)==true)
 
 				
 
-				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="TIA" or substr($value,0,12)=="mimblewimble"){continue;}
+				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="TIA" or $key=="ANN" or substr($value,0,12)=="mimblewimble"){continue;}
 
 				
 				$key=str_replace("'", '&#8217;', $key);
