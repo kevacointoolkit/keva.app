@@ -306,6 +306,9 @@ $fer=0;
 			If($key=="ANN"){$ann=$value;}
 			If($key=="BITDOGE"){$bitdoge=$value;}
 			If($key=="TIA"){$tia=$value;}
+			If($key=="MODEL"){$model=$value;}
+
+		
 
 			//if($namespace==$asset){$arr["gname"]=$title;}
 
@@ -585,7 +588,7 @@ foreach ($totalass as $o=>$p)
 					if($theme=="paper" or $_REQ["theme"]=="paper"){$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\">";}else{
 
 
-					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";}
+					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"><br><font size=1>(The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a></font>";}
 					
 
 					$value=str_replace($match[0],$ipfslk,$value);
@@ -615,7 +618,7 @@ foreach ($totalass as $o=>$p)
 						$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
 						$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
 
-						$ipfslk="<video id=\"screenVideo\" width=\"100%\" autoplay loop controls src=\"".$urla."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video><br>(<font size=2>The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a>";
+						$ipfslk="<video id=\"screenVideo\" width=\"100%\" autoplay loop controls src=\"".$urla."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video><br><font size=1>(The IPFS Gateway is ".$ipfsr.")<br>"."<a href=".$urlb." target=blank>".$ipfsadd."</a></font>";
 					
 
 						$value=str_replace($match[0],$ipfslk,$value);
