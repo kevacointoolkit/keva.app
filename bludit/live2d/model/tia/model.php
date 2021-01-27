@@ -3,7 +3,7 @@
     "model":"model.moc",
 <?php
 	
-	$prand=rand(1,66);
+	$prand=$_REQUEST["model"];
 	
     echo "\"textures\":[\"textures/".$prand.".png\"],";
     
