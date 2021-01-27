@@ -4,6 +4,8 @@
 
 $bdo="TIA";
 
+$prand=rand(1,66);
+
 //full
 
 $bbmess=420;
@@ -24,6 +26,8 @@ $sshight=175;
 $ssw=196;
 $ssh=175;
 
+
+if(is_numeric($model)){$prand=$model;}
 
 
 if($_REQUEST["theme"]=="assistant")
@@ -64,20 +68,26 @@ echo "</div>";
 	
 	}
 
+//message
 
 echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;bottom: ".$bbmess."px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
 
+//full mode
+
 echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:".$bbbottom."px;width: ".$bbwidth."px;height:".$bbhight."px;font-size: 0;transition: all .3s ease-in-out;\">";
 
+
+//clock
 
 if($_REQUEST["time"]=="on"){ include('clock/index.html');}
 
 echo "<canvas id=\"live2d\" width=\"".$bbw."\" height=\"".$bbh."\" class=\"live2d\" style=\"position:relative;\"></canvas>";
 
-
+//full screen
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a id=\"goFS\">[ + ]</a></div>";
 
+//auto
 
 if($_REQUEST["auto"]!="on"){
 
@@ -87,12 +97,19 @@ else
 
 	{
 
+//manual
+
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
+
+//time
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 560px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
 
+//color
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+
+//reward
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
 
@@ -100,6 +117,12 @@ echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right:
 //left
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"http://sinsiroad.com/\">Sinsiroad</a></div>";
+
+//model
+
+
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\">Model ".$prand."</div>";
 
 if($_REQUEST["auto"]=="on"){
 
@@ -502,7 +525,7 @@ initLive2d ();
 
 
 <script type="text/javascript">
-    loadlive2d("live2d", "/bludit/live2d/model/tia/model.php");
+    loadlive2d("live2d", "/bludit/live2d/model/tia/model.php?model=<?php echo $prand;?>");
 </script>
 
 
