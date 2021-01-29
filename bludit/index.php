@@ -73,6 +73,8 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 			if($gift=="KEVA.APP/CYBER/TIA"){$vtia=1;}
 
+			if($gift=="KEVA.APP/CYBER/WSB"){$vwsb=1;}
+
 			}
 
 
@@ -91,6 +93,8 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 			if($vbitdoge==3) {require('cyber/bitdogek.php');}
 
 			if($vtia==1) {require('cyber/tia.php');}
+
+			if($vwsb==1) {require('cyber/wsb.php');}
 
 			
 

@@ -305,6 +305,7 @@ $fer=0;
 			If($key=="MONERO"){$xmradd=$value;}
 			If($key=="ANN"){$ann=$value;}
 			If($key=="BITDOGE"){$bitdoge=$value;}
+			If($key=="WSB"){$wsb=$value;}
 			If($key=="TIA"){$tia=$value;}
 			If($key=="MODEL"){$model=$value;}
 
