@@ -1,16 +1,187 @@
+<?php
 
-<div id="landlord" style="user-select: none;position: fixed;left:45%;display:block;position:fixed;z-index:100;bottom: 0px;width: 196px;height: 175px;font-size: 0;transition: all .3s ease-in-out;">
-    <div class="message" style="opacity: 0;width: 200px;height: auto;margin: auto;padding: 7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow: ellipsis;overflow: hidden;position:absolute;animation-delay: 5s;animation-duration: 50s;animation-iteration-count: infinite;animation-name: shake;animation-timing-function: ease-in-out;"></div>
-    <canvas id="live2d" width="196" height="175" class="live2d" style="position: relative;"></canvas>
-    <div class="hide-button" style="position: absolute;top: 0px;
-    right: 5px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius: 12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);text-align: center;font-size: 12px;cursor: pointer;hover {
-    border: 1px solid #f4a7b9;
-    background: #f4f6f8;}">HIDE</div>
-</div>
+//config
+
+$bdo="TIA";
+
+$prand=rand(1,66);
+
+//full
+
+$bbmess=420;
+
+$bbbottom=0;
+$bbwidth=400;
+$bbhight=430;
+
+$bbw=380;
+$bbh=500;
+
+//page
+
+$ssbottom=0;
+$sswidth=220;
+$sshight=400;
+
+$ssw=196;
+$ssh=400;
+
+
+if(is_numeric($model)){$prand=$model;}
+
+
+if($_REQUEST["theme"]=="assistant")
+
+{
+
+
+
+
+if($_REQUEST["reward"]=="on")
+
+	{
+
+echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: 10px;right: -5px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+
+//raven
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-175deg) saturate(5);\"><img src=/bludit/qr.php?v=".$rvnadd."><br>Ravencoin</div>";
+
+//keva
+
+if(!$reward){$addinfo=$addrone;}else{$addinfo=$reward;}
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-60deg) saturate(5);\"><img src=/bludit/qr.php?v=".$addinfo."><br>Kevacoin</div>";
+
+if($xmradd!=""){$bbcoin="Monero";$bbcadd=$xmradd; $bbdeg=220;}
+if($ethadd!=""){$bbcoin="Ethereu";$bbcadd=$ethadd;$bbdeg=280;}
+if($btcadd!=""){$bbcoin="Bitcoin";$bbcadd=$btcadd;$bbdeg=340;}
+
+if($xmradd!="" or $ethadd!="" or $btcadd!=""){
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; filter: invert(70%) sepia(80%) hue-rotate(-".$bbdeg."deg) saturate(5);\"><img src=/bludit/qr.php?v=".$bbcadd."><br>$bbcoin</div>";}
+
+
+	
+
+
+echo "</div>";
+	
+	}
+
+//message
+
+echo "<div class=\"message\" style=\"opacity: 0;width: 300px;height: auto;margin: auto;padding:7px;bottom: ".$bbmess."px;left: 30px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 20px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+
+//full mode
+
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:%;display:block;position:fixed;z-index:100;bottom:".$bbbottom."px;width: ".$bbwidth."px;height:".$bbhight."px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+
+//clock
+
+if($_REQUEST["time"]=="on"){ include('clock/index.html');}
+
+echo "<canvas id=\"live2d\" width=\"".$bbw."\" height=\"".$bbh."\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+
+//full screen
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a id=\"goFS\">[ + ]</a></div>";
+
+//auto
+
+if($_REQUEST["auto"]!="on"){
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=on\">AUTO</a></div>";}
+
+else
+
+	{
+
+//manual
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&auto=off\">MANUAL</a></div>";}
+
+//time
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 560px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
+
+//color
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+
+//reward
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
+
+
+//left
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"http://sinsiroad.com/\">Sinsiroad</a></div>";
+
+//model
+
+
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\">Model ".$prand."</div>";
+
+if($_REQUEST["auto"]=="on"){
+
+echo "<script type=\"text/javascript\">setTimeout(\"self.location.reload();\",1200000);</script>";}
+
+
+echo "</div>";
+}
+
+else
+
+{
+
+	if($_REQUEST["assi"]!="off"){
+
+echo "<div id=\"landlord\" style=\"user-select:none;position:fixed;left:45%;display:block;position:fixed;z-index:100;bottom:".$ssbottom."px;width: ".$sswidth."px;height:".$ssheight."px;font-size: 0;transition: all .3s ease-in-out;\">";
+
+echo "<div class=\"message\" style=\"opacity: 0;width: 210px;height: auto;margin: auto;padding:7px;top: -80px;left: -10px;text-align: left;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;box-shadow: 0 3px 15px 2px rgba(255,137,255,.4);font-size: 13px;font-weight: 400;text-overflow:ellipsis;overflow:hidden;position:absolute;animation-delay:5s;animation-duration:50;animation-iteration-count: infinite;animation-name:shake;animation-timing-function:ease-in-out;\"></div>";
+    
+echo "<canvas id=\"live2d\" width=\"".$ssw."\" height=\"".$ssh."\" class=\"live2d\" style=\"position:relative;\"></canvas>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;top: 10px;right: 20px;display: none;overflow: hidden;width:60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;font-weight:bold;cursor: pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&theme=assistant\">[ + ]</a></div>";
+
+echo "<div class=\"hide-button\" style=\"position: absolute;top: 40px;right: 20px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&assi=off\">HIDE</a></div></div>";}
+
+}
+
+
+
+?>
 <script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript">
     
     var home_Path = '/bludit/cyber/'
+
+
+
+  var goFS = document.getElementById("goFS");
+  goFS.addEventListener("click", function() {
+      document.body.requestFullscreen();
+  }, false);
+
+
+
+
+   var div = document.querySelector("body");
+
+      btn.onclick = function () {
+     
+        var r = parseInt(256 * Math.random()); 
+        var g = parseInt(256 * Math.random());
+        var b = parseInt(256 * Math.random()); 
+        var random_color = "rgb(" + r + "," + g + "," + b + ")"; 
+ 
+        console.log(r, g, b);
+        console.log(random_color);
+        div.style.cssText = "background:" + random_color;
+      };
+
 </script>
 
 <script>
@@ -46,7 +217,7 @@ $(document).on('copy', function (){
 
 function initTips(){
 
-	var result={"mouseover": [{"selector": ".title a","text": ["{text}"]}, {"selector":".searchbox","text": [""]}],"click": [ {"selector": "#landlord #live2d", "text": ["One,Two,Three,Three..", "Have fun!", "<?php echo $_REQ["scode"];?> Remember me."] }]};
+	var result={"mouseover": [{"selector": ".title a","text": ["{text}"]}, {"selector":".searchbox","text": [""]}],"click": [ {"selector": "#landlord #live2d", "text": ["One,Two,Three,Three..", "Have fun!", "<?php echo $_REQ["scode"];?> Remember me.",<?php if($_REQUEST["reward"]=="on"){echo ",\"Thank you for your support!\"";}?>] }]};
     
    
             $.each(result.mouseover, function (index, tips){
@@ -72,7 +243,7 @@ function initTips(){
 <?php
 
 
-$tia=trim(strip_tags($neptune));
+$tia=trim(strip_tags($tia));
 
 if(!$tia){
 
@@ -130,11 +301,10 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 			$uname=$kpc->keva_get($assetadd,"_KEVA_NS_");
 		}
 
-
+if($_REQUEST["time"]!="on"){echo "initTips();";}
 
 ?>
 
-initTips();
 
 (function (){
     var text;
@@ -189,6 +359,8 @@ initTips();
 			
 
 		}
+
+		if($_REQUEST["reward"]=="on"){$ann="Thank you for your support!";}
 		
 		if(!$ann){echo "Welcome to <span style=\"color:#0099cc;\">".$title."</span>";}
 		else {echo $ann;}
@@ -197,8 +369,10 @@ initTips();
 		?>';
         
    
-    showMessage(text, 6000);
-})();
+ <?php if($_REQUEST["time"]!="on"){ echo "showMessage(text, 6000);";} ?>
+	
+	
+	})();
 
 
 <?php
@@ -253,12 +427,11 @@ initTips();
 
 
 
+echo "window.setInterval(showHitokoto,9000);";
 
 ?>
 
 
-
-window.setInterval(showHitokoto,10000);
 
 var items=[<?php if(is_numeric($tia)==true)
 			
@@ -283,12 +456,13 @@ var items=[<?php if(is_numeric($tia)==true)
 
 				
 
-				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="NEPTUNE" or substr($value,0,12)=="mimblewimble"){continue;}
+				If($key=="_KEVA_NS_" or $key=="SYSWORDS" or $key=="TIA" or $key=="ANN" or substr($value,0,12)=="mimblewimble"){continue;}
 
 				
 				$key=str_replace("'", '&#8217;', $key);
 
-				echo "'".$key."',";
+if($_REQUEST["time"]!="on"){
+				echo "'<a href=https://keva.app?".$comm.">".$key."</a>',";}
 				
 						}
 				
@@ -303,8 +477,10 @@ var items=[<?php if(is_numeric($tia)==true)
 		?>];
 
 function showHitokoto(){
+
+	<?php if($_REQUEST["time"]!="on"){
    
-        showMessage(items[Math.floor(Math.random()*items.length)], 10000);
+      echo  "showMessage(items[Math.floor(Math.random()*items.length)], 9000);"; }?>
    
 }
 
@@ -313,26 +489,28 @@ function showMessage(text, timeout){
     //console.log('showMessage', text);
     $('.message').stop();
     $('.message').html(text).fadeTo(200, 1);
-    if (timeout === null) timeout = 5000;
+    if (timeout === null) timeout = 9000;
     hideMessage(timeout);
 }
 
 function hideMessage(timeout){
     $('.message').stop().css('opacity',1);
-    if (timeout === null) timeout = 5000;
+    if (timeout === null) timeout = 9000;
     $('.message').delay(timeout).fadeTo(200, 0);
 }
 
+
+
 function initLive2d (){
-    $('.hide-button').fadeOut(0).on('click', () => {
-        $('#landlord').css('display', 'none')
-    })
+ 
     $('#landlord').hover(() => {
         $('.hide-button').fadeIn(600)
     }, () => {
         $('.hide-button').fadeOut(600)
     })
 }
+
+
 initLive2d ();
 
 </script>
@@ -347,7 +525,7 @@ initLive2d ();
 
 
 <script type="text/javascript">
-    loadlive2d("live2d", "/bludit/live2d/model/neptune/model.json",);
+    loadlive2d("live2d", "/bludit/live2d/model/neptune/<?php $prand=rand(1,9); echo $prand."/model.json";?>");
 </script>
 
 

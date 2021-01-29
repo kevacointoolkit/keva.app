@@ -525,7 +525,7 @@ initLive2d ();
 
 
 <script type="text/javascript">
-    loadlive2d("live2d", "/bludit/live2d/model/wa2000/<?php $prand=rand(1,2); echo $prand."/model.json";?>");
+    loadlive2d("live2d", "/bludit/live2d/model/hallo/model.json");
 </script>
 
 

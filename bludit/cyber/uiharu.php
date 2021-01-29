@@ -21,10 +21,10 @@ $bbh=500;
 
 $ssbottom=0;
 $sswidth=220;
-$sshight=300;
+$sshight=400;
 
 $ssw=196;
-$ssh=300;
+$ssh=400;
 
 
 if(is_numeric($model)){$prand=$model;}
@@ -525,7 +525,7 @@ initLive2d ();
 
 
 <script type="text/javascript">
-    loadlive2d("live2d", "/bludit/live2d/model/wa2000/<?php $prand=rand(1,2); echo $prand."/model.json";?>");
+    loadlive2d("live2d", "/bludit/live2d/model/uiharu/model.json");
 </script>
 
 
