@@ -308,6 +308,7 @@ $fer=0;
 			If($key=="WSB"){$wsb=$value;}
 			If($key=="TIA"){$tia=$value;}
 			If($key=="MODEL"){$model=$value;}
+			If($key=="DOGECEO"){$dogeceo=$value;}
 
 		
 
