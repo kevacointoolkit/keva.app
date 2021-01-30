@@ -61,7 +61,7 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 			
 
-			
+			if($gift=="KEVA.APP/CYBER/DOGE"){$vbitdoge=4;}
 
 			if($gift=="KEVA.APP/CYBER/BITDOGE.KEVA"){$vbitdoge=3;}
 
@@ -76,6 +76,8 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 			if($gift=="KEVA.APP/CYBER/WSB"){$vwsb=1;}
 
 			if($gift=="KEVA.APP/CYBER/DOGECEO"){$vdogeceo=1;}
+
+			if($gift=="KEVA.APP/CYBER/HODLONAUT"){$vhodlonaut=1;}
 
 			}
 
@@ -94,11 +96,16 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 			if($vbitdoge==3) {require('cyber/bitdogek.php');}
 
+			if($vbitdoge==4) {require('cyber/doge.php');}
+
 			if($vtia==1) {require('cyber/tia.php');}
 
 			if($vwsb==1) {require('cyber/wsb.php');}
 
 			if($vdogeceo==1) {require('cyber/dogeceo.php');}
+
+			
+			if($vhodlonaut==1) {require('cyber/hodlonaut.php');}
 
 
 			
