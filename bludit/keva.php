@@ -311,6 +311,8 @@ $fer=0;
 			If($key=="DOGECEO"){$dogeceo=$value;}
 			If($key=="HODLONAUT"){$hodlonaut=$value;}
 
+			If($key=="ASSISTANT"){$assistant=$value;}
+
 		
 
 			//if($namespace==$asset){$arr["gname"]=$title;}
