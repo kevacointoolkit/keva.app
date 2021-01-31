@@ -304,14 +304,16 @@ $fer=0;
 			If($key=="ETHEREUM"){$ethadd=$value;}
 			If($key=="MONERO"){$xmradd=$value;}
 			If($key=="ANN"){$ann=$value;}
+			If($key=="ASSISTANT"){$assistant=$value;}
 			If($key=="BITDOGE"){$bitdoge=$value;}
 			If($key=="WSB"){$wsb=$value;}
 			If($key=="TIA"){$tia=$value;}
 			If($key=="MODEL"){$model=$value;}
 			If($key=="DOGECEO"){$dogeceo=$value;}
 			If($key=="HODLONAUT"){$hodlonaut=$value;}
+			If($key=="TORORO"){$tororo=$value;}
 
-			If($key=="ASSISTANT"){$assistant=$value;}
+			
 
 		
 
