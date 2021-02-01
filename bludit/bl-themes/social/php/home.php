@@ -216,7 +216,7 @@ echo "<div style=\"padding-left: 56px\">&#x1F4D1;<div id=\"post-content\">";
 
 echo str_replace("\n","<br>",$pin);
 
-echo "</div></div></div></div>";
+echo "</div></div></div>";
 
 
 
@@ -323,9 +323,6 @@ $value=hex2bin($value);
 
 
 
-		<!-- Load Bludit Plugins: Page Begin -->
-		<?php Theme::plugins('pageBegin') ?>
-
 		<div class="card-body">
 			<!-- Profile picture -->
 			<img class="float-left rounded-circle" style="width: 48px" src="<?php echo letter_avatar($gnamex); ?>" />
@@ -346,9 +343,9 @@ $value=hex2bin($value);
 			</div>
 		</div>
 
-		<!-- Load Bludit Plugins: Page End -->
-		<?php Theme::plugins('pageEnd') ?>
+		
 
-	</div>
+
 	<?php } ?>
+		</div>
 </div>
