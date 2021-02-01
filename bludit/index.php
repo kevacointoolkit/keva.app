@@ -81,6 +81,8 @@ if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
 
 			if($gift=="KEVA.APP/CYBER/TORORO"){$vtororo=1;}
 
+			if($gift=="KEVA.APP/CYBER/PENCHAN"){$vpenchan=1;}
+
 			}
 
 			if($vking!=""){require($vking); exit;}
@@ -111,6 +113,8 @@ if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
 			if($vhodlonaut==1) {require('cyber/hodlonaut.php');}
 
 			if($vtororo==1) {require('cyber/tororo.php');}
+
+			if($vpenchan==1) {require('cyber/penchan.php');}
 
 
 			

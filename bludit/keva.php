@@ -312,6 +312,7 @@ $fer=0;
 			If($key=="DOGECEO"){$dogeceo=$value;}
 			If($key=="HODLONAUT"){$hodlonaut=$value;}
 			If($key=="TORORO"){$tororo=$value;}
+			If($key=="PENCHAN"){$penchan=$value;}
 
 			
 
