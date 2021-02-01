@@ -218,7 +218,7 @@ $value=hex2bin($value);
 
 				<!-- Page description -->
 				
-				<p class="page-description"><?php echo $valuex; ?><br>
+				<p class="page-description"  style="word-break: break-all;"><?php echo $valuex; ?><br>
 				
 				<?php
 
