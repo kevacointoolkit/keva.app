@@ -492,8 +492,8 @@ if(!$reward){
 		
 //unlock block
 
-if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS, TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins )";}else{
-$unleft="If you want to load all block contents, you can send 1 keva to this address, or download kevacoin wallet (ios/android/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
+if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS (".count($totalass)." CONTENTS TOTAL). TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins ) FOR ALL TO READ.";}else{
+$unleft="If you want to load all block contents, you can send 1 keva to this node address, then click this button <button onClick=\"window.location.reload();\">Refresh Page</button>. You can also download kevacoin wallet free to load all.(<a href=https://apps.apple.com/us/app/kevacoin-wallet/id1515670405?ls=1>ios</a>/<a href=https://play.google.com/store/apps/details?id=org.kevacoin.kevawallet>android</a>/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
 
 		$unlockinfo=$unleft."<br><br><img src=/bludit/qr.php?v=".$shopaddress."><br><br>".$shopaddress;
 
