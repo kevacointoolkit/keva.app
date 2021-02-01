@@ -6,6 +6,14 @@ $bdo="TIA";
 
 $prand=rand(1,66);
 
+//maker
+
+
+
+$maker="Sinsiroad";
+
+$makerlink="http://sinsiroad.com";
+
 //full
 
 $bbmess=420;

@@ -89,7 +89,9 @@ echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right:
 
 //left
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"http://sinsiroad.com/\">Sinsiroad</a></div>";
+if($maker!=""){
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"".$makerlink."\">".$maker."</a></div>";}
 
 //model
 

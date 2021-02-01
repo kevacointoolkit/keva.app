@@ -8,6 +8,12 @@ $tia=$tororo;
 
 $prand=rand(1,19);
 
+//maker
+
+$maker="";
+
+$makerlink="";
+
 //full
 
 $bbmess=420;
