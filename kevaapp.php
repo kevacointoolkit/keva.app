@@ -266,6 +266,12 @@ if(substr($comm,0,4)=="roam") {$comm=str_replace("roam","",$comm);$themeto="&the
 
 if(substr($comm,0,4)=="mind") {$comm=str_replace("mind","",$comm);$themeto="&theme=mind";}
 
+if(substr($comm,0,9)=="assistant") {$comm=str_replace("assistant","",$comm);$themeto="&theme=assistant";}
+
+if(substr($comm,0,1)=="a") {$comm=str_replace("a","",$comm);$themeto="&theme=assistant";}
+
+if(substr($comm,0,4)=="list") {$comm=str_replace("list","",$comm);$themeto="&theme=list";}
+
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
 
