@@ -313,6 +313,8 @@ $fer=0;
 			If($key=="HODLONAUT"){$hodlonaut=$value;}
 			If($key=="TORORO"){$tororo=$value;}
 			If($key=="PENCHAN"){$penchan=$value;}
+			If($key=="GOLDEN"){$golden=$value;}
+
 
 			
 
