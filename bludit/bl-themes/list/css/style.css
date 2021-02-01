@@ -1,0 +1,169 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Padding top for navbar */
+	padding-top: 56px;
+	/* Margin bottom for footer height */
+	margin-bottom: 60px;
+}
+
+section {
+	padding: 150px 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+pre, code {
+	background: #f8f8f8;
+	color: #333;
+}
+
+pre {
+	border-left: 2px solid #ccc;
+	padding: 10px;
+}
+
+code {
+	display: inline-block;
+	padding: 0 0.5em;
+	line-height: 1.4em;
+	border-radius: 3px;
+}
+
+table {
+	empty-cells: show;
+	border: 1px solid #cbcbcb;
+	width: 100%;
+	font-size: 0.9em;
+	margin-bottom: 1rem;
+}
+
+thead {
+	background-color: #e0e0e0;
+	color: #000;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+th, td {
+	padding: 0.5em 1em;
+}
+
+h1.title,
+h2.title {
+	font-size: 2.3rem;
+}
+
+blockquote {
+        padding: 10px 20px;
+        margin: 0 0 20px 20px;
+        border-left: 5px solid #eee;
+        font-style: italic;
+}
+
+/* Navbar */
+img.nav-svg-icon {
+	width: 1rem;
+	height: 1rem;
+	padding-bottom: 2px;
+}
+
+.nav-link {
+	font-size: 0.8em;
+}
+
+/* Footer */
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	font-size: 0.8em;
+}
+
+.mini-logo {
+	height: 22px;
+	padding-bottom: 5px;
+}
+
+/* Plugins */
+.plugin {
+	margin-top: 3rem;
+}
+
+.plugin-label {
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+.plugin ul {
+	list-style: none;
+	padding: 0 0 0 10px;
+}
+
+#lgDemo {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 5px;
+}
+#lgDemo .item {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+#lgDemo .item:nth-child(odd) { background: #f7f7f7; }
+
+
+#lgDemo.grid { grid-template-columns: 33% 33% 33%; }
+#lgDemo.grid .item:nth-child(odd) { background: none; }
+
+
+
+.m-box{
+    width: 99%;
+ 
+    padding: 10px;
+    overflow: hidden;
+}
+.m-list{
+    height: 48px;
+    line-height: 48px;
+    cursor: pointer;
+}
+
+
+.icon-list{
+    width: 48px;
+    height: 48px;
+    float: right;
+    background-image: url("../images/iconfont-right.png") ;
+    cursor: pointer;
+}
+
+hr{
+    width: 100%;
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid #888;
+}
+
+.m-content{
+    display: none;
+padding-top:30px;
+}
+
+.active{
+    
+}
