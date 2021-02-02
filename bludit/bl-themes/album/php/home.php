@@ -22,8 +22,10 @@ error_reporting(0);
 
 
 <?php 
+if($mp3!=""){
+	echo "<center><video id=\"screenVideo\" muted autoplay loop controls src=\"".$mp3."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video></center>";
 
-echo $mp3;
+	echo "<script>var screenVideo=document.getElementById(\"screenVideo\");document.body.addEventListener('mousedown',function(){ screenVideo.muted = false;}, false);</script>";}
 
 $coun=0;
 
