@@ -12,7 +12,7 @@ if($_REQUEST["audio"]=="on")
 
 	{
 	
-	echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: -50px;right: -5px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+	echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: -50px;right: 0px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
 	
 	echo "<center><video id=\"screenVideo\" muted autoplay loop controls src=\"".$mp3."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video></center>";
 
