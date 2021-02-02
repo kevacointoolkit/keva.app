@@ -8,6 +8,17 @@ if($_REQUEST["theme"]=="assistant")
 {
 
 
+if($_REQUEST["audio"]=="on")
+
+	{
+	
+	echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: -50px;right: -5px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+	
+	echo "<center><video id=\"screenVideo\" muted autoplay loop controls src=\"".$mp3."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video></center>";
+
+	echo "<script>var screenVideo=document.getElementById(\"screenVideo\");document.body.addEventListener('mousedown',function(){ screenVideo.muted = false;}, false);</script>";
+	echo "</div>";
+	}
 
 
 if($_REQUEST["reward"]=="on")
@@ -82,9 +93,17 @@ echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 560px;right:
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
 
+
+
 //reward
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
+
+//audio
+
+if($mp3!=""){
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 470px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&audio=on\">AUDIO</a></div>";}
 
 
 //left
