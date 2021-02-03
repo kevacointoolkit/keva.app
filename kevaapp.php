@@ -272,6 +272,9 @@ if(substr($comm,0,1)=="a") {$comm=str_replace("a","",$comm);$themeto="&theme=ass
 
 if(substr($comm,0,4)=="list") {$comm=str_replace("list","",$comm);$themeto="&theme=list";}
 
+
+if(substr($comm,0,4)=="book") {$comm=str_replace("book","",$comm);$themeto="&theme=book";}
+
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
 
