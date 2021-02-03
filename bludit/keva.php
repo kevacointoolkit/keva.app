@@ -543,7 +543,7 @@ foreach ($totalass as $o=>$p)
 
 			//if(!$key){$key=$keyhex;}
 			
-			if($theme=="paper" or $_REQ["theme"]=="paper"){$arr2["sort"]=$key;}
+			if($theme=="paper" or $theme=="book" or $_REQ["theme"]=="paper" or $_REQ["theme"]=="book"){$arr2["sort"]=$key;}
 
 			if($key=="THEME"){continue;}
 
