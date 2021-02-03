@@ -266,6 +266,10 @@ $fer=0;
 
 			if(substr($value,0,12)=="mimblewimble"){continue;}
 
+				//countdown
+
+			If($key=="COUNTDOWN"){$key=" ";$value="<p id=\"demo\" style=\"font-size:60px;text-align:center;\"></p><script>var countDownDate = ".strtotime($value)." * 1000;var now = ".time()." * 1000;var x = setInterval(function() {now = now + 1000;var distance = countDownDate - now; var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById(\"demo\").innerHTML = days + \"d \" + hours + \"h \" +minutes + \"m \" + seconds + \"s \";if (distance < 0) {clearInterval(x);document.getElementById(\"demo\").innerHTML = \"EXPIRED\";} }, 1000);</script>";}
+
 			//four digits not support hex2bin
 
 			$arr["heightx"]=$height;
@@ -294,8 +298,10 @@ $fer=0;
 
 			If($key=="PIN"){$pin=$value;}
 			If($key=="THEME"){$theme=trim(strip_tags($value));}
-			If($key=="MP3"){$mp3=$value;}
+			If($key=="MP3"){$mp3=trim(strip_tags($value));}
 			If($key=="RANDOM"){$rand=$value;}
+
+		
 
 			//cyber
 
