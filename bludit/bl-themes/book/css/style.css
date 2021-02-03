@@ -9,6 +9,7 @@ body{
 	font-size:12px;
 	color: #000;
 
+
 }
 h1{
 	color:#2F1B0C;
@@ -77,7 +78,11 @@ span.reference a:hover{
 }
 .book_wrapper{
 	margin:30px auto;
+
+
 	padding-top:50px;
+
+	
 	width:905px;
 	height:540px;
 	position:relative;
@@ -140,10 +145,10 @@ a#prev_page_button{
 	background:transparent url(/bludit/bl-themes/book/images/buttons.png) no-repeat 0px -40px;
 }
 a#prev_page_button{
-	left:-30px;
+	left:-3px;
 }
 a#next_page_button{
-	right:-30px;
+	right:-16px;
 	background-position:-41px -40px;
 }
 a#next_page_button:hover{
