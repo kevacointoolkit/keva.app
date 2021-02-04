@@ -7,14 +7,103 @@ if($_REQUEST["theme"]=="assistant")
 
 {
 
+	if($_REQUEST["coin"]=="on")
+
+	{
+
+echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: 10px;right: -5px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+
+//raven
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/rvn.png></div>";
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/kva.png></div>";
+
+echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/level.png></div>";
+
+if($btcadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/btc.png></div>";
+}
+
+if($ethadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/eth.png></div>";}
+
+
+if($xmradd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/xmr.png></div>";}
+
+
+
+
+			foreach($giftasset as $gift=>$giftn)
+
+			{
+
+	
+
+			if($gift=="KEVA.APP/CYBER/BITDOGE"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/bitdoge.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/BITDOGE.KEVA"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/bitdogek.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/BITDOGE.RAVEN"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/bitdoger.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/DOGE"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/doge.png></div>";}
+
+			
+			if($gift=="KEVA.APP/CYBER/HODLONAUT"){
+			echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/hodlcat.png></div>";}
+
+
+			
+
+			if($gift=="KEVA.APP/CYBER/WSB"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/wsb.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/DOGECEO"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/dogeceo.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/TIA"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/tia.png></div>";
+}
+
+			if($gift=="KEVA.APP/CYBER/TORORO"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/tororo.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/PENCHAN"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/penchan.png></div>";}
+
+			if($gift=="KEVA.APP/CYBER/GOLDEN"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/golden.png></div>";}
+
+			
+			if($gift=="CATE"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/cate.png></div>";}
+
+	
+
+			if($gift=="NUKA/COLA/CAP"){$nuka=1;}
+
+
+			}
+
+
+
+
+if($nuka==1){$nukanum=$giftasset['NUKA/COLA/CAP']; while($nukanum<>0){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/nuka.png></div>";$nukanum=$nukanum-1;}}
+
+
+
+
+
+
+
+
+
+	
+
+
+echo "</div>";
+	
+	}
+
 
 if($_REQUEST["audio"]=="on")
 
 	{
 	
-	echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: -50px;right: 0px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
+	echo "<div style=\"width: 360px;height: auto;margin: auto;padding:7px;top: 0px;right: 0px;text-align: center;font-size: 12px;font-weight: 400;overflow:hidden;position:absolute;\">";
 	
-	echo "<center><video id=\"screenVideo\" muted autoplay loop controls src=\"".$mp3."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video></center>";
+	echo "<center><video width=\"90%\" id=\"screenVideo\" muted autoplay loop controls src=\"".$mp3."\" webkit-playsinline=\"true\" playsinline=\"true\" x-webkit-airplay=\"allow\" x5-video-player-type=\"h5\" x5-video-player-fullscreen=\"true\" x5-video-orientation=\"portraint\" style=\"object-fit:fill;\"></video></center>";
 
 	echo "<script>var screenVideo=document.getElementById(\"screenVideo\");document.body.addEventListener('mousedown',function(){ screenVideo.muted = false;}, false);</script>";
 	echo "</div>";
@@ -89,21 +178,27 @@ echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;right:
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 560px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&time=on\">TIME</a></div>";
 
+//coin
+
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&coin=on\">COIN</a></div>";
+
 //color
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 530px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"#\" id=\"btn\">COLOR</a></div>";
 
 
 
 //reward
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 500px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 470px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&reward=on\">REWARD</a></div>";
+
+
 
 //audio
 
 if($mp3!=""){
 
-echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 470px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&audio=on\">AUDIO</a></div>";}
+echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 440px;right: 50px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\"><a href=\"/bludit/?".$_SERVER['QUERY_STRING']."&audio=on\">AUDIO</a></div>";}
 
 
 //left
@@ -117,6 +212,10 @@ echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 620px;left: 
 
 
 echo "<div class=\"hide-button\" style=\"position: absolute;bottom: 590px;left: 10px;display: none;overflow: hidden;width: 60px;height: 20px;border: 1px solid rgba(255,137,255,.4);border-radius:12px;background:#ffe;text-align:center;font-size:12px;cursor:pointer;hover {border: 1px solid #f4a7b9;background: #f4f6f8;}\">Model ".$prand."</div>";
+
+
+
+
 
 if($_REQUEST["auto"]=="on"){
 
