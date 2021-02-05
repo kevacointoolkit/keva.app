@@ -55,11 +55,15 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
 
+if(!$giftasset[$assistant])
+
+		{
+
 			foreach($giftasset as $gift=>$giftn)
 
 			{
 
-			if(stristr($gift,$assistant) == true){$vking="cyber/".strtolower($assistant).".php";break;}
+			
 
 			if($gift=="KEVA.APP/CYBER/DOGE"){$vbitdoge=4;}
 
@@ -87,6 +91,12 @@ if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
 
 			}
 
+		}else
+		{
+		
+		$vking="cyber/".strtolower($assistant).".php";
+		
+		}
 			if($vking!=""){require($vking); exit;}
 
 			if($vbitdoge!="" & $vtia==1){if(!$tia){$vtia=0;}else{$vbitdoge=0;}}
