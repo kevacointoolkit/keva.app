@@ -19,10 +19,26 @@ echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img
 
 echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/kva.png></div>";
 
-echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/level.png></div>";
+//level
 
-if($btcadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/btc.png></div>";
-}
+$levelnum=$giftasset['LEVEL'];
+
+if(!$levelnum){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/level.png></div>";}
+
+if($levelnum>0){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/leveld.png></div>";}
+
+if($levelnum>100){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelc.png></div>";}
+
+if($levelnum>1000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelb.png></div>";}
+
+if($levelnum>10000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levela.png></div>";}
+
+if($levelnum>1000000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levels.png></div>";}
+
+echo $level;
+
+
+if($btcadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/btc.png></div>";}
 
 if($ethadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/eth.png></div>";}
 
