@@ -310,7 +310,7 @@ $fer=0;
 			If($key=="ETHEREUM"){$ethadd=$value;}
 			If($key=="MONERO"){$xmradd=$value;}
 			If($key=="ANN"){$ann=$value;}
-			If($key=="ASSISTANT"){$assistant=$value;}
+			If($key=="ASSISTANT"){$assistant=trim(strip_tags(strtoupper($value)));}
 			If($key=="BITDOGE"){$bitdoge=$value;}
 			If($key=="WSB"){$wsb=$value;}
 			If($key=="TIA"){$tia=$value;}

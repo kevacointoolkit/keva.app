@@ -55,7 +55,9 @@ $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
 
-if(!$giftasset[$assistant])
+$assistantasset="KEVA.APP/CYBER/".$assistant;
+
+if(!$giftasset[$assistantasset])
 
 		{
 
@@ -63,7 +65,7 @@ if(!$giftasset[$assistant])
 
 			{
 
-			
+	
 
 			if($gift=="KEVA.APP/CYBER/DOGE"){$vbitdoge=4;}
 
@@ -72,8 +74,6 @@ if(!$giftasset[$assistant])
 			if($gift=="KEVA.APP/CYBER/BITDOGE.RAVEN"){$vbitdoge=2;}
 
 			if($gift=="KEVA.APP/CYBER/BITDOGE"){$vbitdoge=1;}
-
-
 
 			if($gift=="KEVA.APP/CYBER/TIA"){$vtia=1;}
 
@@ -88,6 +88,8 @@ if(!$giftasset[$assistant])
 			if($gift=="KEVA.APP/CYBER/PENCHAN"){$vpenchan=1;}
 
 			if($gift=="KEVA.APP/CYBER/GOLDEN"){$vgolden=1;}
+
+			 
 
 			}
 
