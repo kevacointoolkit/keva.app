@@ -26,6 +26,10 @@ if(!$gname){if(isset($_REQ["gname"])){$gnamer=hex2bin($_REQ["gname"]);}else{$gna
 
 $gnamer=str_replace("{\"displayName\":\"","",$gnamer);$gnamer=str_replace("\"}","",$gnamer);
 
+
+
+
+
 ?>
 
 
@@ -50,6 +54,8 @@ $child="";
 $childx="";
 $childy="";
 
+
+
 foreach ($listasset as $k=>$v) 
 
 			{
@@ -60,9 +66,12 @@ foreach ($listasset as $k=>$v)
 
 			$arrm["key"]=$key;
 			$arrm["value"]=hex2bin($value);
-			
+
+			$arrm["height"]=$heightx;
+
 			array_push($totalmind,$arrm);
 			}
+
 
 
 			asort($totalmind);
@@ -74,6 +83,8 @@ $kn=0;
 $ktotal=count($totalmind);
 
 
+$gblock= $kpc->getblockcount();
+
 foreach ($totalmind as $n=>$m) 
 
 	{
@@ -83,6 +94,10 @@ foreach ($totalmind as $n=>$m)
 			$valuex=trim(str_replace("\n","",$value));
 
 			if($_REQ["sort"]==1){$valuex=$key." ".$valuex;}
+
+			$gnew=$gblock-$height;
+
+			if($gnew<3000){$valuex=$valuex."\",borderColor:\"red\",fontColor:\"red";}
 
 //0
 			
@@ -376,3 +391,5 @@ if($kn==$ktotal & strlen($key)=="3"){echo "},";}
         }
     }
 </script>
+
+
