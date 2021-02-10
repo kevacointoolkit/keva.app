@@ -522,6 +522,9 @@ echo "</table>";
 
  ?>
 <br><br>
- Share your Kevacoin Electrumx Server Node with #kevanode
+ Share your Kevacoin Electrumx Server Node with #kevanode and earn kva.
+ <br><br>
+
+ How to build a kevacoin node? Here is a link: <a href=https://keva.app/?62493681>https://keva.app/?62493681</a>
 
  </body>
