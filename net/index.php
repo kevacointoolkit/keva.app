@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Ping for PHP.
  *
@@ -396,7 +397,7 @@ $latency = $ping->ping();
 
 
 
-echo "<tr height=50><td width=160>Kevacoin Server</td><td width=50 align=center>Status</font></td><td width=100 align=right>Latency</td><td width=100 align=center>IPFS</td></tr><tr><td>";
+echo "<tr height=50><td width=160>Kevacoin Server</td><td width=50 align=center>Status</font></td><td width=100 align=right>Latency*</td><td width=100 align=center>IPFS</td></tr><tr><td>";
 
 echo $host;
 
@@ -490,7 +491,7 @@ echo "<tr><td>";
 echo $host;
 
 if ($latency !== false) {$latency=intval($latency);
- echo "</td><td align=center><font color=green>online</font></td><td align=right>".$latency." ms</td><td  align=center>X</td></tr>";
+ echo "</td><td align=center><font color=green>online</font></td><td align=right>".$latency." ms</td><td  align=center>-</td></tr>";
 }
 else {
   echo "</td><td width=100 align=center><font color=red>offline</font></td><td width=100></td></tr>";
@@ -508,7 +509,25 @@ echo "<tr><td>";
 echo $host;
 
 if ($latency !== false) {$latency=intval($latency);
- echo "</td><td align=center><font color=green>online</font></td><td align=right>".$latency." ms</td><td  align=center>6</td></tr>";
+ echo "</td><td align=center><font color=green>online</font></td><td align=right>".$latency." ms</td><td  align=center>-</td></tr>";
+}
+else {
+  echo "</td><td width=100 align=center><font color=red>offline</font></td><td width=100></td></tr>";
+}
+
+
+//server
+
+$host = '5.keva.app';
+$ping = new \JJG\Ping($host);
+$latency = $ping->ping();
+
+echo "<tr><td>";
+
+echo $host;
+
+if ($latency !== false) {$latency=intval($latency);
+ echo "</td><td align=center><font color=green>online</font></td><td align=right>".$latency." ms</td><td  align=center>5</td></tr>";
 }
 else {
   echo "</td><td width=100 align=center><font color=red>offline</font></td><td width=100></td></tr>";
@@ -525,6 +544,9 @@ echo "</table>";
  Share your Kevacoin Electrumx Server Node with #kevanode and earn kva.
  <br><br>
 
- How to build a kevacoin node? Here is a link: <a href=https://keva.app/?62493681>https://keva.app/?62493681</a>
+ How to build a kevacoin node? Here is a link: <a href=https://keva.app/?62493681 style="color: #28f428;">https://keva.app/?62493681</a>
+
+ <br><br>
+ *This latency is from server to server. There is a good app for testing latency in local. <a href=https://play.google.com/store/apps/details?id=com.maoux.ismyserveronline&hl=en_US&gl=US style="color: #28f428;">"Is My Server Online - Monitor your servers"</a>.
 
  </body>
