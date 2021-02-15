@@ -153,6 +153,8 @@ $ufee=0.9;
 
 //main
 
+
+
 	
 if(!$txid)
 
@@ -265,6 +267,8 @@ $fer=0;
 			If($key=="REWARD"){$reward=$value;}
 
 			if(substr($value,0,12)=="mimblewimble"){continue;}
+
+			if(substr($key,0,17)=="__WALLET_TRANSFER"){continue;}
 
 				//countdown
 
