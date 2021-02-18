@@ -324,6 +324,7 @@ $fer=0;
 			If($key=="TORORO"){$tororo=$value;}
 			If($key=="PENCHAN"){$penchan=$value;}
 			If($key=="GOLDEN"){$golden=$value;}
+			If($key=="PIP_BOY"){$pipboy=$value;}
 
 
 			

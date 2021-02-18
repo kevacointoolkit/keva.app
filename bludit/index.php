@@ -89,6 +89,8 @@ if(!$giftasset[$assistantasset])
 
 			if($gift=="KEVA.APP/CYBER/GOLDEN"){$vgolden=1;}
 
+			if($gift=="KEVA.APP/CYBER/PIP_BOY"){$vpipboy=1;}
+
 			 
 
 			}
@@ -115,7 +117,7 @@ if(!$giftasset[$assistantasset])
 
 			if($vbitdoge==3) {require('cyber/bitdoge.keva.php');}
 
-			if($vbitdoge==4) {require('cyber/doge.php');}
+			//if($vbitdoge==4) {require('cyber/doge.php');}
 
 			if($vtia==1) {require('cyber/tia.php');}
 
@@ -131,6 +133,8 @@ if(!$giftasset[$assistantasset])
 			if($vpenchan==1) {require('cyber/penchan.php');}
 
 			if($vgolden==1) {require('cyber/golden.php');}
+
+			if($vpipboy==1) {require('cyber/pipboy.php');}
 
 
 			
