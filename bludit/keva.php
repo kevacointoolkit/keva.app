@@ -295,7 +295,7 @@ $fer=0;
 			
 
 			
-
+			
 			
 
 			//pin
@@ -304,6 +304,7 @@ $fer=0;
 			If($key=="THEME"){$theme=trim(strip_tags($value));}
 			If($key=="MP3"){$mp3=trim(strip_tags($value));}
 			If($key=="RANDOM"){$rand=$value;}
+
 
 		
 
@@ -318,7 +319,7 @@ $fer=0;
 			If($key=="BITDOGE"){$bitdoge=$value;}
 			If($key=="WSB"){$wsb=$value;}
 			If($key=="TIA"){$tia=$value;}
-			If($key=="MODEL"){$model=$value;}
+			If($key=="MODEL"){$model=trim($value);}
 			If($key=="DOGECEO"){$dogeceo=$value;}
 			If($key=="HODLONAUT"){$hodlonaut=$value;}
 			If($key=="TORORO"){$tororo=$value;}
@@ -326,6 +327,8 @@ $fer=0;
 			If($key=="GOLDEN"){$golden=$value;}
 			If($key=="PIP_BOY"){$pipboy=$value;}
 
+
+	
 
 			
 
@@ -561,6 +564,30 @@ foreach ($totalass as $o=>$p)
 			$arr2["gnamex"]=$gnamex;
 			$arr2["mysp"]=$mysp;
 			$arr2["gtime"]=$gtime;
+
+			//asset
+
+			If($key=="ASSET")
+				
+			{
+			
+			if($rvnadd!=""){
+				
+				$giftassetx=$rpc->listassetbalancesbyaddress($rvnadd);
+
+				$arr2["value"]="Ravencoin address ".$rvnadd." assets list:<br>";
+
+				foreach($giftassetx as $giftx=>$giftnx)
+					{
+						
+					$arr2["value"]=$arr2["value"]."<br>".$giftx." (".$giftnx.")";
+
+					}
+			
+				$arr2["value"]=bin2hex($arr2["value"]);
+			}else{$arr2["value"]="No ravencoin asset in this address";}
+
+			}
 
 			//ipfs
 
