@@ -234,17 +234,7 @@ $fer=0;
 		
 			
 		
-		$error = $kpc->error;
-
-			if($error != "") 
-		
-					{
 	
-					echo "<p>&nbsp;&nbsp;Error list</p>";
-					exit;
-					}
-
-		
 
 		$pin="";
 
@@ -575,7 +565,7 @@ foreach ($totalass as $o=>$p)
 				
 				$giftassetx=$rpc->listassetbalancesbyaddress($rvnadd);
 
-				$arr2["value"]="Ravencoin address ".$rvnadd." assets list:<br>";
+				$arr2["value"]="Ravencoin assets list.<br>" ;
 
 				foreach($giftassetx as $giftx=>$giftnx)
 					{
@@ -583,7 +573,8 @@ foreach ($totalass as $o=>$p)
 					$arr2["value"]=$arr2["value"]."<br>".$giftx." (".$giftnx.")";
 
 					}
-			
+				$arr2["value"]=$arr2["value"]."<br><br>".$rvnadd;
+
 				$arr2["value"]=bin2hex($arr2["value"]);
 			}else{$arr2["value"]="No ravencoin asset in this address";}
 

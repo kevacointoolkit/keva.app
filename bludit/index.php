@@ -103,12 +103,15 @@ if(!$giftasset[$assistantasset])
 		}
 			if($vking!=""){require($vking); exit;}
 
+			
+			if($vpipboy==1) {require('cyber/pipboy.php');exit;}
+
 			if($vbitdoge!="" & $vtia==1){if(!$tia){$vtia=0;}else{$vbitdoge=0;}}
 
 
 			if($vtia==1 & $tia!="") {require('cyber/tia.php');exit;}
 
-
+			
 			
 			
 			if($vbitdoge==1) {require('cyber/bitdoge.php');}
@@ -134,7 +137,6 @@ if(!$giftasset[$assistantasset])
 
 			if($vgolden==1) {require('cyber/golden.php');}
 
-			if($vpipboy==1) {require('cyber/pipboy.php');}
 
 
 			
