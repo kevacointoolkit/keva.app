@@ -316,8 +316,10 @@ $fer=0;
 			If($key=="PENCHAN"){$penchan=$value;}
 			If($key=="GOLDEN"){$golden=$value;}
 			If($key=="PIP_BOY"){$pipboy=$value;}
-
-
+			If($key=="SLOT-A"){$slota=trim($value);}
+			If($key=="SLOT-B"){$slotb=trim($value);}
+			If($key=="SLOT-C"){$slotc=trim($value);}
+			If($key=="SLOT-D"){$slotd=trim($value);}
 	
 
 			
@@ -467,6 +469,91 @@ if($myspace!="")
 			}
 			
 
+
+//slota
+
+
+if($slota!=""){
+		
+		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+
+	if($pipboyslot[$slota]!="")
+
+
+			{
+		
+		$slotinfo = $rpc->getassetdata($slota);
+			
+					
+
+			
+
+					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
+
+						$arrz["heightx"]="9999999";
+						$arrz["key"]=$slota;
+						$arrz["adds"]=$addrone;
+						$arrz["value"]=bin2hex($slotimg);
+						$arrz["txx"]=$txone;
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]=$title;
+						$arrz["mysp"]=$comm;
+						$arrz["gtime"]=time();
+
+						
+						
+						}
+					if(!$knum){
+						array_push($totalass,$arrz);}
+				}
+
+			
+
+//slotb
+
+
+if($slotb!=""){
+		
+		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+
+	if($pipboyslot[$slotb]!="")
+
+
+			{
+		
+		$slotinfo = $rpc->getassetdata($slotb);
+			
+					
+
+			
+
+					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
+
+						$arrz["heightx"]="9999998";
+						$arrz["key"]=$slotb;
+						$arrz["adds"]=$addrone;
+						$arrz["value"]=bin2hex($slotimg);
+						$arrz["txx"]=$txone;
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]=$title;
+						$arrz["mysp"]=$comm;
+						$arrz["gtime"]=time();
+
+						
+						
+						}
+					if(!$knum){
+						array_push($totalass,$arrz);}
+				}
+
+
+			
+
+
 						arsort($totalass);
 		
 
@@ -495,6 +582,86 @@ if(!$reward){
 						
 						}
 
+
+//slotc
+
+
+if($slotc!=""){
+		
+		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+
+	if($pipboyslot[$slotc]!="")
+
+
+			{
+		
+		$slotinfo = $rpc->getassetdata($slotc);
+			
+					
+
+			
+
+					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
+
+						$arrz["heightx"]="";
+						$arrz["key"]=$slotc;
+						$arrz["adds"]=$addrone;
+						$arrz["value"]=bin2hex($slotimg);
+						$arrz["txx"]=$txone;
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]=$title;
+						$arrz["mysp"]=$comm;
+						$arrz["gtime"]=time();
+
+						
+						
+						}
+					
+						array_push($totalass,$arrz);
+				}
+
+
+//slotd
+
+
+if($slotd!=""){
+		
+		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+
+	if($pipboyslot[$slotd]!="")
+
+
+			{
+		
+		$slotinfo = $rpc->getassetdata($slotd);
+			
+					
+
+			
+
+					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
+
+						$arrz["heightx"]="";
+						$arrz["key"]=$slotd;
+						$arrz["adds"]=$addrone;
+						$arrz["value"]=bin2hex($slotimg);
+						$arrz["txx"]=$txone;
+						$arrz["gnamespace"]="";
+						$arrz["gnamex"]=$title;
+						$arrz["mysp"]=$comm;
+						$arrz["gtime"]=time();
+
+						
+						
+						}
+					
+						array_push($totalass,$arrz);
+				}
+
 		
 //unlock block
 
@@ -512,12 +679,17 @@ $unleft="If you want to load all block contents, you can send 1 keva to this nod
 						$arrz["gnamex"]="KEVA.APP ";
 						$arrz["mysp"]="";
 						$arrz["gtime"]="1579143600";
-if(!$knum){
+
+						if(!$knum){
 						array_push($totalass,$arrz);}
+
+
+
 						
 					
 	
-	
+
+
 
 
 
@@ -764,4 +936,3 @@ function letter_avatar($text)
 
 
 ?>
-
