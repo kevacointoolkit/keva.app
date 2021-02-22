@@ -468,6 +468,11 @@ if($myspace!="")
 
 			}
 			
+//chipcheck
+
+$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+
+if(!$pipboyslot["KEVA.APP/CHIP/IMAGE"]){$slota="";$slotb="";$slotc="";$slotd="";}else{$slotn=$pipboyslot["KEVA.APP/CHIP/IMAGE"];}
 
 
 //slota
@@ -475,14 +480,16 @@ if($myspace!="")
 
 if($slota!=""){
 		
-		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+	
+	
 
 
-
-	if($pipboyslot[$slota]!="")
+	if($pipboyslot[$slota]!="" & $slotn<>0)
 
 
 			{
+
+			$slotn=$slotn-1;
 		
 		$slotinfo = $rpc->getassetdata($slota);
 			
@@ -502,11 +509,11 @@ if($slota!=""){
 						$arrz["mysp"]=$comm;
 						$arrz["gtime"]=time();
 
-						
+						if(!$knum){
+						array_push($totalass,$arrz);}
 						
 						}
-					if(!$knum){
-						array_push($totalass,$arrz);}
+					
 				}
 
 			
@@ -516,15 +523,16 @@ if($slota!=""){
 
 if($slotb!=""){
 		
-		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
 
 
 
-	if($pipboyslot[$slotb]!="")
+
+	if($pipboyslot[$slotb]!="" & $slotn<>0)
 
 
 			{
-		
+
+			$slotn=$slotn-1;
 		$slotinfo = $rpc->getassetdata($slotb);
 			
 					
@@ -545,11 +553,12 @@ if($slotb!=""){
 
 						
 						
-						}
-					if(!$knum){
+								if(!$knum){
 						array_push($totalass,$arrz);}
+						
+						}
+					
 				}
-
 
 			
 
@@ -588,15 +597,14 @@ if(!$reward){
 
 if($slotc!=""){
 		
-		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+	
 
-
-
-	if($pipboyslot[$slotc]!="")
+	if($pipboyslot[$slotc]!="" & $slotn<>0)
 
 
 			{
-		
+
+			$slotn=$slotn-1;
 		$slotinfo = $rpc->getassetdata($slotc);
 			
 					
@@ -616,10 +624,11 @@ if($slotc!=""){
 						$arrz["gtime"]=time();
 
 						
+						if(!$knum){
+						array_push($totalass,$arrz);}
 						
 						}
 					
-						array_push($totalass,$arrz);
 				}
 
 
@@ -627,15 +636,15 @@ if($slotc!=""){
 
 
 if($slotd!=""){
-		
-		$pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
+	
 
 
-
-	if($pipboyslot[$slotd]!="")
+	if($pipboyslot[$slotd]!="" & $slotn<>0)
 
 
 			{
+
+			$slotn=$slotn-1;
 		
 		$slotinfo = $rpc->getassetdata($slotd);
 			
@@ -657,10 +666,13 @@ if($slotd!=""){
 
 						
 						
+							if(!$knum){
+						array_push($totalass,$arrz);}
+						
 						}
 					
-						array_push($totalass,$arrz);
 				}
+
 
 		
 //unlock block
