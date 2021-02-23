@@ -104,7 +104,7 @@ if(!$giftasset[$assistantasset])
 			if($vking!=""){require($vking); exit;}
 
 			
-			if($vpipboy==1) {require('cyber/pipboy.php');exit;}
+			
 
 			if($vbitdoge!="" & $vtia==1){if(!$tia){$vtia=0;}else{$vbitdoge=0;}}
 
@@ -114,31 +114,31 @@ if(!$giftasset[$assistantasset])
 			
 			
 			
-			if($vbitdoge==1) {require('cyber/bitdoge.php');}
+			if($vbitdoge==1) {$pipoff=1;require('cyber/bitdoge.php');exit;}
 
-			if($vbitdoge==2) {require('cyber/bitdoge.raven.php');}
+			if($vbitdoge==2) {$pipoff=1;require('cyber/bitdoge.raven.php');exit;}
 
-			if($vbitdoge==3) {require('cyber/bitdoge.keva.php');}
+			if($vbitdoge==3) {$pipoff=1;require('cyber/bitdoge.keva.php');exit;}
 
-			//if($vbitdoge==4) {require('cyber/doge.php');}
+			if($vbitdoge==4) {$pipoff=1;require('cyber/doge.php');exit;}
 
-			if($vtia==1) {require('cyber/tia.php');}
+			if($vtia==1) {$pipoff=1;require('cyber/tia.php');exit;}
 
-			if($vwsb==1) {require('cyber/wsb.php');}
+			if($vwsb==1) {$pipoff=1;require('cyber/wsb.php');exit;}
 
-			if($vdogeceo==1) {require('cyber/dogeceo.php');}
+			if($vdogeceo==1) {$pipoff=1;require('cyber/dogeceo.php');exit;}
 
 			
-			if($vhodlonaut==1) {require('cyber/hodlonaut.php');}
+			if($vhodlonaut==1) {$pipoff=1;require('cyber/hodlonaut.php');exit;}
 
-			if($vtororo==1) {require('cyber/tororo.php');}
+			if($vtororo==1) {$pipoff=1;require('cyber/tororo.php');exit;}
 
-			if($vpenchan==1) {require('cyber/penchan.php');}
+			if($vpenchan==1) {$pipoff=1;require('cyber/penchan.php');exit;}
 
-			if($vgolden==1) {require('cyber/golden.php');}
+			if($vgolden==1) {$pipoff=1;require('cyber/golden.php');exit;}
 
 
-
+			if($vpipboy==1) {require('cyber/pip_boy.php');exit;}
 			
 
 	}
