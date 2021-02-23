@@ -196,7 +196,68 @@ $fer=0;
 
 		if($unlock=="0"){
 
-		 $info= $kpc->keva_filter($asset,"",60000);}else{$info= $kpc->keva_filter($asset,"",60000000);}
+
+		//power check
+
+		$rvncheck=$kpc->keva_get($asset,"RAVENCOIN");
+
+		if(!$rvncheck["value"]){
+
+		 $info= $kpc->keva_filter($asset,"",60000);}
+
+		 else
+			{
+			
+			$rvnadd=$rvncheck["value"];
+
+			$pipboypower=$rpc->listassetbalancesbyaddress($rvnadd);
+
+
+			if($pipboypower["KEVA.APP/CHIP/POWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="")
+				
+			{ 
+				if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="")
+					
+				{
+				
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]+$pipboypower["KEVA.APP/CHIP/SUPERPOWER"]*10000+60000;
+
+				$poweradd=$powercount-60000;
+
+				$poweradd=$poweradd." POWER";
+				$info= $kpc->keva_filter($asset,"",$powercount);
+				
+				}
+
+				else{$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]+60000;
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$info= $kpc->keva_filter($asset,"",$powercount);}
+				}
+			
+
+			if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="" & !$info)
+				
+			{ 
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]*10000+60000;
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$info= $kpc->keva_filter($asset,"",$powercount);
+				}
+			
+
+
+
+				 if(!$info)	{
+
+				 $info= $kpc->keva_filter($asset,"",60000);}
+
+			
+		 
+			}
+		 
+		 
+		 
+		 
+		 }else{$info= $kpc->keva_filter($asset,"",60000000);}
 		 
 		 
 		 }
@@ -472,7 +533,7 @@ if($myspace!="")
 
 $pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
 
-if(!$pipboyslot["KEVA.APP/CHIP/IMAGE"]){$slota="";$slotb="";$slotc="";$slotd="";}else{$slotn=$pipboyslot["KEVA.APP/CHIP/IMAGE"];}
+if($pipboyslot["KEVA.APP/CHIP/IMAGE"]!="" & !$pipboyslot["KEVA.APP/CYBER/PIPBOY"]!=""){$slotn=$pipboyslot["KEVA.APP/CHIP/IMAGE"];}else{$slota="";$slotb="";$slotc="";$slotd="";}
 
 
 //slota
@@ -678,7 +739,7 @@ if($slotd!=""){
 //unlock block
 
 if($unlock=="1"){$unleft="LOAD ALL BLOCKS SUCCESS (".count($totalass)." CONTENTS TOTAL). TIME LEFT ".$unlockleft." BLOCKS ( ".($unlockleft*2)." Mins ) FOR ALL TO READ.";}else{
-$unleft="If you want to load all block contents, you can send 1 keva to this node address, then click this button <button onClick=\"window.location.reload();\">Refresh Page</button>. You can also download kevacoin wallet free to load all.(<a href=https://apps.apple.com/us/app/kevacoin-wallet/id1515670405?ls=1>ios</a>/<a href=https://play.google.com/store/apps/details?id=org.kevacoin.kevawallet>android</a>/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
+$unleft="LOAD 60000+".$poweradd." BLOCKS. If you want to load all block contents, you can send 1 keva to this node address, then click this button <button onClick=\"window.location.reload();\">Refresh Page</button>. You can also download kevacoin wallet free to load all.(<a href=https://apps.apple.com/us/app/kevacoin-wallet/id1515670405?ls=1>ios</a>/<a href=https://play.google.com/store/apps/details?id=org.kevacoin.kevawallet>android</a>/<a href=https://github.com/kevacoin-project/keva_wallet/releases>apk</a>)</a>";}
 
 		$unlockinfo=$unleft."<br><br><img src=/bludit/qr.php?v=".$shopaddress."><br><br>".$shopaddress;
 
