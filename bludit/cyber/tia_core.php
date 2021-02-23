@@ -27,13 +27,13 @@ if(!$levelnum){$level="<div style=\"width:110px; height:auto; float:left; displa
 
 if($levelnum>0){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/leveld.png></div>";}
 
-if($levelnum>100){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelc.png></div>";}
+if($levelnum>99){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelc.png></div>";}
 
-if($levelnum>1000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelb.png></div>";}
+if($levelnum>999){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levelb.png></div>";}
 
-if($levelnum>10000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levela.png></div>";}
+if($levelnum>9999){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levela.png></div>";}
 
-if($levelnum>1000000){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levels.png></div>";}
+if($levelnum>999999){$level="<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/levels.png></div>";}
 
 echo $level;
 
@@ -497,16 +497,76 @@ if($_REQUEST["time"]!="on"){echo "initTips();";}
 		
 			
 
+
+
 			
 
-			$uinfo= $kpc->keva_filter($assetadd,"",720);
+				 $uinfo= $kpc->keva_filter($assetadd,"",10);
+
+			
+
+			
 
 			
 			//words
 
 			//check np
 
-			if(count($uinfo)<1){$uinfo= $kpc->keva_filter($assetadd,"",21000);}
+			if(count($uinfo)<1){
+			
+			//power check
+
+		$arvncheck=$kpc->keva_get($assetadd,"RAVENCOIN");
+
+		if(!$arvncheck["value"]){
+
+		 $uinfo= $kpc->keva_filter($assetadd,"",21000);}
+
+		 else
+			{
+
+			$pipboypower=$rpc->listassetbalancesbyaddress($arvncheck["value"]);
+
+
+			if($pipboypower["KEVA.APP/CHIP/POWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="")
+				
+			{ 
+				if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="")
+					
+					{
+				
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]+$pipboypower["KEVA.APP/CHIP/SUPERPOWER"]*10000;
+
+				
+
+				$poweradd=$poweradd." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);
+				
+					}
+
+				else
+					{$powercount=$pipboypower["KEVA.APP/CHIP/POWER"];
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);}
+
+				}
+			
+
+			if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="" & !$uinfo)
+				
+				{ 
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]*10000;
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);
+				}
+			
+				
+				if(!$uinfo){$uinfo= $kpc->keva_filter($assetadd,"",21000);}
+				
+			}
+				
+				
+				}
 
 			//check np again
 			
@@ -519,7 +579,7 @@ if($_REQUEST["time"]!="on"){echo "initTips();";}
 									
 								$words=$uword['value'];
 
-								echo $words;
+								echo trim($words);
 
 								}
 							}
@@ -565,7 +625,7 @@ var items=[<?php if(is_numeric($tia)==true)
 
 				
 
-				If(stristr($key,"_KEVA_NS_") == true or $key=="SYSWORDS" or $key==$bdo or $key=="ANN" or substr($value,0,12)=="mimblewimble"){continue;}
+				If(stristr($key,"_KEVA_NS_") == true or $key=="SYSWORDS" or $key==$bdo or $key=="ANN" or substr($value,0,12)=="mimblewimble" or $key=="THEME" or $key=="MODEL"){continue;}
 
 				
 				$key=str_replace("'", '&#8217;', $key);

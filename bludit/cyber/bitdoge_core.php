@@ -134,7 +134,65 @@ echo "/bludit/?asset=".$assetadd; ?>")},"KEVA APK":function(){window.open("https
 
 			//check np
 
-			if(count($uinfo)<1){$uinfo= $kpc->keva_filter($assetadd,"",21000);}
+			if(count($uinfo)<1){
+
+
+//power check
+
+		$arvncheck=$kpc->keva_get($assetadd,"RAVENCOIN");
+
+		if(!$arvncheck["value"]){
+
+		 $uinfo= $kpc->keva_filter($assetadd,"",21000);}
+
+		 else
+			{
+
+			$pipboypower=$rpc->listassetbalancesbyaddress($arvncheck["value"]);
+
+
+			if($pipboypower["KEVA.APP/CHIP/POWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="")
+				
+			{ 
+				if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="")
+					
+					{
+				
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]+$pipboypower["KEVA.APP/CHIP/SUPERPOWER"]*10000;
+
+				
+
+				$poweradd=$poweradd." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);
+				
+					}
+
+				else
+					{$powercount=$pipboypower["KEVA.APP/CHIP/POWER"];
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);}
+
+				}
+			
+
+			if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="" & !$uinfo)
+				
+				{ 
+				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]*10000;
+				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$uinfo= $kpc->keva_filter($assetadd,"",$powercount);
+				}
+			
+				
+				if(!$uinfo){$uinfo= $kpc->keva_filter($assetadd,"",21000);}
+				
+			}
+				
+
+
+
+
+}
 
 			//check np again
 			
@@ -174,7 +232,7 @@ echo "/bludit/?asset=".$assetadd; ?>")},"KEVA APK":function(){window.open("https
 
 			If($key=="_KEVA_NS_"){continue;}
 
-			If($key=="SYSWORDS" or $key=="BITDOGE"){continue;}
+			If($key=="SYSWORDS" or $key=="BITDOGE"  or $key=="THEME" or $key=="MODEL"){continue;}
 			
 			
 			if(substr($value,0,12)=="mimblewimble"){continue;}
