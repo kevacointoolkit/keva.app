@@ -99,6 +99,9 @@ if(!$giftasset[$assistantasset])
 		{
 		
 		$vking="cyber/".strtolower($assistant).".php";
+
+		if($giftasset["KEVA.APP/CHIP/INVISIBLE"]!="" & $assistant=="PIP_BOY")
+			{$vking="";}
 		
 		}
 			if($vking!=""){require($vking); exit;}
