@@ -381,6 +381,7 @@ $fer=0;
 			If($key=="SLOT-B"){$slotb=trim($value);}
 			If($key=="SLOT-C"){$slotc=trim($value);}
 			If($key=="SLOT-D"){$slotd=trim($value);}
+			If($key=="INVISIBLE"){$invisible=trim($value);}
 	
 
 			
@@ -778,6 +779,9 @@ $unleft="LOAD 60000+".$poweradd." BLOCKS. If you want to load all block contents
 $arr2=array();
 $totalass2=array();
 
+echo "<script>window.onload=function(){var id = document.getElementById(\loading\");setTimeout(function(){document.body.removeChild(id)},1000);}</script>";
+ 
+
 foreach ($totalass as $o=>$p) 
 
 			{
@@ -814,11 +818,19 @@ foreach ($totalass as $o=>$p)
 
 				foreach($giftassetx as $giftx=>$giftnx)
 					{
+					
+						$listinfo = $rpc->getassetdata($giftx);
+			
+	
+		
+						$kimg="<img width=20 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/no.jpg'\">";
 						
-					$arr2["value"]=$arr2["value"]."<br>".$giftx." (".$giftnx.")";
+						
+					
+					$arr2["value"]=$arr2["value"]."<br>".$kimg." ".$giftx." (".$giftnx.")";
 
 					}
-				$arr2["value"]=$arr2["value"]."<br><br>".$rvnadd;
+				$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
 
 				$arr2["value"]=bin2hex($arr2["value"]);
 			}else{$arr2["value"]="No ravencoin asset in this address";}

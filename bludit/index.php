@@ -51,6 +51,12 @@ if($rvnadd!="")
 	{
 
 
+//airdrop
+
+//echo $listasset[0]["heightx"]."fsdfsd";
+
+//assistant
+
 $giftasset=$rpc->listassetbalancesbyaddress($rvnadd);
 
 if($_REQUEST["assistant"]!=""){$assistant=$_REQUEST["assistant"];}
@@ -100,7 +106,7 @@ if(!$giftasset[$assistantasset])
 		
 		$vking="cyber/".strtolower($assistant).".php";
 
-		if($giftasset["KEVA.APP/CHIP/INVISIBLE"]!="" & $assistant=="PIP_BOY")
+		if($giftasset["KEVA.APP/CHIP/INVISIBLE"]!="" & $assistant=="PIP_BOY" & !$invisible)
 			{$vking="";}
 		
 		}
