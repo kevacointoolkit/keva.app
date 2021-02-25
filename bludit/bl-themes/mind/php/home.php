@@ -62,7 +62,7 @@ foreach ($listasset as $k=>$v)
 			
 			extract($v);
 
-			if($gtime=="1579143600" or $gtime=="1231006505" or $key=="THEME"){continue;}
+			if($gtime=="1579143600" or $gtime=="1231006505" or $key=="THEME" or $key=="ASSISTANT" or $key=="RAVENCOIN"){continue;}
 
 			$arrm["key"]=$key;
 			$arrm["value"]=hex2bin($value);
