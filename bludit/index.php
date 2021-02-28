@@ -72,7 +72,7 @@ if($nowblockcheck<10080)
 		$farr=array();
 		$ftotal=array();
 
-		$checkaddress= $kpc->listtransactions("credit",10080);
+		$checkaddress= $kpc->listtransactions("credit",5040);
 
 			foreach($checkaddress as $freetx)
 
@@ -107,7 +107,7 @@ if($nowblockcheck<10080)
 						 {
 								 $eventa=1;
 
-							if($findadd['fcon']>0)
+							if($findadd['fcon']>720)
 
 								{
 
@@ -157,7 +157,7 @@ $eventroll=rand(1,10000);
 		$cardd="KEVA.APP/CYBER/GOLDEN";
 
 
-		if($eventroll>7000){
+		if($eventroll>4000){
 
 		$bonuschip=$rpc->transfer($carda,1,$rvnadd);}else
 		{$bonuschip=$rpc->transfer($cardb,1,$rvnadd);}
