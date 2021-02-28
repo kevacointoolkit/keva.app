@@ -212,6 +212,13 @@ $fer=0;
 
 			$pipboypower=$rpc->listassetbalancesbyaddress($rvnadd);
 
+			//rgb
+			
+			if($pipboypower["KEVA.APP/CHIP/RGB"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!=""){$rgb="class=\"namergb\"";}
+			
+
+			//power
+
 
 			if($pipboypower["KEVA.APP/CHIP/POWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="")
 				
@@ -382,6 +389,7 @@ $fer=0;
 			If($key=="SLOT-C"){$slotc=trim($value);}
 			If($key=="SLOT-D"){$slotd=trim($value);}
 			If($key=="INVISIBLE"){$invisible=trim($value);}
+			If($key=="RGB"){$rgb="";}
 	
 
 			
@@ -536,6 +544,7 @@ $pipboyslot=$rpc->listassetbalancesbyaddress($rvnadd);
 
 if($pipboyslot["KEVA.APP/CHIP/IMAGE"]!="" & !$pipboyslot["KEVA.APP/CYBER/PIPBOY"]!=""){$slotn=$pipboyslot["KEVA.APP/CHIP/IMAGE"];}else{$slota="";$slotb="";$slotc="";$slotd="";}
 
+$kevablock= $kpc->getblockcount();
 
 //slota
 
@@ -561,7 +570,7 @@ if($slota!=""){
 
 					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
 
-						$arrz["heightx"]="9999999";
+						$arrz["heightx"]=$kevablock+100000000;
 						$arrz["key"]=$slota;
 						$arrz["adds"]=$addrone;
 						$arrz["value"]=bin2hex($slotimg);
@@ -603,7 +612,7 @@ if($slotb!=""){
 
 					$slotimg="<img src=https://ravencoin.asset-explorer.net/ipfs/".$slotinfo["ipfs_hash"].">";
 
-						$arrz["heightx"]="9999998";
+						$arrz["heightx"]=$kevablock+100000000;
 						$arrz["key"]=$slotb;
 						$arrz["adds"]=$addrone;
 						$arrz["value"]=bin2hex($slotimg);
@@ -815,6 +824,8 @@ foreach ($totalass as $o=>$p)
 				$giftassetx=$rpc->listassetbalancesbyaddress($rvnadd);
 
 				$arr2["value"]="Ravencoin assets list.<br>" ;
+
+				
 
 				foreach($giftassetx as $giftx=>$giftnx)
 					{

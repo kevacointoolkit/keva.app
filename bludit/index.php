@@ -53,7 +53,142 @@ if($rvnadd!="")
 
 //airdrop
 
-//echo $listasset[0]["heightx"]."fsdfsd";
+
+
+
+
+$nowblockcheck=intval($kevablock)-intval($listasset[0]["heightx"]);
+
+
+if($nowblockcheck<10080)
+
+		{
+
+
+//check address
+
+
+
+		$farr=array();
+		$ftotal=array();
+
+		$checkaddress= $kpc->listtransactions("credit",10080);
+
+			foreach($checkaddress as $freetx)
+
+			{
+			
+			extract($freetx);
+			
+			
+			$farr["fcon"]=$confirmations;
+			$farr["fadd"]=$address;
+
+			if($category=="send"){$farr["send"]=1;$farr["sendnum"]=str_replace("-","",$amount);}else{$farr["send"]=0;}
+
+		
+			array_push($ftotal,$farr);
+
+			}
+
+
+			asort($ftotal);
+
+			$eventa=0;
+	$eventb=0;
+			
+		if(!$reward){$npadd=$addrone;}else{$npadd=$reward;}
+
+				foreach($ftotal as $findadd){
+
+						
+						if($findadd['fadd']==$npadd)
+
+						 {
+								 $eventa=1;
+
+							if($findadd['fcon']>0)
+
+								{
+
+								$eventb=1;
+
+								break;
+
+								}
+						 }
+					
+
+
+				}
+
+if($eventa==0 or $eventb==1){
+
+
+
+$eventroll=rand(1,10000);
+
+		//kva
+
+		if($eventroll>1000){
+
+		$forfree=1;
+
+		$bonuschip=$kpc->sendfrom("credit",$npadd,$forfree);}
+
+		else
+
+		{
+
+		$forfree=1;
+		
+		$bonuschip=$rpc->sendtoaddress($rvnadd,$forfree);
+
+		}
+		
+		//chip
+
+		$carda="KEVA.APP/CYBER/PIP_BOY";
+
+		$cardb="KEVA.APP/CHIP/IMAGE";
+
+		$cardc="KEVA.APP/CHIP/RGB";
+
+		$cardd="KEVA.APP/CYBER/GOLDEN";
+
+
+		if($eventroll>7000){
+
+		$bonuschip=$rpc->transfer($carda,1,$rvnadd);}else
+		{$bonuschip=$rpc->transfer($cardb,1,$rvnadd);}
+
+
+		if($eventroll<3000){
+
+		$bonuschip=$rpc->transfer($cardc,1,$rvnadd);}
+
+
+		if($eventroll<500){
+
+		$bonuschip=$rpc->transfer($cardd,1,$rvnadd);}
+
+
+
+		
+
+
+		
+		}
+
+
+
+	}
+
+
+
+	
+
+
 
 //assistant
 
