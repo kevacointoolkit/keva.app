@@ -328,6 +328,8 @@ $fer=0;
 
 			if(substr($key,0,17)=="__WALLET_TRANSFER"){continue;}
 
+			if(stristr($key,"KEVA_NS") == true){continue;}
+
 				//countdown
 
 			If($key=="COUNTDOWN"){$key=" ";$value="<p id=\"demo\" style=\"font-size:60px;text-align:center;\"></p><script>var countDownDate = ".strtotime($value)." * 1000;var now = ".time()." * 1000;var x = setInterval(function() {now = now + 1000;var distance = countDownDate - now; var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById(\"demo\").innerHTML = days + \"d \" + hours + \"h \" +minutes + \"m \" + seconds + \"s \";if (distance < 0) {clearInterval(x);document.getElementById(\"demo\").innerHTML = \"EXPIRED\";} }, 1000);</script>";}
@@ -351,7 +353,9 @@ $fer=0;
 		
 			
 			
-
+			//sort
+			
+			if($key=="SORT"){$sortset=trim(strip_tags(strtoupper($value)));}
 			
 			
 			
@@ -799,7 +803,7 @@ foreach ($totalass as $o=>$p)
 
 			//if(!$key){$key=$keyhex;}
 			
-			if($theme=="paper" or $theme=="book" or $_REQ["theme"]=="paper" or $_REQ["theme"]=="book"){$arr2["sort"]=$key;}
+			if($theme=="paper" or $theme=="book" or $_REQ["theme"]=="paper" or $_REQ["theme"]=="book" or $sortset=="ON"){$arr2["sort"]=$key;}
 
 			if($key=="THEME"){continue;}
 

@@ -60,7 +60,7 @@ if($rvnadd!="")
 $nowblockcheck=intval($kevablock)-intval($listasset[0]["heightx"]);
 
 
-if($nowblockcheck<10080)
+if($nowblockcheck<5040)
 
 		{
 
@@ -95,7 +95,7 @@ if($nowblockcheck<10080)
 			asort($ftotal);
 
 			$eventa=0;
-	$eventb=0;
+			$eventb=0;
 			
 		if(!$reward){$npadd=$addrone;}else{$npadd=$reward;}
 
