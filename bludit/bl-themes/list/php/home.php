@@ -139,7 +139,7 @@ $value=hex2bin($value);
 		
 			 <div class="item">
 		<div class="m-box">
-			<div class="m-list"><h4 class="title"><?php echo $key; ?></h4><h6 class="card-subtitle mb-3 text-muted"><?php echo date('Y-m-d H:i',$gtime); ?> - <?php echo "<a href=?theme=".$_REQUEST["theme"]."&asset=".$gnamespace."&gname=".bin2hex($gnamex).">".$gnamex."</a>"; ?></h6>
+			<div class="m-list"><h4 class="title"><?php echo $key; ?></h4><h6 class="card-subtitle mb-3 text-muted"><?php echo date('Y-m-d H:i',$gtime); ?> - <span <?php echo $rgb; ?>><?php echo $gnamex; ?></span></h6>
 			</div>
 		
 
