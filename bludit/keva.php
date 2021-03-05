@@ -334,6 +334,8 @@ $fer=0;
 
 			If($key=="COUNTDOWN"){$key=" ";$value="<p id=\"demo\" style=\"font-size:60px;text-align:center;\"></p><script>var countDownDate = ".strtotime($value)." * 1000;var now = ".time()." * 1000;var x = setInterval(function() {now = now + 1000;var distance = countDownDate - now; var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById(\"demo\").innerHTML = days + \"d \" + hours + \"h \" +minutes + \"m \" + seconds + \"s \";if (distance < 0) {clearInterval(x);document.getElementById(\"demo\").innerHTML = \"EXPIRED\";} }, 1000);</script>";}
 
+			
+
 			//four digits not support hex2bin
 
 			$arr["heightx"]=$height;
@@ -837,19 +839,44 @@ foreach ($totalass as $o=>$p)
 						$listinfo = $rpc->getassetdata($giftx);
 			
 	
+						if($theme=="asset" or $_REQ["theme"]=="asset"){
+						
 		
-						$kimg="<img width=20 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/no.jpg'\">";
+						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img width=100 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftx."\" /></a></li>";
 						
 						
 					
-					$arr2["value"]=$arr2["value"]."<br>".$kimg." ".$giftx." (".$giftnx.")";
+						$arr2["value"]=$arr2["value"]." ".$kimg;
+
+						}
+
+						else
+
+						{
+
+						$kimg="<img width=20 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/no.jpg'\">";
+						
+					
+						$arr2["value"]=$arr2["value"]."<br>".$kimg." ".$giftx." (".$giftnx.")";
+
+						}
 
 					}
-				$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
 
-				$arr2["value"]=bin2hex($arr2["value"]);
-			}else{$arr2["value"]="No ravencoin asset in this address";}
+					$assetvalue=$arr2["value"];
+					$assetvalue=str_replace("Ravencoin assets list.<br>","",$assetvalue);
 
+						$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
+
+						$arr2["value"]=bin2hex($arr2["value"]);
+
+						
+					}
+					
+					else
+					{$arr2["value"]="No ravencoin asset in this address";}
+
+	
 			}
 
 			//ipfs
@@ -904,7 +931,7 @@ foreach ($totalass as $o=>$p)
 
 					$value=str_replace($match[0],$ipfslk,$value);
 
-				
+					
 
 					$arr2["value"]=bin2hex($value);
 					
