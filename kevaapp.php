@@ -275,6 +275,9 @@ if(substr($comm,0,4)=="list") {$comm=str_replace("list","",$comm);$themeto="&the
 
 if(substr($comm,0,4)=="book") {$comm=str_replace("book","",$comm);$themeto="&theme=book";}
 
+
+if(substr($comm,0,3)=="nft") {$comm=str_replace("nft","",$comm);$themeto="&theme=asset";}
+
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
 
