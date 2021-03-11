@@ -335,6 +335,65 @@ $fer=0;
 			If($key=="COUNTDOWN"){$key=" ";$value="<p id=\"demo\" style=\"font-size:60px;text-align:center;\"></p><script>var countDownDate = ".strtotime($value)." * 1000;var now = ".time()." * 1000;var x = setInterval(function() {now = now + 1000;var distance = countDownDate - now; var days = Math.floor(distance / (1000 * 60 * 60 * 24));var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));var seconds = Math.floor((distance % (1000 * 60)) / 1000);document.getElementById(\"demo\").innerHTML = days + \"d \" + hours + \"h \" +minutes + \"m \" + seconds + \"s \";if (distance < 0) {clearInterval(x);document.getElementById(\"demo\").innerHTML = \"EXPIRED\";} }, 1000);</script>";}
 
 			
+						//proof of spacetime
+
+			if(is_numeric($key)==true & strlen($key)>4 & $value=="on")
+
+				{
+
+					$comm=$key;
+				
+					$blength=substr($comm , 0 , 1);
+					$block=substr($comm , 1 , $blength);
+					$btxn=$blength+1;
+					$btx=substr($comm , $btxn);
+
+
+
+
+
+					$blockhash= $kpc->getblockhash(intval($block));
+
+
+					$blockdata= $kpc->getblock($blockhash);
+
+
+					$txa=$blockdata['tx'][$btx];
+
+					if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
+
+				
+					$transaction= $kpc->getrawtransaction($txa,1);
+
+					foreach($transaction['vout'] as $vout)
+	   
+						  {
+
+					$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+					$arrv = explode(' ', $op_return); 
+
+					if($arrv[0] == 'OP_KEVA_NAMESPACE') 
+								{
+
+								 $cona=$arrv[0];
+								 $cons=$arrv[1];
+								 $conk=$arrv[2];
+								
+
+								}
+						  }
+				
+					$assetv=Base58Check::encode( $cons, false , 0 , false);
+
+					$vcode=$_REQ["scode"];
+				
+					$values=$kpc->keva_get($assetv,$vcode);
+
+					if(!$values["value"]){$value="Waiting for Proof of Key.";}else{$value=$values["value"];}
+				
+				}
 
 			//four digits not support hex2bin
 
@@ -359,7 +418,8 @@ $fer=0;
 			
 			if($key=="SORT"){$sortset=trim(strip_tags(strtoupper($value)));}
 			
-			
+
+
 			
 
 			//pin
@@ -842,7 +902,7 @@ foreach ($totalass as $o=>$p)
 						if($theme=="asset" or $_REQ["theme"]=="asset"){
 						
 		
-						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img width=100 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftx."\" /></a></li>";
+						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftx."\" /></a></li>";
 						
 						
 					
@@ -889,17 +949,17 @@ foreach ($totalass as $o=>$p)
 
 			if(!$ipfsr){
 
-			$linkrand=rand(1,4);
+			$linkrand=rand(1,9);
 
 			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			if($linkrand==2){$ipfsr="https://ipfs.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
+			if($linkrand==2){$ipfsr="https://hashnews.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
 			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
-			if($linkrand==4){$ipfsr="https://gateway.ravenland.org/ipfs/";$ipfsn="ravenland.org";}
-			//if($linkrand==5){$ipfsr="https://ipfs.eternum.io/";$ipfsn="eternum.io";}
-			//if($linkrand==6){$ipfsr="https://ipfs.globalupload.io/";$ipfsn="globalupload.io";}
-			//if($linkrand==7){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==8){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			//if($linkrand==9){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+			if($linkrand==4){$ipfsr="https://gateway.ipfs.io/ipfs/";$ipfsn="ipfs.io";}
+			if($linkrand==5){$ipfsr="https://ipfs.fleek.co/ipfs/";$ipfsn="fleek.co";}
+			if($linkrand==6){$ipfsr="https://ipfs.sloppyta.co/ipfs/";$ipfsn="sloppyta.co";}
+			if($linkrand==7){$ipfsr="https://ipfs.drink.cafe/ipfs/";$ipfsn="drink.cafe";}
+			if($linkrand==8){$ipfsr="https://ipfs.mihir.ch/ipfs/";$ipfsn="mihir.ch";}
+			if($linkrand==9){$ipfsr="https://ipfs.2read.net/ipfs/";$ipfsn="2read.net";}
 
 						}
 
