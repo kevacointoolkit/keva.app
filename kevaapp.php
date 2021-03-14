@@ -278,6 +278,8 @@ if(substr($comm,0,4)=="book") {$comm=str_replace("book","",$comm);$themeto="&the
 
 if(substr($comm,0,3)=="nft") {$comm=str_replace("nft","",$comm);$themeto="&theme=asset";}
 
+if(substr($comm,0,3)=="rpg") {$comm=str_replace("rpg","",$comm);$themeto="&theme=rpg";}
+
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
 
