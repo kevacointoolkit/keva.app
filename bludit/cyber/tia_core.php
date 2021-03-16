@@ -45,6 +45,14 @@ if($ethadd!=""){echo "<div style=\"width:110px; height:auto; float:left; display
 
 if($xmradd!=""){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/xmr.png></div>";}
 
+$carda="#RPG/#PIONEER";
+				
+                $gasset=$rpc->checkaddresstag($rvnadd,$carda);
+
+		
+
+				if($gasset=="true"){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/satoshi.png></div>";}
+
 
 
 
@@ -95,7 +103,7 @@ if($xmradd!=""){echo "<div style=\"width:110px; height:auto; float:left; display
 
 
 
-if($nuka==1){$nukanum=$giftasset['NUKA/COLA/CAP']; while($nukanum<>0){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/nuka.png></div>";$nukanum=$nukanum-1;}}
+if($nuka==1){$nukanum=$giftasset['NUKA/COLA/CAP'];if($nukanum>50){$nukanum=50;} while($nukanum<>0){echo "<div style=\"width:110px; height:auto; float:left; display:inline; \"><img src=/bludit/coin/nuka.png></div>";$nukanum=$nukanum-1;}}
 
 
 
@@ -501,7 +509,7 @@ if($_REQUEST["time"]!="on"){echo "initTips();";}
 
 			
 
-				 $uinfo= $kpc->keva_filter($assetadd,"",10);
+				 $uinfo= $kpc->keva_filter($assetadd,"",720);
 
 			
 
