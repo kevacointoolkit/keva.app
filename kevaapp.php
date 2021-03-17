@@ -95,11 +95,15 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 $forfree=$freeadd;
 
-$checkaddress= $kpc->listtransactions("credit",100);
+$checkaddress= $kpc->listtransactions("",100);
 
-$listaccount = $kpc->listaccounts();
+$listaccount = $kpc->getbalance();
 
-if($listaccount['credit']<1){echo "<script>alert('NO CREDIT AVAILABLE, PLEASE WAIT NEXT TIME. OR ASK SOMEONE TO SEND SOME TO 5982501 WITH APP (".$listaccount['credit'].")');history.go(-1);</script>";exit;}
+$listaccount=intval($listaccount);
+
+
+
+if($listaccount<1){echo "<script>alert('NO CREDIT AVAILABLE, PLEASE WAIT NEXT TIME. OR ASK SOMEONE TO SEND SOME TO 5982501 WITH APP (".$listaccount[''].")');history.go(-1);</script>";exit;}
 
 $ok=0;
 
@@ -184,11 +188,11 @@ $ok=0;
 							
 										
 
-										if($findadd['fcon']>30)
+										if($findadd['fcon']>300)
 
 											     {
 
-										$age= $kpc->sendfrom("credit",$forfree,$credit);
+										$age= $kpc->sendtoaddress($forfree,$credit);
 
 										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
 
@@ -202,7 +206,7 @@ $ok=0;
 								
 											    { 
 
-										$left=30-$findadd['fcon'];
+										$left=300-$findadd['fcon'];
 		
 									
 										echo "<script>alert('WAIT ".$left." BLOCKS (2min/block)');history.go(-1);</script>";
@@ -225,7 +229,7 @@ $ok=0;
 
 					if($ok=9)
 											
-									{$age= $kpc->sendfrom("credit",$forfree,$credit);
+									{$age= $kpc->sendtoaddress($forfree,$credit);
 											
 										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
 									}
