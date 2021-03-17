@@ -53,8 +53,9 @@ if($rvnadd!="")
 
 //airdrop
 
+/* */
 
-
+/*
 
 
 $nowblockcheck=intval($kevablock)-intval($listasset[0]["heightx"]);
@@ -72,7 +73,7 @@ if($nowblockcheck<5040)
 		$farr=array();
 		$ftotal=array();
 
-		$checkaddress= $kpc->listtransactions("credit",5040);
+		$checkaddress= $kpc->listtransactions("",5040);
 
 			foreach($checkaddress as $freetx)
 
@@ -134,7 +135,7 @@ $eventroll=rand(1,10000);
 
 		$forfree=1;
 
-		$bonuschip=$kpc->sendfrom("credit",$npadd,$forfree);}
+		$bonuschip=$kpc->sendtoaddress($npadd,$forfree);}
 
 		else
 
@@ -188,7 +189,7 @@ $eventroll=rand(1,10000);
 
 	
 
-
+*/
 
 //assistant
 
