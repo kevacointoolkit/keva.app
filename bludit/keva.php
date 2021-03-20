@@ -891,7 +891,42 @@ foreach ($totalass as $o=>$p)
 
 				$arr2["value"]="Ravencoin assets list.<br>" ;
 
-				
+				$giftassety=$rpc->listtagsforaddress($rvnadd);
+
+				//tag
+
+				foreach($giftassety as $gifty=>$giftny)
+					{
+					
+						$listinfo = $rpc->getassetdata($giftny);
+			
+	
+						if($theme=="asset" or $_REQ["theme"]=="asset"){
+						
+		
+						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$gifty."\" /></a></li>";
+						
+						
+					
+						$arr2["value"]=$arr2["value"]." ".$kimg;
+
+						}
+
+						else
+
+						{
+
+						$kimg="<img width=20 src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/no.jpg'\">";
+						
+					
+						$arr2["value"]=$arr2["value"]."<br>".$kimg." ".$giftny;
+
+						}
+
+					}
+
+					//asset
+
 
 				foreach($giftassetx as $giftx=>$giftnx)
 					{
