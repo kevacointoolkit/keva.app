@@ -904,7 +904,7 @@ foreach ($totalass as $o=>$p)
 						if($theme=="asset" or $_REQ["theme"]=="asset"){
 						
 		
-						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$gifty."\" /></a></li>";
+						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftny."\" /></a></li>";
 						
 						
 					
