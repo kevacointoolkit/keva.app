@@ -29,6 +29,37 @@ $freeadd=trim($_REQ["num"]);
 
 if(strlen($freeadd)==34 or substr($freeadd,0,1)=="v") {
 
+
+
+define('count_num','3');
+define('count_time','36000');
+session_start();
+$now_time = time();
+
+if ($_SESSION){
+    $last_time = $_SESSION['last_time'];
+    $times = $_SESSION['times'] + 1;
+    $_SESSION['times'] = $times;
+}else{
+    $last_time = $now_time;
+    $times = 1;
+    $_SESSION['times'] = $times;
+    $_SESSION['last_time'] = $last_time;
+}
+
+if(($now_time - $last_time) < count_time){ if ($times>=count_num){
+      echo "<script>alert('Wait next time.');history.go(-1);</script>";exit;
+    }
+}else{
+    $times = 0;
+    $_SESSION['last_time'] = $now_time;
+    $_SESSION['times'] = $times;
+
+}
+
+
+
+
 	if(substr($freeadd,0,1)=="v"){
 	
 	$freeadd=trim(str_replace("v","",$freeadd));
@@ -87,7 +118,7 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 						  }
 				
 		
-	}else{echo "<script>alert('NO SHORTCOAD AVAILABLE');history.go(-1);</script>";exit;}
+	}else{echo "<script>alert('NO SHORTCODE AVAILABLE');history.go(-1);</script>";exit;}
 	
 	}
 
@@ -95,7 +126,7 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 $forfree=$freeadd;
 
-$checkaddress= $kpc->listtransactions("",100);
+$checkaddress= $kpc->listtransactions("",200);
 
 $listaccount = $kpc->getbalance();
 
@@ -209,7 +240,7 @@ $ok=0;
 										$left=300-$findadd['fcon'];
 		
 									
-										echo "<script>alert('WAIT ".$left." BLOCKS (2min/block)');history.go(-1);</script>";
+										echo "<script>alert('WAIT ".$left." BLOCKS (2min/block) \u000a \u000aThis is only for beginer and emergency use. If you need more kva, please mining to supprt blockchain.');history.go(-1);</script>";
 										
 										   exit;
 
@@ -282,7 +313,13 @@ if(substr($comm,0,4)=="book") {$comm=str_replace("book","",$comm);$themeto="&the
 
 if(substr($comm,0,3)=="nft") {$comm=str_replace("nft","",$comm);$themeto="&theme=asset";}
 
-if(substr($comm,0,3)=="rpg") {$comm=str_replace("rpg","",$comm);$themeto="&theme=rpg";}
+if(substr($comm,0,3)=="rpg" or substr($comm,0,3)=="Rpg" ) {$comm=str_replace("rpg","",$comm);$comm=str_replace("Rpg","",$comm);$themeto="&theme=rpg";
+
+$rpg=1;
+
+
+
+}
 
 if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
 
@@ -347,6 +384,15 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
 
+
+
+//rpg
+
+if($rpg=="1") {
+
+$url ="https://rpg.keva.app/?gname=".$title."&scode=".$comm;echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
+
+}
 
 
 $url ="/bludit/?lang=".$themeto."&asset=".$asset."&scode=".$comm."&group=no&gname=".$title;
