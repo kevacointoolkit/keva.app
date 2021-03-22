@@ -370,6 +370,8 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 								 $cona=$arr[0];
 								 $cons=$arr[1];
 								 $conk=$arr[2];
+
+						$freeadd=$vout["scriptPubKey"]["addresses"][0];
 								
 
 								}
@@ -378,6 +380,12 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 				$asset=Base58Check::encode( $cons, false , 0 , false);
 
 			  $namespace=$kpc->keva_get($asset,"_KEVA_NS_");
+
+			  $rvncheck=$kpc->keva_get($asset,"RAVENCOIN");
+
+			  $dogecheck=$kpc->keva_get($asset,"DOGECOIN");
+
+		
 
 			  $title=bin2hex($namespace['value']);
 
@@ -390,7 +398,7 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 
 if($rpg=="1") {
 
-$url ="https://rpg.keva.app/?gname=".$title."&scode=".$comm;echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
+$url ="https://rpg.keva.app/?gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
 }
 
