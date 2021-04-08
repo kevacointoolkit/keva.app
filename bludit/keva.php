@@ -245,8 +245,9 @@ $fer=0;
 			if($pipboypower["KEVA.APP/CHIP/SUPERPOWER"]!="" & $pipboypower["KEVA.APP/CYBER/PIP_BOY"]!="" & !$info)
 				
 			{ 
-				$powercount=$pipboypower["KEVA.APP/CHIP/POWER"]*10000+60000;
-				$poweradd=$pipboypower["KEVA.APP/CHIP/POWER"]." POWER";
+				$powercount=$pipboypower["KEVA.APP/CHIP/SUPERPOWER"]*10000+60000;
+				$poweradd=10000*$pipboypower["KEVA.APP/CHIP/SUPERPOWER"]." SUPERPOWER =".$powercount;
+				
 				$info= $kpc->keva_filter($asset,"",$powercount);
 				}
 			
