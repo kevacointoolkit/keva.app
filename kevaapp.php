@@ -31,20 +31,89 @@ if(strlen($freeadd)==34 or substr($freeadd,0,1)=="v") {
 
 
 
+
+$ip=$_SERVER["REMOTE_ADDR"];
+$ban=file_get_contents("blockip.txt");
+if(stripos($ban,$ip))
+{
+die("Your IP Address is:$ip,you're forbiden to view this page!");
+}
+
+
+
 define('count_num','3');
 define('count_time','36000');
 session_start();
 $now_time = time();
 
+$ipdir="ipstat/";
+$ipfile=$ipdir."".$_SERVER["REMOTE_ADDR"].'.txt';
+
+if(file_exists($ipfile))
+	{
+
+	$iptt=filemtime($ipfile);
+
+		if(($now_time - $iptt) < 10)
+
+			{
+				echo "<script>alert('Wait 10s');history.go(-1);</script>";exit;
+			}
+		else
+			{
+
+			$ipread=intval(file_get_contents($ipfile));
+
+			if($ipread > 14)
+						{
+			
+							if(($now_time - $iptt) < 600000){
+			
+							echo "<script>alert('Wait next week');history.go(-1);</script>";exit;
+							}
+							else
+						
+							{file_put_contents($ipfile,"1");
+							
+							}
+						}
+		    
+			if($ipread > 2 & ($now_time - $iptt)<86400){echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
+
+			
+
+			file_put_contents($ipfile,$ipread);
+
+			
+			}
+		
+		}
+		
+		else
+			
+		{
+
+		 file_put_contents($ipfile,"1");
+			
+		}
+
+/*
+
 if ($_SESSION){
     $last_time = $_SESSION['last_time'];
     $times = $_SESSION['times'] + 1;
     $_SESSION['times'] = $times;
+	if($_SESSION['myip']==$_SERVER["REMOTE_ADDR"]){if(($now_time - $last_time) < 30){ 
+      echo "<script>alert('Wait next time..');history.go(-1);</script>";exit;
+    }}
 }else{
     $last_time = $now_time;
     $times = 1;
+	$iptimes =1;
     $_SESSION['times'] = $times;
     $_SESSION['last_time'] = $last_time;
+	$_SESSION['myip']=$_SERVER["REMOTE_ADDR"];
+	
 }
 
 if(($now_time - $last_time) < count_time){ if ($times>=count_num){
@@ -58,7 +127,7 @@ if(($now_time - $last_time) < count_time){ if ($times>=count_num){
 }
 
 
-
+*/
 
 	if(substr($freeadd,0,1)=="v"){
 	
@@ -385,6 +454,8 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 			  $dogecheck=$kpc->keva_get($asset,"DOGECOIN");
 
+			  $btccheck=$kpc->keva_get($asset,"BITCOIN");
+
 		
 
 			  $title=bin2hex($namespace['value']);
@@ -398,7 +469,7 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 
 if($rpg=="1") {
 
-$url ="https://rpg.keva.app/?gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
+$url ="https://rpg.keva.app/?ns=".$asset."&gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"]."&btc=".$btccheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
 }
 
