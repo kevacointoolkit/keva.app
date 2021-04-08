@@ -39,25 +39,52 @@ if(stripos($ban,$ip))
 die("Your IP Address is:$ip,you're forbiden to view this page!");
 }
 
+empty($_SERVER['HTTP_VIA']) or exit('Access Denied');
 
 
-define('count_num','3');
-define('count_time','36000');
+        if (getenv('HTTP_CLIENT_IP')) {
+            $ip = getenv('HTTP_CLIENT_IP');
+        }
+        if (getenv('HTTP_X_REAL_IP')) {
+            $ip = getenv('HTTP_X_REAL_IP');
+        } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
+            $ip = getenv('HTTP_X_FORWARDED_FOR');
+            $ips = explode(',', $ip);
+            $ip = $ips[0];
+        } elseif (getenv('REMOTE_ADDR')) {
+            $ip = getenv('REMOTE_ADDR');
+        } else {
+            $ip = '0.0.0.0';
+        }
+
+   
+
+
+define('count_num','2');
+define('count_time','86400');
 session_start();
 $now_time = time();
 
 $ipdir="ipstat/";
-$ipfile=$ipdir."".$_SERVER["REMOTE_ADDR"].'.txt';
+$ipfile=$ipdir."".$ip.'.txt';
+$ipfiled=$ipdir."".$_SERVER["HTTP_VIA"].'.txt';
+$ipfilex=$ipdir."".$_SERVER["HTTP_X_FORWARDED_FOR"].'.txt';
+
+if($_SERVER["HTTP_VIA"]!=""){$ipfile=$ipfiled;}
+if($_SERVER["HTTP_X_FORWARDED_FOR"]!=""){$ipfile=$ipfilex;}
 
 if(file_exists($ipfile))
 	{
 
 	$iptt=filemtime($ipfile);
+	$ipread=intval(file_get_contents($ipfile))*10;
 
-		if(($now_time - $iptt) < 10)
+	if($ipread>10){$waitc=$ipread;}else{$waitc=10;}
+
+		if(($now_time - $iptt) < $waitc)
 
 			{
-				echo "<script>alert('Wait 10s');history.go(-1);</script>";exit;
+				echo "<script>alert('Wait ".$waitc."s');history.go(-1);</script>";exit;
 			}
 		else
 			{
@@ -78,7 +105,7 @@ if(file_exists($ipfile))
 							}
 						}
 		    
-			if($ipread > 2 & ($now_time - $iptt)<86400){$ipread=$ipread+1;echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
+			if($ipread > 0 & ($now_time - $iptt)<86400){$ipread=$ipread+1;file_put_contents($ipfile,$ipread);echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
 
 			$ipread=$ipread+1;
 
@@ -105,7 +132,7 @@ if ($_SESSION){
     $_SESSION['times'] = $times;
 	if($_SESSION['myip']==$_SERVER["REMOTE_ADDR"]){if(($now_time - $last_time) < 30){ 
       echo "<script>alert('Wait next time..');history.go(-1);</script>";exit;
-    }}
+    }} 
 }else{
     $last_time = $now_time;
     $times = 1;
@@ -126,8 +153,8 @@ if(($now_time - $last_time) < count_time){ if ($times>=count_num){
 
 }
 
-
 */
+
 
 	if(substr($freeadd,0,1)=="v"){
 	
@@ -231,7 +258,7 @@ $ok=0;
 			asort($ftotal);
 
 			
-
+/*
 			
 			$luckycount=0;
 			$lucky=0;
@@ -276,7 +303,11 @@ $ok=0;
 		}
 
 
-		foreach($ftotal as $findadd){
+*/
+
+$credit=0.05;
+
+foreach($ftotal as $findadd){
 
 						
 						
