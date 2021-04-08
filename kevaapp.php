@@ -78,9 +78,9 @@ if(file_exists($ipfile))
 							}
 						}
 		    
-			if($ipread > 2 & ($now_time - $iptt)<86400){echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
+			if($ipread > 2 & ($now_time - $iptt)<86400){$ipread=$ipread+1;echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
 
-			
+			$ipread=$ipread+1;
 
 			file_put_contents($ipfile,$ipread);
 
