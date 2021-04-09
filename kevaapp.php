@@ -41,6 +41,19 @@ die("Your IP Address is:$ip,you're forbiden to view this page!");
 
 empty($_SERVER['HTTP_VIA']) or exit('Access Denied');
 
+//mempool
+
+$mempool= $kpc->getmempoolinfo();
+
+$waitpool=intval($mempool['size'])*3;
+
+		if($waitpool>10)
+
+			{
+				
+				echo "<script>alert('Server is busy, Wait ".$waitpool."mins');history.go(-1);</script>";exit;
+			}
+
 
         if (getenv('HTTP_CLIENT_IP')) {
             $ip = getenv('HTTP_CLIENT_IP');
@@ -105,7 +118,7 @@ if(file_exists($ipfile))
 							}
 						}
 		    
-			if($ipread > 0 & ($now_time - $iptt)<86400){$ipread=$ipread+1;file_put_contents($ipfile,$ipread);echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
+			if($ipread > 0 & ($now_time - $iptt)<86400){echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
 
 			$ipread=$ipread+1;
 
@@ -130,9 +143,8 @@ if ($_SESSION){
     $last_time = $_SESSION['last_time'];
     $times = $_SESSION['times'] + 1;
     $_SESSION['times'] = $times;
-	if($_SESSION['myip']==$_SERVER["REMOTE_ADDR"]){if(($now_time - $last_time) < 30){ 
-      echo "<script>alert('Wait next time..');history.go(-1);</script>";exit;
-    }} 
+	
+
 }else{
     $last_time = $now_time;
     $times = 1;
@@ -153,8 +165,8 @@ if(($now_time - $last_time) < count_time){ if ($times>=count_num){
 
 }
 
-*/
 
+*/
 
 	if(substr($freeadd,0,1)=="v"){
 	
