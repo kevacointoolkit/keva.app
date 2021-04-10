@@ -24,6 +24,25 @@ $_REQ = array_merge($_GET, $_POST);
 		$combine="";
 
 
+			//rand
+
+			if(!$ipfsr){
+
+			$linkrand=rand(1,9);
+
+			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
+			if($linkrand==2){$ipfsr="https://hashnews.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
+			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
+			if($linkrand==4){$ipfsr="https://gateway.ipfs.io/ipfs/";$ipfsn="ipfs.io";}
+			if($linkrand==5){$ipfsr="https://ipfs.fleek.co/ipfs/";$ipfsn="fleek.co";}
+			if($linkrand==6){$ipfsr="https://ipfs.sloppyta.co/ipfs/";$ipfsn="sloppyta.co";}
+			if($linkrand==7){$ipfsr="https://ipfs.drink.cafe/ipfs/";$ipfsn="drink.cafe";}
+			if($linkrand==8){$ipfsr="https://ipfs.mihir.ch/ipfs/";$ipfsn="mihir.ch";}
+			if($linkrand==9){$ipfsr="https://ipfs.2read.net/ipfs/";$ipfsn="2read.net";}
+
+						}
+
+
 if(isset($_REQ["asset"])){$asset=$_REQ["asset"];}
 
 if(!$_REQ["asset"]){$asset="NdwmTDJw1GRnLzz3CARsp3tX878pogZqLS";}
@@ -396,6 +415,84 @@ $fer=0;
 				
 				}
 
+
+
+						//nft
+
+
+			If($key=="RPGNFT")
+				
+			{
+			  $getrpg=$kpc->keva_get("NSd2nPK3YDzoj1WdVc2FQWUPUvWQzbrdQJ","List");
+			  $rpgnp=explode(',', $getrpg['value']);
+
+			  $value="";
+
+			  $vcode=$_REQ["scode"];
+
+			  	foreach($rpgnp as $np)
+
+				{
+				
+				
+
+				$getnft=$kpc->keva_get($np,$vcode);
+
+				$nftcheck=$getnft['value'];
+
+				$nftsyle="";
+
+				if(!$nftcheck!="")
+					
+					{
+					
+					$getnft=$kpc->keva_get($np,"5570511");
+
+					$nftcheck=$getnft['value'];
+
+					$nftsyle="style=\"-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;\"";
+
+					}
+
+					
+
+					
+					
+					preg_match('/(?:\{)(.*)(?:\})/i',$nftcheck,$match);
+
+						if(stristr($match[0],"image") == true)
+
+						{$ipfsarr=explode("|",$match[0]);
+
+					$filetype=explode("/",$ipfsarr[1]);
+
+					$typ=str_replace("}","",$filetype[1]);
+
+					$ipfsadd=str_replace("{","",$ipfsarr[0]);
+
+					$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
+					$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
+
+					
+
+
+					$ipfslk="<img src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"".$nftsyle.">";
+					
+
+					$valuer=str_replace($match[0],$ipfslk,$match[0]);
+
+					
+					
+					
+					
+						}
+					 
+				
+					$value=$value." ".$valuer;
+				}
+			}
+
+
 			//four digits not support hex2bin
 
 			$arr["heightx"]=$height;
@@ -459,7 +556,8 @@ $fer=0;
 			If($key=="RGB"){$rgb="";}
 	
 
-			
+
+
 
 		
 
@@ -957,12 +1055,14 @@ foreach ($totalass as $o=>$p)
 
 						}
 
+
 					}
+
 
 					$assetvalue=$arr2["value"];
 					$assetvalue=str_replace("Ravencoin assets list.<br>","",$assetvalue);
 
-						$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
+					$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
 
 						$arr2["value"]=bin2hex($arr2["value"]);
 
@@ -972,6 +1072,81 @@ foreach ($totalass as $o=>$p)
 					else
 					{$arr2["value"]="No ravencoin asset in this address";}
 
+				
+
+				//keva
+
+			  $getrpg=$kpc->keva_get("NSd2nPK3YDzoj1WdVc2FQWUPUvWQzbrdQJ","List");
+			  $rpgnp=explode(',', $getrpg['value']);
+
+			  $value="";
+
+			  $vcode=$_REQ["scode"];
+
+			  	foreach($rpgnp as $np)
+
+				{
+				
+				
+
+				$getnft=$kpc->keva_get($np,$vcode);
+
+				$nftcheck=$getnft['value'];
+
+				$nftsyle="";
+
+				if(!$nftcheck!="")
+					
+					{
+					
+					$getnft=$kpc->keva_get($np,"5570511");
+
+					$nftcheck=$getnft['value'];
+
+					$nftsyle="style=\"-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;\"";
+
+					}
+
+					
+
+					
+					
+					preg_match('/(?:\{)(.*)(?:\})/i',$nftcheck,$match);
+
+						if(stristr($match[0],"image") == true)
+
+						{$ipfsarr=explode("|",$match[0]);
+
+					$filetype=explode("/",$ipfsarr[1]);
+
+					$typ=str_replace("}","",$filetype[1]);
+
+					$ipfsadd=str_replace("{","",$ipfsarr[0]);
+
+					$urla=$ipfsr.trim(substr($ipfsarr[0],2,46));
+					$urlb=trim($ipfscon)."".trim(substr($ipfsarr[0],2,46));
+
+					
+
+
+					$ipfslk="<li><a href=\"#\"><img width=20 src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"".$nftsyle."></a></li>";
+					
+
+					$valuer=str_replace($match[0],$ipfslk,$match[0]);
+
+					
+					
+					
+					
+						}
+					 
+				
+					$value=$value." ".$valuer;
+				}
+
+			
+			$assetvalue=$assetvalue." ".$value;
+			
 	
 			}
 
@@ -981,23 +1156,6 @@ foreach ($totalass as $o=>$p)
 
 			preg_match('/(?:\{)(.*)(?:\})/i',$value,$match);
 
-			//rand
-
-			if(!$ipfsr){
-
-			$linkrand=rand(1,9);
-
-			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
-			if($linkrand==2){$ipfsr="https://hashnews.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
-			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
-			if($linkrand==4){$ipfsr="https://gateway.ipfs.io/ipfs/";$ipfsn="ipfs.io";}
-			if($linkrand==5){$ipfsr="https://ipfs.fleek.co/ipfs/";$ipfsn="fleek.co";}
-			if($linkrand==6){$ipfsr="https://ipfs.sloppyta.co/ipfs/";$ipfsn="sloppyta.co";}
-			if($linkrand==7){$ipfsr="https://ipfs.drink.cafe/ipfs/";$ipfsn="drink.cafe";}
-			if($linkrand==8){$ipfsr="https://ipfs.mihir.ch/ipfs/";$ipfsn="mihir.ch";}
-			if($linkrand==9){$ipfsr="https://ipfs.2read.net/ipfs/";$ipfsn="2read.net";}
-
-						}
 
 			
 			if($match[0]<>"")
