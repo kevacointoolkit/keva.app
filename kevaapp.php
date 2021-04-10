@@ -45,14 +45,29 @@ empty($_SERVER['HTTP_VIA']) or exit('Access Denied');
 
 $mempool= $kpc->getmempoolinfo();
 
-$waitpool=intval($mempool['size'])*3;
+$waitpool=intval($mempool['size']);
+
 
 		if($waitpool>10)
 
 			{
-				
-				echo "<script>alert('Server is busy, Wait ".$waitpool."mins');history.go(-1);</script>";exit;
+
+				$waittime=$waitpool*3;
+				echo "<script>alert('Server is busy, Wait ".$waittime."mins');history.go(-1);</script>";exit;
+
+
+
+			
 			}
+
+		
+			$credit=0;
+
+
+		
+
+
+
 
 
         if (getenv('HTTP_CLIENT_IP')) {
@@ -118,7 +133,7 @@ if(file_exists($ipfile))
 							}
 						}
 		    
-			if($ipread > 0 & ($now_time - $iptt)<86400){echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
+			if($ipread > 1 & ($now_time - $iptt)<86400){echo "<script>alert('Wait next day');history.go(-1);</script>";exit;}
 
 			$ipread=$ipread+1;
 
@@ -234,7 +249,7 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 $forfree=$freeadd;
 
-$checkaddress= $kpc->listtransactions("",200);
+$checkaddress= $kpc->listtransactions("",100);
 
 $listaccount = $kpc->getbalance();
 
@@ -317,7 +332,7 @@ $ok=0;
 
 */
 
-$credit=0.05;
+
 
 foreach($ftotal as $findadd){
 
@@ -335,12 +350,45 @@ foreach($ftotal as $findadd){
 
 											     {
 
-										$age= $kpc->sendtoaddress($forfree,$credit);
+												
 
-										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
+										$age=$kpc->keva_list_namespaces();
+										if(!$age[0]['namespaceId']){
+
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										
+										$goodname=$age['namespaceId'];
+										
+										}
+
+										else
+										{
+										
+										$goodname=$age[0]['namespaceId'];
+										
+										}
+
+										$bigstep=$kpc->keva_get("Nf5pmEk8acvBmTsMTPcEskEz3XHKDE38me","Congratulations");
+													 
+										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
+													 
+											
 
 
 
+										echo "<script>alert('GET NAMESPACE NUMBER SUCCESS');history.go(-1);</script>";
+
+
+										
 										exit;
 
 											    }
@@ -372,9 +420,39 @@ foreach($ftotal as $findadd){
 
 					if($ok=9)
 											
-									{$age= $kpc->sendtoaddress($forfree,$credit);
+									{
+										$age=$kpc->keva_list_namespaces();
+										if(!$age[0]['namespaceId']){
+
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Namespace");
+										
+										$goodname=$age['namespaceId'];
+										
+										}
+
+										else
+										{
+										
+										$goodname=$age[0]['namespaceId'];
+										
+										}
+
+										$bigstep=$kpc->keva_get("Nf5pmEk8acvBmTsMTPcEskEz3XHKDE38me","Congratulations");
+													 
+										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
+													 
 											
-										echo "<script>alert('GET ".$credit." CREDIT SUCCESS');history.go(-1);</script>";
+											
+										echo "<script>alert('GET NAMESPACE NUMBER SUCCESS');history.go(-1);</script>";
 									}
 
 						}
