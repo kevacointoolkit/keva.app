@@ -577,6 +577,20 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 			  $btccheck=$kpc->keva_get($asset,"BITCOIN");
 
+			  $firstcheck=$kpc->keva_get($asset,"Congratulations");
+
+			  if($firstcheck['value']!=""){
+			  
+			  $newtx= $kpc->getrawtransaction($firstcheck['txid'],1);
+
+			  $vnum=$firstcheck['vout'];
+
+			  $freeadd=$newtx['vout'][$vnum]["scriptPubKey"]["addresses"][0];
+			  
+			  }
+
+
+
 		
 
 			  $title=bin2hex($namespace['value']);
