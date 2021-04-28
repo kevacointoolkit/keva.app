@@ -806,6 +806,23 @@ if($slotb!=""){
 
 
 if(!$reward){
+
+		$firstcheck=$kpc->keva_get($asset,"Congratulations");
+
+			  if($firstcheck['value']!=""){
+			  
+			  $newtx= $kpc->getrawtransaction($firstcheck['txid'],1);
+
+			  $vnum=$firstcheck['vout'];
+
+			  $addrone=$newtx['vout'][$vnum]["scriptPubKey"]["addresses"][0];
+			  
+			  }
+
+
+
+
+
 		$addinfo="<br><img src=/bludit/qr.php?v=".$addrone."><br><br>".$addrone;
 		}
 		else
@@ -1091,6 +1108,8 @@ foreach ($totalass as $o=>$p)
 
 				$getnft=$kpc->keva_get($np,$vcode);
 
+				$nftname=$kpc->keva_get($np,"_KEVA_NS_");
+
 				$nftcheck=$getnft['value'];
 
 				$nftsyle="";
@@ -1129,7 +1148,7 @@ foreach ($totalass as $o=>$p)
 					
 
 
-					$ipfslk="<li><a href=\"#\"><img width=20 src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\"".$nftsyle."></a></li>";
+					$ipfslk="<li><a href=\"".$urla."\"><img width=20 src=\"".$urla."\" onerror=\"this.src='/bludit/loading.png'\" ".$nftsyle."  alt=\"".$nftname['value']."\"></a></li>";
 					
 
 					$valuer=str_replace($match[0],$ipfslk,$match[0]);
