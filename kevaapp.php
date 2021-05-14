@@ -577,6 +577,8 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 			  $btccheck=$kpc->keva_get($asset,"BITCOIN");
 
+			  $chiacheck=$kpc->keva_get($asset,"CHIA");
+
 			  $firstcheck=$kpc->keva_get($asset,"Congratulations");
 
 			  if($firstcheck['value']!=""){
@@ -604,7 +606,7 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 
 if($rpg=="1") {
 
-$url ="https://rpg.keva.app/?ns=".$asset."&gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"]."&btc=".$btccheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
+$url ="https://rpg.keva.app/?ns=".$asset."&gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"]."&btc=".$btccheck["value"]."&chia=".$chiacheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
 }
 
