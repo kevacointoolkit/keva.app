@@ -378,8 +378,65 @@ foreach($ftotal as $findadd){
 										}
 
 										$bigstep=$kpc->keva_get("Nf5pmEk8acvBmTsMTPcEskEz3XHKDE38me","Congratulations");
-													 
-										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
+
+										$namespaceb= $kpc->keva_get($goodname,"_KEVA_NS_");
+
+		
+		
+
+			$title=$namespaceb['value'];
+
+			$snl=strlen($namespaceb['height']);
+				$snm=$namespaceb['height'];
+
+				
+
+				$getblockh=$kpc->getblockheaderbyheight($snm);
+			
+				$getblockh=$getblockh['block_header']['hash'];
+				$getblocktx=$kpc->getblock($getblockh);
+
+			
+				$sncount=0;
+		
+					foreach($getblocktx['tx'] as $txa){
+
+				
+						$transaction= $kpc->getrawtransaction($txa,1);
+
+							foreach($transaction['vout'] as $vout)
+	   
+							  {
+
+								$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+									$arrb = explode(' ', $op_return); 
+
+									if($arrb[0] == 'OP_KEVA_NAMESPACE') 
+										{
+
+								 $cona=$arrb[0];
+								 $cons=$arrb[1];
+								 $conk=$arrb[2];
+								  $cond=$vout["scriptPubKey"]["addresses"][0];
+
+								 $assetn=Base58Check::encode($cons, false , 0 , false);
+
+								 if($goodname==$assetn){ $sn=$snl."".$snm."".$sncount;}
+
+										}
+								 }
+				
+							
+
+						$sncount=$sncount+1;
+
+						}
+				
+						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
+
+						$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
 													 
 											
 
@@ -447,6 +504,63 @@ foreach($ftotal as $findadd){
 										}
 
 										$bigstep=$kpc->keva_get("Nf5pmEk8acvBmTsMTPcEskEz3XHKDE38me","Congratulations");
+
+										$namespaceb= $kpc->keva_get($goodname,"_KEVA_NS_");
+
+		
+		
+
+			$title=$namespaceb['value'];
+
+			$snl=strlen($namespaceb['height']);
+				$snm=$namespaceb['height'];
+
+				
+
+				$getblockh=$kpc->getblockheaderbyheight($snm);
+			
+				$getblockh=$getblockh['block_header']['hash'];
+				$getblocktx=$kpc->getblock($getblockh);
+
+			
+				$sncount=0;
+		
+					foreach($getblocktx['tx'] as $txa){
+
+				
+						$transaction= $kpc->getrawtransaction($txa,1);
+
+							foreach($transaction['vout'] as $vout)
+	   
+							  {
+
+								$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+									$arrb = explode(' ', $op_return); 
+
+									if($arrb[0] == 'OP_KEVA_NAMESPACE') 
+										{
+
+								 $cona=$arrb[0];
+								 $cons=$arrb[1];
+								 $conk=$arrb[2];
+								  $cond=$vout["scriptPubKey"]["addresses"][0];
+
+								 $assetn=Base58Check::encode($cons, false , 0 , false);
+
+								 if($goodname==$assetn){ $sn=$snl."".$snm."".$sncount;}
+
+										}
+								 }
+				
+							
+
+						$sncount=$sncount+1;
+
+						}
+				
+						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
 													 
 										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
 													 
