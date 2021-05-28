@@ -26,10 +26,12 @@ $_REQ = array_merge($_GET, $_POST);
 
 			//rand
 
+			$ipfsr="https://ipfs.keva.app/ipfs/";
+
 			if(!$ipfsr){
 
 			$linkrand=rand(1,9);
-
+			
 			if($linkrand==1){$ipfsr="https://ipfs.jbb.one/ipfs/";$ipfsn="jbb.one";}
 			if($linkrand==2){$ipfsr="https://hashnews.k1ic.com/ipfs/";$ipfsn="k1ic.com";}
 			if($linkrand==3){$ipfsr="https://cloudflare-ipfs.com/ipfs/";$ipfsn="cloudflare-ipfs.com";}
