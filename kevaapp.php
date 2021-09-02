@@ -255,6 +255,8 @@ $listaccount = $kpc->getbalance();
 
 $listaccount=intval($listaccount);
 
+$ip=strval($ip);
+
 
 
 if($listaccount<1){echo "<script>alert('NO CREDIT AVAILABLE, PLEASE WAIT NEXT TIME. OR ASK SOMEONE TO SEND SOME TO 5982501 WITH APP (".$listaccount[''].")');history.go(-1);</script>";exit;}
@@ -353,18 +355,20 @@ foreach($ftotal as $findadd){
 												
 
 										$age=$kpc->keva_list_namespaces();
+
 										if(!$age[0]['namespaceId']){
 
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+									
+						
+										
 										
 										$goodname=$age['namespaceId'];
 										
@@ -433,14 +437,20 @@ foreach($ftotal as $findadd){
 						$sncount=$sncount+1;
 
 						}
+
+						$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
+
+						//vote
+
+								$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
+
+										$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
 				
 						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
 
 						$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
 													 
-											
-
-
+								
 
 										echo "<script>alert('GET NAMESPACE NUMBER SUCCESS');history.go(-1);</script>";
 
@@ -481,16 +491,15 @@ foreach($ftotal as $findadd){
 										$age=$kpc->keva_list_namespaces();
 										if(!$age[0]['namespaceId']){
 
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
-										$age=$kpc->keva_namespace("My First Namespace");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("My First Space");
+										
 										
 										$goodname=$age['namespaceId'];
 										
@@ -562,9 +571,19 @@ foreach($ftotal as $findadd){
 				
 						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
 													 
+										$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
+										//vote
+
+										$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
+
+										$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
+
 										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
+
+										
+
 													 
-											
+									    
 											
 										echo "<script>alert('GET NAMESPACE NUMBER SUCCESS');history.go(-1);</script>";
 									}
@@ -761,7 +780,7 @@ echo "</head>";
 echo "<body style=\"background-color: #212121;\">";
 
 
-echo "<div style=\"padding: 5px;margin-bottom: 5px;box-shadow: 2px 2px 2px hsla(0,0%,0%,0.1);background: var(--ck-color-toolbar-background);text-align:right;font-size:10px;\"><p style=\"padding-right:7px;\">[ <a href=https://github.com/kevacoin-project/keva_wallet/releases target=_blank><font color=grey>WALLET</font></a> ] [ <a href=https://kevamemorial.com target=_blank><font color=grey>MEMORIAL</font></a> ] [ <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="."https://keva.app\" target=_blank><font color=grey>".$blocknum."</font></a> ]</p></div>";
+echo "<div style=\"padding: 5px;margin-bottom: 5px;box-shadow: 2px 2px 2px hsla(0,0%,0%,0.1);background: var(--ck-color-toolbar-background);text-align:right;font-size:10px;\"><p style=\"padding-right:7px;\">[ <a href=https://github.com/kevacoin-project/keva_wallet/releases target=_blank><font color=grey>WALLET</font></a> ] [ <a href=https://keva.one target=_blank><font color=grey>KEVA.ONE</font></a> ] [ <a href=https://kevamemorial.com target=_blank><font color=grey>MEMORIAL</font></a> ] [ <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="."https://keva.app\" target=_blank><font color=grey>".$blocknum."</font></a> ]</p></div>";
 		
 
 			echo "<form action=\"\" method=\"post\" >";	
