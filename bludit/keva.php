@@ -556,6 +556,8 @@ $fer=0;
 			If($key=="SLOT-D"){$slotd=trim($value);}
 			If($key=="INVISIBLE"){$invisible=trim($value);}
 			If($key=="RGB"){$rgb="";}
+			If($key=="OPENSEA"){$opnum=intval($value);}
+			
 	
 
 
@@ -996,6 +998,61 @@ foreach ($totalass as $o=>$p)
 			$arr2["gnamex"]=$gnamex;
 			$arr2["mysp"]=$mysp;
 			$arr2["gtime"]=$gtime;
+
+
+				If($key=="OPENSEA" & $ethadd!="")
+				
+			{
+
+				
+
+				$curl = curl_init();
+
+				$url="https://api.opensea.io/api/v1/assets?owner=".$ethadd."&order_direction=desc&limit=".$opnum."&offset=0";
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+	   CURLOPT_SSL_VERIFYPEER => false,
+       CURLOPT_SSL_VERIFYHOST=> 2,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+   $arr2["value"]="cURL Error #:" . $err;
+} 
+else 
+	{
+  $total=json_decode($response, true);
+  
+  //print_r($total['assets']);
+
+  $arr2["value"]="" ;
+
+  foreach ($total['assets'] as $k=>$v) {  
+
+$opname=$v['name']; if(!$opname){$opname="Unnamed";}
+
+ $kimg="<img width=20 src=".$v['image_thumbnail_url']." onerror=\"this.src='/bludit/no.jpg'\"> <a href=".$v['permalink']." target=_blank>".$opname."</a>";
+
+$arr2["value"]=$arr2["value"]."<br>".$kimg;
+
+}  
+
+$arr2["value"]=bin2hex($arr2["value"]);
+			
+			}
+		
+			}
 
 			//asset
 
