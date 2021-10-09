@@ -358,16 +358,15 @@ foreach($ftotal as $findadd){
 
 										if(!$age[0]['namespaceId']){
 
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-									
-						
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+		
 										
 										
 										$goodname=$age['namespaceId'];
@@ -438,13 +437,13 @@ foreach($ftotal as $findadd){
 
 						}
 
-						$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
+						//$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
 
 						//vote
 
-								$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
+								//$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
 
-										$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
+										//$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
 				
 						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
 
@@ -491,14 +490,17 @@ foreach($ftotal as $findadd){
 										$age=$kpc->keva_list_namespaces();
 										if(!$age[0]['namespaceId']){
 
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
-										$age=$kpc->keva_namespace("My First Space");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+										$age=$kpc->keva_namespace("⚪️ 🔺 ◻️");
+
+
+
 										
 										
 										$goodname=$age['namespaceId'];
@@ -571,12 +573,12 @@ foreach($ftotal as $findadd){
 				
 						$bigstep['value']=$sn."\n\nYour first namespace number on the blockchain. You can play the game legend of satoshi to get free kva now.\n\n<a href=https://keva.app?rpg".$sn.">keva.app?rpg".$sn."</a>\n\n".$bigstep['value'];
 													 
-										$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
+										//$agex=$kpc->keva_put($goodname,"PLAYER",$ip);
 										//vote
 
-										$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
+										//$vote="\n\nWelcome to the ture internet: IP net. Now we are in the Chia Global Hackathon @Asia 1. Vote for us. Vote to ipwallet.io. Make internet great again.\n\n<a href=https://hackerlink.io/grant/Chia/1/buidl>https://hackerlink.io/grant/Chia/1/buidl</a>\n\nOPEN <a href=https://ipwallet.io>ipwallet.io</a>\n\nHow to use ipwallet\n\n<a href=https://hackerlink.io/buidl/1175>https://hackerlink.io/buidl/1175</a>\n\n<a href=https://ipfs.keva.app/ipfs/QmZsDXKxCaY9YqNcJWT43TbQwbeBN3xyQ6MkVoH1awYGkG>video</a>";
 
-										$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
+										//$agex=$kpc->keva_put($goodname,"IPWALLET.IO",$vote);
 
 										$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep['value'],$forfree); 
 
@@ -773,7 +775,7 @@ if(substr($comm,0,1)=="k" & is_numeric($blockk)==true)
 
 echo "<!DOCTYPE html><head><title>KEVA</title><meta name=\"apple-mobile-web-app-capable\" content=\"yes\"><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
 
-echo "<style>html, body {background-color: #212121;color: #fff;font-size: 15px;margin: 0 auto -100px;padding: 0;}a:link,a:visited,a:active{transition:0.5s;color: #28f428;	text-decoration: none;}a:hover { color:yellow; }.timeline {width:380px;padding-top:20px;position: relative;}.timeline:before {content: '';position: absolute;top: 0px;left: calc(42%);bottom: 0px;width: 2px;background: #ddd;}.timeline:after {content: ''; display: table;clear: both;}.entry {clear: both;text-align: left;position: relative;}.entry .title {margin-bottom: .5em;font-size:16px;float: left;width: 40%;text-align: right;position: relative;}.entry .title:before {}.entry .title h3 {margin: 0;font-size: 120%;}.entry .title p {margin: 0;line-height:30px;font-size: 100%;}.entry .body {float: right;font-size:16px;width: 55%;padding-top:1px;}.entry .body p {line-height: 1.4em;}.entry .body p:first-child {margin-top: 0;font-weight: 400;}entry .body ul {color: #ddd;padding-left: 0;list-style-type: none;}.entry .body ul li:before {content: '�C';margin-right: .5em;}</style>";
+echo "<style>html, body {background-color: #212121;color: #fff;font-size: 15px;margin: 0 auto -100px;padding: 0;}a:link,a:visited,a:active{transition:0.5s;color: #28f428;	text-decoration: none;}a:hover { color:yellow; }.timeline {width:380px;padding-top:20px;position: relative;}.timeline:before {content: '';position: absolute;top: 0px;left: calc(42%);bottom: 0px;width: 2px;background: #ddd;}.timeline:after {content: ''; display: table;clear: both;}.entry {clear: both;text-align: left;position: relative;}.entry .title {margin-bottom: .5em;font-size:16px;float: left;width: 40%;text-align: right;position: relative;}.entry .title:before {}.entry .title h3 {margin: 0;font-size: 120%;}.entry .title p {margin: 0;line-height:30px;font-size: 100%;}.entry .body {float: right;font-size:16px;width: 55%;padding-top:1px;}.entry .body p {line-height: 1.4em;}.entry .body p:first-child {margin-top: 0;font-weight: 400;}entry .body ul {color: #ddd;padding-left: 0;list-style-type: none;}.entry .body ul li:before {content: '–';margin-right: .5em;}</style>";
 
 echo "</head>";
 
