@@ -1020,6 +1020,9 @@ curl_setopt_array($curl, [
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
+	  CURLOPT_HTTPHEADER => array(
+    "X-API-KEY: 186e6a22ed6f4c4bb2be5ace15ca4614"
+  ),
 ]);
 
 $response = curl_exec($curl);
