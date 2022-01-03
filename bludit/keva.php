@@ -556,7 +556,9 @@ $fer=0;
 			If($key=="SLOT-D"){$slotd=trim($value);}
 			If($key=="INVISIBLE"){$invisible=trim($value);}
 			If($key=="RGB"){$rgb="";}
-			If($key=="OPENSEA"){$opnum=intval($value);}
+			If($key=="OPENSEA"){
+				if($value=="on"){$value=10;}
+				if(is_numeric($value)){$opnum=intval($value);}}
 			
 	
 
@@ -1045,13 +1047,30 @@ else
 
 $opname=$v['name']; if(!$opname){$opname="Unnamed";}
 
+if($theme=="nft" or $_REQ["theme"]=="nft"){
+						
+		
+	$kimg="<li><a href=\"".$v['image_url']."\"><img src=".$v['image_thumbnail_url']." onerror=\"this.src='/bludit/no.jpg'\" alt=\"".$opname."\" /></a></li>";
+
+						$arr2["value"]=$arr2["value"]." ".$kimg;
+
+						
+	}else{
+
  $kimg="<img width=20 src=".$v['image_thumbnail_url']." onerror=\"this.src='/bludit/no.jpg'\"> <a href=".$v['permalink']." target=_blank>".$opname."</a>";
 
-$arr2["value"]=$arr2["value"]."<br>".$kimg;
+$arr2["value"]=$arr2["value"]."<br>".$kimg;}
+
+
 
 }  
 
+if($theme=="nft" or $_REQ["theme"]=="nft"){$assetvalue=$assetvalue."".$arr2["value"];}
+
+
 $arr2["value"]=bin2hex($arr2["value"]);
+
+
 			
 			}
 		
@@ -1079,7 +1098,7 @@ $arr2["value"]=bin2hex($arr2["value"]);
 						$listinfo = $rpc->getassetdata($giftny);
 			
 	
-						if($theme=="asset" or $_REQ["theme"]=="asset"){
+						if($theme=="nft" or $_REQ["theme"]=="nft"){
 						
 		
 						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftny."\" /></a></li>";
@@ -1112,7 +1131,7 @@ $arr2["value"]=bin2hex($arr2["value"]);
 						$listinfo = $rpc->getassetdata($giftx);
 			
 	
-						if($theme=="asset" or $_REQ["theme"]=="asset"){
+						if($theme=="nft" or $_REQ["theme"]=="nft"){
 						
 		
 						$kimg="<li><a href=\"https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]."\"><img src=https://ravencoin.asset-explorer.net/ipfs/".$listinfo["ipfs_hash"]." onerror=\"this.src='/bludit/nob.jpg'\" alt=\"".$giftx."\" /></a></li>";
@@ -1138,7 +1157,7 @@ $arr2["value"]=bin2hex($arr2["value"]);
 					}
 
 
-					$assetvalue=$arr2["value"];
+					if(!$assetvalue){$assetvalue=$arr2["value"];}else {$assetvalue=$assetvalue."".$arr2["value"];}
 					$assetvalue=str_replace("Ravencoin assets list.<br>","",$assetvalue);
 
 					$arr2["value"]=$arr2["value"]."<br><br><font size=2>".$rvnadd."</font>";
