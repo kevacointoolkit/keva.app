@@ -1250,6 +1250,19 @@ $arr2["value"]=bin2hex($arr2["value"]);
 	
 			}
 
+
+//qr
+
+	if(substr($key,0,2)=="QR") {
+		
+		
+		
+
+			
+		$arr2["value"]=bin2hex("<img src=/bludit/qr.php?v=".$value."&theme=1>");
+		
+		}
+
 			//ipfs
 
 			$value=hex2bin($value);

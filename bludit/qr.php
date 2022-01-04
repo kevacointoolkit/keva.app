@@ -3663,9 +3663,11 @@ $_REQ = array_merge($_GET, $_POST);
 $np=$_REQ["v"];
 
 
+$theme=$_REQ["v"];
+
+if($theme!=""){$np=hex2bin($np);}
+
 $b= html2text($np);
-
-
 
 QRcode::png($b); 
 
