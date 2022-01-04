@@ -635,6 +635,8 @@ if(substr($comm,0,4)=="list") {$comm=str_replace("list","",$comm);$themeto="&the
 
 if(substr($comm,0,4)=="book") {$comm=str_replace("book","",$comm);$themeto="&theme=book";}
 
+if(substr($comm,0,2)=="qr") {$comm=str_replace("qr","",$comm);$themeto="&theme=qr";}
+
 
 if(substr($comm,0,3)=="nft" or substr($comm,0,3)=="Rpg") {$comm=str_replace("nft","",$comm);$themeto="&theme=nft";}
 
