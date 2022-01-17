@@ -23,6 +23,34 @@ $_REQ = array_merge($_GET, $_POST);
 		$totalass=array();
 		$combine="";
 
+//offer file
+
+if($_REQ["fk"]<>"" & $_REQ["fv"]<>"") {
+
+$fk=hex2bin($_REQ["fk"]);
+$fv=hex2bin($_REQ["fv"]);
+
+$fk=str_replace(",",".",$fk);
+
+$file = $fk;
+$txt = fopen($file, "w");
+fwrite($txt, $fv);
+fclose($txt);
+
+header('Content-Description: File Transfer');
+header('Content-Disposition: attachment; filename='.basename($file));
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+header('Content-Length: '.filesize($file));
+header("Content-Type: text/plain");
+readfile($file);
+$status=unlink($file); 
+
+
+exit;
+
+}
 
 			//rand
 
@@ -834,9 +862,8 @@ if(!$reward){
 		else
 			{
 		$addinfo=$reward; if(strlen(trim($reward))==34){$addinfo="<br><img src=/bludit/qr.php?v=".$reward."><br><br>".$reward;}
-		}
 
-						$arrz["heightx"]="";
+								$arrz["heightx"]="";
 						$arrz["key"]="NAMESPACE ADDRESS";
 						$arrz["adds"]=$addrone;
 						$arrz["value"]=bin2hex($addinfo);
@@ -847,6 +874,9 @@ if(!$reward){
 						$arrz["gtime"]="1231006505";
 
 						if(substr($reward,0,12)=="mimblewimble"){$a=1;}else{array_push($totalass,$arrz);}
+		}
+
+
 						
 						}
 

@@ -3663,7 +3663,7 @@ $_REQ = array_merge($_GET, $_POST);
 $np=$_REQ["v"];
 
 
-$theme=$_REQ["v"];
+$theme=$_REQ["theme"];
 
 if($theme!=""){$np=hex2bin($np);}
 
