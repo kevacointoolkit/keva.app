@@ -93,6 +93,8 @@ $fk=$_FILES['images']['name'][$name];
 
 $fv=file_get_contents($x);
 
+$offerf=$fv;
+
 $fv=$fv."#chia#offer";
 
 	$shopitem=$kpc->keva_put($goodname,$fk,$fv);
@@ -100,6 +102,37 @@ $fv=$fv."#chia#offer";
 $status=unlink($x);
 
 $name=$name+1;
+
+//hashgreen
+
+$pdata=array('offer' => $offerf);
+
+
+$postData = http_build_query($pdata);
+
+$authorization="Authorization:Bearer yourtoken";
+				$curl = curl_init();
+
+				$url="https://hash.green/api/v1/orders";
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+   CURLOPT_SSL_VERIFYPEER => false,
+       CURLOPT_SSL_VERIFYHOST=> 2,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_POST=>1,
+  CURLOPT_HTTPHEADER =>array('Content-Type: application/x-www-form-urlencoded' , $authorization),
+CURLOPT_POSTFIELDS=>$postData,]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
 
 
 }
