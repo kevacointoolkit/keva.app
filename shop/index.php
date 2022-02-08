@@ -244,7 +244,7 @@ echo "<br><center><input type=\"submit\" value=\"OPEN SHOP\" style=\"border: 1px
 
 		
 			
-			echo "</form>";
+			echo "</form></center>";
 
 
 
@@ -255,11 +255,7 @@ echo "<br><center><input type=\"submit\" value=\"OPEN SHOP\" style=\"border: 1px
 
 echo "<br><br>";
 
-echo "This is free chia offer shop generator for everyone. Upload 1-8 offer, you will get a code like <a href=https://keva.app?64858866><font color=\"8CEA00\">64858866</font></a> and you can input the code on keva.app or open <a href=https://keva.app?64858866><font color=\"8CEA00\">keva.app?64858866</font></a> to see all your offer.<br><br>";
 
-echo "All the datas are on the <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin</font></a> blockchain. The code is read-only. If you have <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin  wallet</font></a>, you can follow you shop number and repost the offer to your own space.<br><br>";
-
-echo "<br><br><a href=https://KEVA.APP>KEVA.APP</a>";
 
 
 
@@ -580,6 +576,11 @@ class Crypto
 
 ?>
 
-<br>
+This is free chia offer shop tool for everyone. Upload 1-8 offers, you will get a shop code like <a href=https://keva.app/bludit/?theme=offer&asset=NZYbKMxxvXWQ2LQn9LogtKa36fyEman9Lj&group=no&gname=e29aaaefb88f20f09f94ba20e297bbefb88f&sort=&scode=64858866><font color=\"8CEA00\">64858866</font></a> and you can share your shop with the link <a href=https://keva.app/bludit/?theme=offer&asset=NZYbKMxxvXWQ2LQn9LogtKa36fyEman9Lj&group=no&gname=e29aaaefb88f20f09f94ba20e297bbefb88f&sort=&scode=64858866><font color=\"8CEA00\">keva.app?64858866</font></a><br><br>
+
+
+All the datas are on the <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin</font></a> blockchain. The code is read-only. If you have <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin wallet</font></a>, you can follow you shop number and repost the offer to your own space.<br><br>
+
+<br><br><a href=https://KEVA.APP>KEVA.APP</a>
 
 </body>
