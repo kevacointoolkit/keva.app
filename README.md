@@ -41,5 +41,6 @@ $grpcportk='9992';
 
 
 # bcmath
-sudo apt-get install php-bcmath
+ sudo apt-get install php-bcmath7.4
+
 extension=bcmath.so
