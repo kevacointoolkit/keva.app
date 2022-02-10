@@ -41,6 +41,5 @@ $grpcportk='9992';
 
 
 # bcmath
- sudo apt-get install php-bcmath7.4
-
-extension=bcmath.so
+sudo apt-get install php-bcmath7.4
+service apache2 reload
