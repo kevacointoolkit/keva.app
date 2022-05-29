@@ -648,7 +648,7 @@ $rpg=1;
 
 }
 
-if(!$comm & isset($_REQ["num"])){ $comm="5570511";}
+if(!$comm & isset($_REQ["num"])){ $comm="65750121";}
 
 
 
@@ -708,6 +708,8 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 
 			  $namespace=$kpc->keva_get($asset,"_KEVA_NS_");
 
+
+
 			  $rvncheck=$kpc->keva_get($asset,"RAVENCOIN");
 
 			  $dogecheck=$kpc->keva_get($asset,"DOGECOIN");
@@ -727,12 +729,25 @@ if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$u
 			  $freeadd=$newtx['vout'][$vnum]["scriptPubKey"]["addresses"][0];
 			  
 			  }
+				
+			
+			  $title=bin2hex($namespace['value']);
 
+			  //catsale
 
+			  $chkoffer=$kpc->keva_get($asset,"CAT.SALE");
 
+			  if($chkoffer['value']!=""){
+
+				  $olink=$chkoffer['value'];
+			  
+			   $title=bin2hex($olink);
+			  
+			  }
 		
 
-			  $title=bin2hex($namespace['value']);
+
+
 
 
 if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
@@ -742,6 +757,21 @@ if(!$asset) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".
 //rpg
 
 if($rpg=="1") {
+
+
+		//rpgguset
+
+		if($asset=="Nb2R5b1iQFVnrDLHQSnKPW3gxt9KJYCKvz"){
+
+
+			 $xolink="Guest".rand(1111,9999);
+			  
+			   $title=bin2hex($xolink);
+		
+		$comm="Keva";
+
+		}
+
 
 $url ="https://rpg.keva.app/?ns=".$asset."&gname=".$title."&scode=".$comm."&rvn=".$rvncheck["value"]."&keva=".$freeadd."&doge=".$dogecheck["value"]."&btc=".$btccheck["value"]."&chia=".$chiacheck["value"];echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
@@ -784,7 +814,7 @@ echo "</head>";
 echo "<body style=\"background-color: #212121;\">";
 
 
-echo "<div style=\"padding: 5px;margin-bottom: 5px;box-shadow: 2px 2px 2px hsla(0,0%,0%,0.1);background: var(--ck-color-toolbar-background);text-align:right;font-size:10px;\"><p style=\"padding-right:7px;\">[ <a href=https://keva.app/shop><font color=\"8CEA00\">SHOP</font></a> ] [ <a href=https://keva.app/nft><font color=\"8CEA00\">NFT</font></a> ] [ <a href=https://github.com/kevacoin-project/keva_wallet/releases target=_blank><font color=grey>WALLET</font></a> ] [ <a href=https://keva.one target=_blank><font color=grey>KEVA.ONE</font></a> ] [ <a href=https://kevamemorial.com target=_blank><font color=grey>MEMORIAL</font></a> ] [ <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="."https://keva.app\" target=_blank><font color=grey>".$blocknum."</font></a> ]</p></div>";
+echo "<div style=\"padding: 5px;margin-bottom: 5px;box-shadow: 2px 2px 2px hsla(0,0%,0%,0.1);background: var(--ck-color-toolbar-background);text-align:right;font-size:10px;\"><p style=\"padding-right:7px;\">[ <a href=https://cat.sale><font color=\"8CEA00\">CAT.SALE</font></a> ] [ <a href=https://keva.app/nft><font color=\"8CEA00\">NFT</font></a> ] [ <a href=https://github.com/kevacoin-project/keva_wallet/releases target=_blank><font color=grey>WALLET</font></a> ] [ <a href=https://keva.one target=_blank><font color=grey>KEVA.ONE</font></a> ] [ <a href=https://kevamemorial.com target=_blank><font color=grey>MEMORIAL</font></a> ] [ <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="."https://keva.app\" target=_blank><font color=grey>".$blocknum."</font></a> ]</p></div>";
 		
 
 			echo "<form action=\"\" method=\"post\" >";	
